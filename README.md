@@ -34,6 +34,9 @@ Run the simulation:
 mvnd exec:java -Dexec.mainClass="org.cloudbus.cloudsim.examples.nosf.Main"
 ```
 
+⚠️ This project has been tested on Ubuntu 20.04 and Windows 11. It performs better on Ubuntu, and some log entries may not be visible when running on Windows systems!
+
+
 ## License
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE v3.0.
