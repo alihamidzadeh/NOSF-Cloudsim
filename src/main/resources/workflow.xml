@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<workflows>
+    <workflow id="wf1" arrivalTime="0.0" deadline="2500.0">
+        <task id="T1" meanExecutionTime="150.0" varianceExecutionTime="40.0" dataTransferTime="15.0"/>
+        <task id="T2" meanExecutionTime="120.0" varianceExecutionTime="30.0" dataTransferTime="10.0"/>
+        <task id="T3" meanExecutionTime="130.0" varianceExecutionTime="35.0" dataTransferTime="12.0"/>
+        <task id="T4" meanExecutionTime="100.0" varianceExecutionTime="25.0" dataTransferTime="8.0"/>
+        <task id="T5" meanExecutionTime="140.0" varianceExecutionTime="38.0" dataTransferTime="14.0"/>
+        <task id="T6" meanExecutionTime="90.0" varianceExecutionTime="20.0" dataTransferTime="7.0"/>
+        <task id="T7" meanExecutionTime="110.0" varianceExecutionTime="28.0" dataTransferTime="9.0"/>
+        <task id="T8" meanExecutionTime="160.0" varianceExecutionTime="45.0" dataTransferTime="16.0"/>
+        <task id="T9" meanExecutionTime="80.0" varianceExecutionTime="18.0" dataTransferTime="6.0"/>
+        <task id="T10" meanExecutionTime="70.0" varianceExecutionTime="15.0" dataTransferTime="5.0"/>
+        <dependency from="T1" to="T2"/>
+        <dependency from="T1" to="T3"/>
+        <dependency from="T2" to="T4"/>
+        <dependency from="T3" to="T4"/>
+        <dependency from="T4" to="T5"/>
+        <dependency from="T4" to="T6"/>
+        <dependency from="T5" to="T7"/>
+        <dependency from="T6" to="T7"/>
+        <dependency from="T7" to="T8"/>
+        <dependency from="T7" to="T9"/>
+        <dependency from="T8" to="T10"/>
+        <dependency from="T9" to="T10"/>
+    </workflow>
+    <workflow id="wf2" arrivalTime="100.0" deadline="2700.0">
+        <task id="T11" meanExecutionTime="180.0" varianceExecutionTime="50.0" dataTransferTime="18.0"/>
+        <task id="T12" meanExecutionTime="110.0" varianceExecutionTime="25.0" dataTransferTime="9.0"/>
+        <task id="T13" meanExecutionTime="140.0" varianceExecutionTime="38.0" dataTransferTime="13.0"/>
+        <task id="T14" meanExecutionTime="95.0" varianceExecutionTime="22.0" dataTransferTime="7.0"/>
+        <task id="T15" meanExecutionTime="120.0" varianceExecutionTime="30.0" dataTransferTime="10.0"/>
+        <task id="T16" meanExecutionTime="85.0" varianceExecutionTime="18.0" dataTransferTime="6.0"/>
+        <task id="T17" meanExecutionTime="130.0" varianceExecutionTime="35.0" dataTransferTime="12.0"/>
+        <task id="T18" meanExecutionTime="150.0" varianceExecutionTime="40.0" dataTransferTime="15.0"/>
+        <dependency from="T11" to="T12"/>
+        <dependency from="T11" to="T13"/>
+        <dependency from="T12" to="T14"/>
+        <dependency from="T13" to="T14"/>
+        <dependency from="T14" to="T15"/>
+        <dependency from="T14" to="T16"/>
+        <dependency from="T15" to="T17"/>
+        <dependency from="T16" to="T17"/>
+        <dependency from="T17" to="T18"/>
+    </workflow>
+    <workflow id="wf3" arrivalTime="200.0" deadline="3000.0">
+        <task id="T19" meanExecutionTime="200.0" varianceExecutionTime="55.0" dataTransferTime="20.0"/>
+        <task id="T20" meanExecutionTime="130.0" varianceExecutionTime="32.0" dataTransferTime="11.0"/>
+        <task id="T21" meanExecutionTime="160.0" varianceExecutionTime="42.0" dataTransferTime="14.0"/>
+        <task id="T22" meanExecutionTime="100.0" varianceExecutionTime="25.0" dataTransferTime="8.0"/>
+        <task id="T23" meanExecutionTime="140.0" varianceExecutionTime="38.0" dataTransferTime="12.0"/>
+        <task id="T24" meanExecutionTime="90.0" varianceExecutionTime="20.0" dataTransferTime="6.0"/>
+        <task id="T25" meanExecutionTime="110.0" varianceExecutionTime="28.0" dataTransferTime="9.0"/>
+        <task id="T26" meanExecutionTime="170.0" varianceExecutionTime="48.0" dataTransferTime="17.0"/>
+        <dependency from="T19" to="T20"/>
+        <dependency from="T19" to="T21"/>
+        <dependency from="T20" to="T22"/>
+        <dependency from="T21" to="T22"/>
+        <dependency from="T22" to="T23"/>
+        <dependency from="T22" to="T24"/>
+        <dependency from="T23" to="T25"/>
+        <dependency from="T24" to="T25"/>
+        <dependency from="T25" to="T26"/>
+    </workflow>
+    <workflow id="wf4" arrivalTime="300.0" deadline="3200.0">
+        <task id="T27" meanExecutionTime="190.0" varianceExecutionTime="52.0" dataTransferTime="19.0"/>
+        <task id="T28" meanExecutionTime="115.0" varianceExecutionTime="27.0" dataTransferTime="10.0"/>
+        <task id="T29" meanExecutionTime="145.0" varianceExecutionTime="40.0" dataTransferTime="13.0"/>
+        <task id="T30" meanExecutionTime="105.0" varianceExecutionTime="23.0" dataTransferTime="8.0"/>
+        <task id="T31" meanExecutionTime="125.0" varianceExecutionTime="31.0" dataTransferTime="11.0"/>
+        <task id="T32" meanExecutionTime="95.0" varianceExecutionTime="21.0" dataTransferTime="7.0"/>
+        <task id="T33" meanExecutionTime="135.0" varianceExecutionTime="36.0" dataTransferTime="12.0"/>
+        <task id="T34" meanExecutionTime="165.0" varianceExecutionTime="46.0" dataTransferTime="16.0"/>
+        <task id="T35" meanExecutionTime="85.0" varianceExecutionTime="19.0" dataTransferTime="6.0"/>
+        <task id="T36" meanExecutionTime="75.0" varianceExecutionTime="16.0" dataTransferTime="5.0"/>
+        <dependency from="T27" to="T28"/>
+        <dependency from="T27" to="T29"/>
+        <dependency from="T28" to="T30"/>
+        <dependency from="T29" to="T30"/>
+        <dependency from="T30" to="T31"/>
+        <dependency from="T30" to="T32"/>
+        <dependency from="T31" to="T33"/>
+        <dependency from="T32" to="T33"/>
+        <dependency from="T33" to="T34"/>
+        <dependency from="T33" to="T35"/>
+        <dependency from="T34" to="T36"/>
+        <dependency from="T35" to="T36"/>
+    </workflow>
+</workflows>

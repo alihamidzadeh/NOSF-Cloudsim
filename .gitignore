@@ -23,3 +23,5 @@ replay_pid*
 target/
 
 *.lck
+
+src/main/resources/workload/planetlab/

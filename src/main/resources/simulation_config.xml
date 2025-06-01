@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simulationConfig>
+    <vmTypes>
+        <vmType id="vm-type-1" processingCapacity="2000" costPerHour="0.20" energyPerSecond="0.10" bootTime="10.0"/>
+        <vmType id="vm-type-2" processingCapacity="1500" costPerHour="0.15" energyPerSecond="0.08" bootTime="8.0"/>
+        <vmType id="vm-type-3" processingCapacity="1000" costPerHour="0.10" energyPerSecond="0.06" bootTime="6.0"/>
+        <vmType id="vm-type-4" processingCapacity="800" costPerHour="0.08" energyPerSecond="0.05" bootTime="5.0"/>
+    </vmTypes>
+    <simulationParameters>
+        <maxVMs>15</maxVMs>
+        <billingPeriod>3600</billingPeriod>
+        <varianceFactorAlpha>1.0</varianceFactorAlpha>
+        <deadlineFactorBeta>2.0</deadlineFactorBeta>
+        <estimationFactorEta>1.5</estimationFactorEta>
+    </simulationParameters>
+</simulationConfig>
