@@ -1,8 +1,13 @@
 package org.cloudbus.cloudsim.examples.nosf;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.FileHandler;
+import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.logging.SimpleFormatter;
 
 import javax.xml.parsers.DocumentBuilderFactory;
 
@@ -12,6 +17,27 @@ import org.w3c.dom.NodeList;
 
 public class VMFactory {
     private static final Logger LOGGER = Logger.getLogger(VMFactory.class.getName());
+
+    // Add below static section cause logs of (creation and releasion) doesnt print in Windows!
+    static {
+        LOGGER.setLevel(Level.INFO);
+        LOGGER.setUseParentHandlers(false);  // جلوگیری از پراکندگی به بالاتر
+
+        try {
+            FileHandler fileHandler = new FileHandler("simulation.log", true);
+            fileHandler.setFormatter(new SimpleFormatter());
+            fileHandler.setLevel(Level.INFO);
+            LOGGER.addHandler(fileHandler);
+
+            ConsoleHandler consoleHandler = new ConsoleHandler();
+            consoleHandler.setFormatter(new SimpleFormatter());
+            consoleHandler.setLevel(Level.INFO);
+            LOGGER.addHandler(consoleHandler);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     private static class VMType {
         String id;
         double processingCapacity;
