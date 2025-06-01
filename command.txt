@@ -1,0 +1,2 @@
+mvnd clean install
+mvnd exec:java -Dexec.mainClass="org.cloudbus.cloudsim.examples.nosf.Main"
