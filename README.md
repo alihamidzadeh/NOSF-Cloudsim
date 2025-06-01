@@ -22,7 +22,7 @@ Clone the repository:
 git clone https://github.com/alihamidzadeh/NOSF-Cloudsim.git
 ```
 
-Put NOSF Project on your cloudsim-7 Project then build the project with Maven:
+Put NOSF source codes `src/main/java/org/cloudbus/cloudsim/examples/nosf` on your cloudsim-7 Project then build the project with Maven:
 
 ```bash
 mvnd clean install
