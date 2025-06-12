@@ -21,7 +21,7 @@ public class NOSFScheduler {
     private final List<Workflow> workflows = new ArrayList<>();
     private final PriorityQueue<Task> readyTasks = new PriorityQueue<>(Comparator.comparingDouble(Task::getPriority));
     private final VMFactory vmFactory;
-    private double currentTime = 0.0;
+    private static double currentTime = 0.0;
     private double totalCost = 0.0;
     private double totalEnergyConsumption = 0.0;
     private double resourceUtilization = 0.0;
@@ -322,5 +322,9 @@ public class NOSFScheduler {
                 .flatMap(w -> w.getTasks().stream())
                 .mapToDouble(Task::getDataTransferTime)
                 .sum();
+    }
+
+    public static double getCurrentTime(){
+        return currentTime;
     }
 }
