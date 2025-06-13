@@ -7,7 +7,7 @@
         <vmType id="vm-type-4" processingCapacity="800" costPerHour="0.08" energyPerSecond="0.05" bootTime="5.0"/>
     </vmTypes>
     <simulationParameters>
-        <maxVMs>15</maxVMs>
+        <maxVMs>150</maxVMs>
         <bandwidthMbps>100</bandwidthMbps>
         <billingPeriod>3600</billingPeriod>
         <varianceFactorAlpha>0.2</varianceFactorAlpha>
