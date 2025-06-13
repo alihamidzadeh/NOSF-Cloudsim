@@ -1,3 +1,4 @@
+Simulation started at: 2025-06-13T17:41:03.925992700
 Scheduled Task T1 on VM vm-1: Start=0.00, End=156.32=156.32, Cost=$0.0087, Energy=15.63 Ws
 Scheduled Task T2 on VM vm-1: Start=171.32, End=296.80=125.48, Cost=$0.0070, Energy=12.55 Ws
 Scheduled Task T3 on VM vm-1: Start=296.80, End=432.72=135.92, Cost=$0.0076, Energy=13.59 Ws

@@ -59,6 +59,7 @@ public class NOSFScheduler {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        LOGGER.info("Simulation started at: " + java.time.LocalDateTime.now());
     }
 
     public NOSFScheduler(String configFile) {
