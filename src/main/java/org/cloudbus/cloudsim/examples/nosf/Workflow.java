@@ -69,50 +69,6 @@ public class Workflow {
                 // } else {
                 //     System.out.println("Entry task not found.");
                 // }
-                
-                //
-
-                
-                // //OLD
-                // Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(workflowFiles[0]);
-                // NodeList workflowNodes = doc.getElementsByTagName("workflow");
-                // Element workflowElement = (Element) workflowNodes.item(i);
-                // String workflowId = workflowElement.getAttribute("id");
-                // double arrivalTime = Double.parseDouble(workflowElement.getAttribute("arrivalTime"));
-                // double deadline = Double.parseDouble(workflowElement.getAttribute("deadline"));
-                // Workflow workflow = new Workflow(workflowId, arrivalTime, deadline);
-
-                // // Load tasks
-                // NodeList taskNodes = workflowElement.getElementsByTagName("task");
-                // for (int j = 0; j < taskNodes.getLength(); j++) {
-                //     Element taskElement = (Element) taskNodes.item(j);
-                //     String taskId = taskElement.getAttribute("id");
-                //     double meanExecutionTime = Double.parseDouble(taskElement.getAttribute("meanExecutionTime"));
-                //     double varianceExecutionTime = Double.parseDouble(taskElement.getAttribute("varianceExecutionTime"));
-                //     double dataTransferTime = Double.parseDouble(taskElement.getAttribute("dataTransferTime"));
-                //     Task task = new Task(taskId, meanExecutionTime, varianceExecutionTime, dataTransferTime, workflow);
-                //     workflow.addTask(task);
-                // }
-
-
-                // // Load dependencies
-                // NodeList dependencyNodes = workflowElement.getElementsByTagName("dependency");
-                // for (int j = 0; j < dependencyNodes.getLength(); j++) {
-                //     Element depElement = (Element) dependencyNodes.item(j);
-                //     String fromId = depElement.getAttribute("from");
-                //     String toId = depElement.getAttribute("to");
-                //     Task fromTask = workflow.getTaskById(fromId);
-                //     Task toTask = workflow.getTaskById(toId);
-                //     toTask.addPredecessor(fromTask);
-                // }
-
-                // // Set entry task
-                // workflow.tasks.stream()
-                //         .filter(task -> task.getPredecessors().isEmpty())
-                //         .findFirst()
-                //         .ifPresent(task -> workflow.entryTask = task);
-
-                // workflows.add(workflow);
             }
         } catch (Exception e) {
             e.printStackTrace();
