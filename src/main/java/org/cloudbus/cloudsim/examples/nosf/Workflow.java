@@ -34,58 +34,85 @@ public class Workflow {
     public static List<Workflow> loadFromXML(String[] workflowFiles) {
         List<Workflow> workflows = new ArrayList<>();
         try {
-            //OLD
-            Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(workflowFiles[0]);
-            NodeList workflowNodes = doc.getElementsByTagName("workflow");
-            //
             for (int i = 0; i < workflowFiles.length; i++) {
                 //NEW
-                Map<String, Double> jobRuntimes = parseJobs(workflowFiles[i]);
-                Map<String, List<String>> dependencies = parseDependencies(workflowFiles[i]);
-                double deadline2 = computePCPDeadline(jobRuntimes, dependencies);
-                double arrivalTime2 = NOSFScheduler.getCurrentTime();
-                String workflowId2 = "wf-" + workflowCounter++;
-                System.out.println("Info: "+ workflowId2 + "-" + arrivalTime2 + "-" + deadline2);
-                Workflow workflow2 = new Workflow(workflowId2, arrivalTime2, deadline2);
-                //
+                File xmlFile = new File(workflowFiles[i]);
+                DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+                DocumentBuilder builder = factory.newDocumentBuilder();
+                Document document = builder.parse(xmlFile);
+                document.getDocumentElement().normalize();
 
-                //OLD
-                Element workflowElement = (Element) workflowNodes.item(i);
-                String workflowId = workflowElement.getAttribute("id");
-                double arrivalTime = Double.parseDouble(workflowElement.getAttribute("arrivalTime"));
-                double deadline = Double.parseDouble(workflowElement.getAttribute("deadline"));
+                Map<String, Double> jobRuntimes = parseJobsRuntimes(document);
+                Map<String, List<String>> dependencies = parseDependencies(document);
+                double deadline = computePCPDeadline(jobRuntimes, dependencies);
+                double arrivalTime = NOSFScheduler.getCurrentTime();
+                String workflowId = "wf-" + workflowCounter++;
+                // System.out.println("Info: "+ workflowId2 + "-" + arrivalTime2 + "-" + deadline2);
                 Workflow workflow = new Workflow(workflowId, arrivalTime, deadline);
-
+                
                 // Load tasks
-                NodeList taskNodes = workflowElement.getElementsByTagName("task");
-                for (int j = 0; j < taskNodes.getLength(); j++) {
-                    Element taskElement = (Element) taskNodes.item(j);
-                    String taskId = taskElement.getAttribute("id");
-                    double meanExecutionTime = Double.parseDouble(taskElement.getAttribute("meanExecutionTime"));
-                    double varianceExecutionTime = Double.parseDouble(taskElement.getAttribute("varianceExecutionTime"));
-                    double dataTransferTime = Double.parseDouble(taskElement.getAttribute("dataTransferTime"));
-                    Task task = new Task(taskId, meanExecutionTime, varianceExecutionTime, dataTransferTime, workflow);
-                    workflow.addTask(task);
-                }
-
+                parseJobTasks(document, workflow);
+                
                 // Load dependencies
-                NodeList dependencyNodes = workflowElement.getElementsByTagName("dependency");
-                for (int j = 0; j < dependencyNodes.getLength(); j++) {
-                    Element depElement = (Element) dependencyNodes.item(j);
-                    String fromId = depElement.getAttribute("from");
-                    String toId = depElement.getAttribute("to");
-                    Task fromTask = workflow.getTaskById(fromId);
-                    Task toTask = workflow.getTaskById(toId);
-                    toTask.addPredecessor(fromTask);
-                }
+                applyDependencies(dependencies, workflow);
 
                 // Set entry task
                 workflow.tasks.stream()
-                        .filter(task -> task.getPredecessors().isEmpty())
-                        .findFirst()
-                        .ifPresent(task -> workflow.entryTask = task);
+                .filter(task -> task.getPredecessors().isEmpty())
+                .findFirst()
+                .ifPresent(task -> workflow.entryTask = task);
 
                 workflows.add(workflow);
+
+                // if (workflow2.entryTask != null) {
+                //     System.out.println("Entry task ID: " + workflow2.entryTask.getId());
+                // } else {
+                //     System.out.println("Entry task not found.");
+                // }
+                
+                //
+
+                
+                // //OLD
+                // Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(workflowFiles[0]);
+                // NodeList workflowNodes = doc.getElementsByTagName("workflow");
+                // Element workflowElement = (Element) workflowNodes.item(i);
+                // String workflowId = workflowElement.getAttribute("id");
+                // double arrivalTime = Double.parseDouble(workflowElement.getAttribute("arrivalTime"));
+                // double deadline = Double.parseDouble(workflowElement.getAttribute("deadline"));
+                // Workflow workflow = new Workflow(workflowId, arrivalTime, deadline);
+
+                // // Load tasks
+                // NodeList taskNodes = workflowElement.getElementsByTagName("task");
+                // for (int j = 0; j < taskNodes.getLength(); j++) {
+                //     Element taskElement = (Element) taskNodes.item(j);
+                //     String taskId = taskElement.getAttribute("id");
+                //     double meanExecutionTime = Double.parseDouble(taskElement.getAttribute("meanExecutionTime"));
+                //     double varianceExecutionTime = Double.parseDouble(taskElement.getAttribute("varianceExecutionTime"));
+                //     double dataTransferTime = Double.parseDouble(taskElement.getAttribute("dataTransferTime"));
+                //     Task task = new Task(taskId, meanExecutionTime, varianceExecutionTime, dataTransferTime, workflow);
+                //     workflow.addTask(task);
+                // }
+
+
+                // // Load dependencies
+                // NodeList dependencyNodes = workflowElement.getElementsByTagName("dependency");
+                // for (int j = 0; j < dependencyNodes.getLength(); j++) {
+                //     Element depElement = (Element) dependencyNodes.item(j);
+                //     String fromId = depElement.getAttribute("from");
+                //     String toId = depElement.getAttribute("to");
+                //     Task fromTask = workflow.getTaskById(fromId);
+                //     Task toTask = workflow.getTaskById(toId);
+                //     toTask.addPredecessor(fromTask);
+                // }
+
+                // // Set entry task
+                // workflow.tasks.stream()
+                //         .filter(task -> task.getPredecessors().isEmpty())
+                //         .findFirst()
+                //         .ifPresent(task -> workflow.entryTask = task);
+
+                // workflows.add(workflow);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -93,37 +120,53 @@ public class Workflow {
         return workflows;
     }
 
-    public static Map<String, Double> parseJobs(String path) {
-    Map<String, Double> jobRuntimes = new HashMap<>();
-    try {
-        File xmlFile = new File(path);
-        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-        DocumentBuilder builder = factory.newDocumentBuilder();
-        Document document = builder.parse(xmlFile);
-        document.getDocumentElement().normalize();
-
-        NodeList jobList = document.getElementsByTagName("job");
-        for (int i = 0; i < jobList.getLength(); i++) {
-            Element jobElement = (Element) jobList.item(i);
-            String id = jobElement.getAttribute("id");
-            double runtime = Double.parseDouble(jobElement.getAttribute("runtime"));
-            jobRuntimes.put(id, runtime);
+    public static Map<String, Double> parseJobsRuntimes(Document document) {
+        Map<String, Double> jobRuntimes = new HashMap<>();
+        try {
+            NodeList jobList = document.getElementsByTagName("job");
+            for (int i = 0; i < jobList.getLength(); i++) {
+                Element jobElement = (Element) jobList.item(i);
+                String taskId = jobElement.getAttribute("id");
+                double runtime = Double.parseDouble(jobElement.getAttribute("runtime"));
+                jobRuntimes.put(taskId, runtime);
+            }
+        } catch (Exception e) {
+            System.out.println("Error parsing jobs: " + e);
         }
-    } catch (Exception e) {
-        System.out.println("Error parsing jobs: " + e);
+        return jobRuntimes;
     }
-    return jobRuntimes;
-}
 
-    public static Map<String, List<String>> parseDependencies(String path) {
+    public static void parseJobTasks(Document document, Workflow workflow){
+        try {
+            NodeList jobList = document.getElementsByTagName("job");
+            for (int i = 0; i < jobList.getLength(); i++) {
+                Element jobElement = (Element) jobList.item(i);
+                String taskId = jobElement.getAttribute("id");
+                double meanExecutionTime = Double.parseDouble(jobElement.getAttribute("runtime"));
+                long totalFileSize = 0;
+                NodeList usesList = jobElement.getElementsByTagName("uses");
+                for (int j = 0; j < usesList.getLength(); j++) {
+                    Element usesElement = (Element) usesList.item(j);
+                    String linkType = usesElement.getAttribute("link");
+                    String sizeUses = usesElement.getAttribute("size");
+                    if (linkType.equals("input") && !sizeUses.isEmpty())
+                        totalFileSize += Long.parseLong(sizeUses);
+                }
+                double varianceExecutionTime = Math.pow(NOSFScheduler.getVarianceFactorAlpha() * meanExecutionTime, 2);
+                double dataTransferTime = (totalFileSize) / (NOSFScheduler.getBandwidthMbps() * 1_000_000.0); // bandwidth تبدیل به bit/sec
+                
+                Task task = new Task(taskId, meanExecutionTime, varianceExecutionTime, dataTransferTime, workflow);
+                workflow.addTask(task);
+                // System.out.println("info: " + taskId+ " - "+ meanExecutionTime+ " - "+ varianceExecutionTime+ " - "+ dataTransferTime);
+            }
+        } catch (Exception e) {
+            System.out.println("Error parsing tasks: " + e);
+        }
+    }
+
+    public static Map<String, List<String>> parseDependencies(Document document) {
         Map<String, List<String>> dependencies = new HashMap<>();
         try {
-            File xmlFile = new File(path);
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document document = builder.parse(xmlFile);
-            document.getDocumentElement().normalize();
-
             NodeList childList = document.getElementsByTagName("child");
             for (int i = 0; i < childList.getLength(); i++) {
                 Element childElement = (Element) childList.item(i);
@@ -142,6 +185,19 @@ public class Workflow {
             System.out.println("Error parsing dependencies: " + e);
         }
         return dependencies;
+    }
+
+    public static void applyDependencies(Map<String, List<String>> dependencies, Workflow workflow) {
+        for (Map.Entry<String, List<String>> entry : dependencies.entrySet()) {
+            String childId = entry.getKey();
+            Task toTask = workflow.getTaskById(childId);
+    
+            for (String parentId : entry.getValue()) {
+                Task fromTask = workflow.getTaskById(parentId);
+                toTask.addPredecessor(fromTask);
+                // System.out.println("Parent: " + fromTask.getId() + " - Child: " +toTask.getId());
+            }
+        }
     }
 
     public static double computePCPDeadline(Map<String, Double> jobs, Map<String, List<String>> dependencies) {

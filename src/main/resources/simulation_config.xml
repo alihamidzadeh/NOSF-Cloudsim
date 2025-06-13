@@ -8,8 +8,9 @@
     </vmTypes>
     <simulationParameters>
         <maxVMs>15</maxVMs>
+        <bandwidthMbps>100</bandwidthMbps>
         <billingPeriod>3600</billingPeriod>
-        <varianceFactorAlpha>1.0</varianceFactorAlpha>
+        <varianceFactorAlpha>0.2</varianceFactorAlpha>
         <deadlineFactorBeta>2.0</deadlineFactorBeta>
         <estimationFactorEta>1.5</estimationFactorEta>
     </simulationParameters>

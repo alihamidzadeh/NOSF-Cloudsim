@@ -27,7 +27,8 @@ public class NOSFScheduler {
     private double resourceUtilization = 0.0;
     private double deadlineViolationProbability = 0.0;
     private final double billingPeriod;
-    private final double varianceFactorAlpha;
+    private static int bandwidthMbps;
+    private static double varianceFactorAlpha;
     private final double deadlineFactorBeta;
     private final double estimationFactorEta;
     private static final Logger LOGGER = Logger.getLogger(NOSFScheduler.class.getName());
@@ -67,6 +68,7 @@ public class NOSFScheduler {
             doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(configFile);
             Element simParams = (Element) doc.getElementsByTagName("simulationParameters").item(0);
             int maxVMs = Integer.parseInt(simParams.getElementsByTagName("maxVMs").item(0).getTextContent());
+            this.bandwidthMbps = Integer.parseInt(simParams.getElementsByTagName("bandwidthMbps").item(0).getTextContent());
             this.billingPeriod = Double.parseDouble(simParams.getElementsByTagName("billingPeriod").item(0).getTextContent());
             this.varianceFactorAlpha = Double.parseDouble(simParams.getElementsByTagName("varianceFactorAlpha").item(0).getTextContent());
             this.deadlineFactorBeta = Double.parseDouble(simParams.getElementsByTagName("deadlineFactorBeta").item(0).getTextContent());
@@ -326,5 +328,13 @@ public class NOSFScheduler {
 
     public static double getCurrentTime(){
         return currentTime;
+    }
+
+    public static int getBandwidthMbps(){
+        return bandwidthMbps;
+    }
+
+    public static double getVarianceFactorAlpha(){
+        return varianceFactorAlpha;
     }
 }
