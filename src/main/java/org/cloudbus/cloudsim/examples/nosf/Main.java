@@ -8,7 +8,7 @@ public class Main {
         String configFile = "E:\\University\\Term10\\Cloud - Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\simulation_config.xml";
 
 
-        String[] workflowFiles = {"E:\\University\\Term10\\Cloud - Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\CyberShake_30.xml"};
+        String[] workflowFiles = {"E:\\University\\Term10\\Cloud - Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\avianflu_102.xml", "E:\\University\\Term10\\Cloud - Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\CyberShake_30.xml"};
         
         NOSFScheduler scheduler = new NOSFScheduler(configFile);
         

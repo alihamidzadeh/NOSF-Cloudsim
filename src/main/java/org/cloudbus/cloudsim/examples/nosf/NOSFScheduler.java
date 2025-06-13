@@ -60,6 +60,7 @@ public class NOSFScheduler {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        LOGGER.info("Simulation started at: " + java.time.LocalDateTime.now());
     }
 
     public NOSFScheduler(String configFile) {
@@ -88,6 +89,10 @@ public class NOSFScheduler {
                     task.setPriority(calculateEarliestCompletionTime(task));
                     readyTasks.add(task);
                 });
+        // System.out.println("Ready Task: " + readyTasks.poll().getId());
+        // System.out.println("ID02 EarliestCompletionTime: "+calculateEarliestCompletionTime(workflow.getTaskById("ID00002")));
+        // System.out.println("ID13 EarliestCompletionTime: "+calculateEarliestCompletionTime(workflow.getTaskById("ID00013")));
+
     }
 
     private void preprocessWorkflow(Workflow workflow) {
