@@ -141,7 +141,7 @@ public class VMFactory {
 
     public double calculatePredictedExecutionTime(Task task, Vm vm) {
         double baseExecutionTime = task.getMeanExecutionTime() + Math.sqrt(task.getVarianceExecutionTime());
-        return baseExecutionTime * (2000.0 / vm.getProcessingCapacity());
+        return baseExecutionTime * (NOSFScheduler.getNormalizationFactor() / vm.getProcessingCapacity());
     }
 
     public void releaseVM(Vm vm, double currentTime) {
@@ -153,4 +153,8 @@ public class VMFactory {
     public List<Vm> getActiveVMs() {
         return new ArrayList<>(activeVMs);
     }
+
+    public int getVMCounter(){
+        return vmCounter;
+    } 
 }

@@ -28,6 +28,7 @@ public class NOSFScheduler {
     private double deadlineViolationProbability = 0.0;
     private final double billingPeriod;
     private static int bandwidthMbps;
+    private static int normalizationFactor;
     private static double varianceFactorAlpha;
     private final double deadlineFactorBeta;
     private final double estimationFactorEta;
@@ -69,6 +70,7 @@ public class NOSFScheduler {
             doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(configFile);
             Element simParams = (Element) doc.getElementsByTagName("simulationParameters").item(0);
             int maxVMs = Integer.parseInt(simParams.getElementsByTagName("maxVMs").item(0).getTextContent());
+            this.normalizationFactor = Integer.parseInt(simParams.getElementsByTagName("NormalizationFactor").item(0).getTextContent());
             this.bandwidthMbps = Integer.parseInt(simParams.getElementsByTagName("bandwidthMbps").item(0).getTextContent());
             this.billingPeriod = Double.parseDouble(simParams.getElementsByTagName("billingPeriod").item(0).getTextContent());
             this.varianceFactorAlpha = Double.parseDouble(simParams.getElementsByTagName("varianceFactorAlpha").item(0).getTextContent());
@@ -165,7 +167,7 @@ public class NOSFScheduler {
         task.setCompletionTime(completionTime);
         task.setAssignedVM(vm);
 
-        double cost = vm.getCostPerHour() * (executionTime / 3600.0);
+        double cost = vm.getCostPerHour() * (executionTime / billingPeriod);
         double energy = vm.getEnergyPerSecond() * executionTime;
         task.setCost(cost);
         task.setEnergyConsumption(energy);
@@ -177,7 +179,7 @@ public class NOSFScheduler {
         vm.addEnergyConsumption(energy);
         vm.setPredictedCompletionTime(completionTime);
 
-        LOGGER.info(String.format("Scheduled Task %s on VM %s: Start=%.2f, End=%.2f=%.2f, Cost=$%.4f, Energy=%.2f Ws",
+        LOGGER.info(String.format("Scheduled Task %s on VM %s: Start=%.2f, End=%.2f, Execution=%.2f, Cost=$%.4f, Energy=%.2f Ws",
                 task.getId(), vm.getId(), startTime, completionTime, executionTime, cost, energy));
 
         updateCurrentTime();
@@ -299,7 +301,9 @@ public class NOSFScheduler {
         LOGGER.info("  Average Task Execution Delay: " + df.format(calculateAverageTaskDelay()) + " sec");
         LOGGER.info("  Average VM Idle Time: " + df.format(calculateAverageVMIdleTime()) + " sec");
         LOGGER.info("  Total Data Transfer Time: " + df.format(calculateTotalDataTransferTime()) + " sec");
-        LOGGER.info("  Number of VMs Used: " + vmFactory.getActiveVMs().size());
+        // LOGGER.info("  Number of VMs Used: " + vmFactory.getActiveVMs().size());
+        LOGGER.info("  Number of VMs Used: " + vmFactory.getVMCounter());
+
     }
 
     private double calculateAverageTaskDelay() {
@@ -341,5 +345,9 @@ public class NOSFScheduler {
 
     public static double getVarianceFactorAlpha(){
         return varianceFactorAlpha;
+    }
+
+    public static int getNormalizationFactor(){
+        return normalizationFactor;
     }
 }

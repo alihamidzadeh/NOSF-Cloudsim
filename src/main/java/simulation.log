@@ -1,0 +1,423 @@
+Simulation started at: 2025-06-14T02:59:16.249771400
+Scheduled Task ID00013 on VM vm-1: Start=0.00, End=232.58, Execution=232.58, Cost=$0.0028, Energy=10.23 Ws
+Scheduled Task ID00002 on VM vm-2: Start=0.00, End=379.44, Execution=379.44, Cost=$0.0046, Energy=16.70 Ws
+Scheduled Task ID00026 on VM vm-3: Start=633.83, End=691.41, Execution=57.58, Cost=$0.0007, Energy=2.53 Ws
+Scheduled Task ID00020 on VM vm-4: Start=633.83, End=692.78, Execution=58.94, Cost=$0.0007, Energy=2.59 Ws
+Scheduled Task ID00028 on VM vm-5: Start=633.83, End=697.34, Execution=63.50, Cost=$0.0008, Energy=2.79 Ws
+Scheduled Task ID00018 on VM vm-6: Start=633.83, End=702.64, Execution=68.81, Cost=$0.0008, Energy=3.03 Ws
+Scheduled Task ID00022 on VM vm-7: Start=633.83, End=708.35, Execution=74.52, Cost=$0.0009, Energy=3.28 Ws
+Scheduled Task ID00016 on VM vm-8: Start=633.83, End=743.27, Execution=109.44, Cost=$0.0013, Energy=4.82 Ws
+Scheduled Task ID00014 on VM vm-9: Start=633.83, End=747.69, Execution=113.86, Cost=$0.0014, Energy=5.01 Ws
+Scheduled Task ID00027 on VM vm-10: Start=698.22, End=700.86, Execution=2.64, Cost=$0.0000, Energy=0.12 Ws
+Scheduled Task ID00021 on VM vm-11: Start=699.02, End=702.28, Execution=3.26, Cost=$0.0000, Energy=0.14 Ws
+Scheduled Task ID00029 on VM vm-12: Start=701.75, End=703.79, Execution=2.04, Cost=$0.0000, Energy=0.09 Ws
+Scheduled Task ID00024 on VM vm-13: Start=633.83, End=765.52, Execution=131.69, Cost=$0.0016, Energy=5.79 Ws
+Scheduled Task ID00019 on VM vm-14: Start=707.67, End=710.93, Execution=3.26, Cost=$0.0000, Energy=0.14 Ws
+Scheduled Task ID00023 on VM vm-15: Start=712.62, End=716.05, Execution=3.43, Cost=$0.0000, Energy=0.15 Ws
+Scheduled Task ID00017 on VM vm-16: Start=747.80, End=751.47, Execution=3.67, Cost=$0.0000, Energy=0.16 Ws
+Scheduled Task ID00015 on VM vm-17: Start=753.21, End=756.88, Execution=3.67, Cost=$0.0000, Energy=0.16 Ws
+Scheduled Task ID00025 on VM vm-18: Start=770.68, End=772.55, Execution=1.87, Cost=$0.0000, Energy=0.08 Ws
+Scheduled Task ID00009 on VM vm-19: Start=780.63, End=858.13, Execution=77.50, Cost=$0.0009, Energy=3.41 Ws
+Scheduled Task ID00007 on VM vm-20: Start=780.63, End=867.68, Execution=87.05, Cost=$0.0011, Energy=3.83 Ws
+Scheduled Task ID00005 on VM vm-21: Start=780.63, End=873.01, Execution=92.38, Cost=$0.0011, Energy=4.06 Ws
+Scheduled Task ID00003 on VM vm-22: Start=780.63, End=874.38, Execution=93.74, Cost=$0.0011, Energy=4.12 Ws
+Scheduled Task ID00011 on VM vm-23: Start=780.63, End=930.03, Execution=149.40, Cost=$0.0018, Energy=6.57 Ws
+Scheduled Task ID00010 on VM vm-24: Start=863.50, End=865.27, Execution=1.78, Cost=$0.0000, Energy=0.08 Ws
+Scheduled Task ID00008 on VM vm-25: Start=873.54, End=875.29, Execution=1.75, Cost=$0.0000, Energy=0.08 Ws
+Scheduled Task ID00006 on VM vm-26: Start=879.96, End=881.88, Execution=1.92, Cost=$0.0000, Energy=0.08 Ws
+Scheduled Task ID00004 on VM vm-27: Start=880.65, End=882.16, Execution=1.51, Cost=$0.0000, Energy=0.07 Ws
+Scheduled Task ID00001 on VM vm-28: Start=936.74, End=937.20, Execution=0.46, Cost=$0.0000, Energy=0.02 Ws
+Scheduled Task ID00012 on VM vm-29: Start=936.74, End=940.15, Execution=3.41, Cost=$0.0000, Energy=0.15 Ws
+Scheduled Task ID00000 on VM vm-30: Start=940.15, End=940.32, Execution=0.17, Cost=$0.0000, Energy=0.01 Ws
+Scheduled Task prepare on VM vm-31: Start=0.00, End=288.00, Execution=288.00, Cost=$0.0035, Energy=12.67 Ws
+Scheduled Task autogrid on VM vm-29: Start=940.32, End=1516.32, Execution=576.00, Cost=$0.0070, Energy=25.34 Ws
+Scheduled Task autodock88 on VM vm-32: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock18 on VM vm-33: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock17 on VM vm-34: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock19 on VM vm-35: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock98 on VM vm-36: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock10 on VM vm-37: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock97 on VM vm-38: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock12 on VM vm-39: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock11 on VM vm-40: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock99 on VM vm-41: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock14 on VM vm-42: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock13 on VM vm-43: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock16 on VM vm-44: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock15 on VM vm-45: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock30 on VM vm-46: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock29 on VM vm-47: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock28 on VM vm-48: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock21 on VM vm-49: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock20 on VM vm-50: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock23 on VM vm-51: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock22 on VM vm-52: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock25 on VM vm-53: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock24 on VM vm-54: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock27 on VM vm-55: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock26 on VM vm-56: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock41 on VM vm-57: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock40 on VM vm-58: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock39 on VM vm-59: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock32 on VM vm-60: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock31 on VM vm-61: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock34 on VM vm-62: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock33 on VM vm-63: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock36 on VM vm-64: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock35 on VM vm-65: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock38 on VM vm-66: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock37 on VM vm-67: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock50 on VM vm-68: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock52 on VM vm-69: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock51 on VM vm-70: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock100 on VM vm-71: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock43 on VM vm-72: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock42 on VM vm-73: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock45 on VM vm-74: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock44 on VM vm-75: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock47 on VM vm-76: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock46 on VM vm-77: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock49 on VM vm-78: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock48 on VM vm-79: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock61 on VM vm-80: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock60 on VM vm-81: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock63 on VM vm-82: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock62 on VM vm-83: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock54 on VM vm-84: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock53 on VM vm-85: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock56 on VM vm-86: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock55 on VM vm-87: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock58 on VM vm-88: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock57 on VM vm-89: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock59 on VM vm-90: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock8 on VM vm-91: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock9 on VM vm-92: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock6 on VM vm-93: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock70 on VM vm-94: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock7 on VM vm-95: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock4 on VM vm-96: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock72 on VM vm-97: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock71 on VM vm-98: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock5 on VM vm-99: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock2 on VM vm-100: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock74 on VM vm-101: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock3 on VM vm-102: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock73 on VM vm-103: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock65 on VM vm-104: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock1 on VM vm-105: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock64 on VM vm-106: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock67 on VM vm-107: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock66 on VM vm-108: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock69 on VM vm-109: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock68 on VM vm-110: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock81 on VM vm-111: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock80 on VM vm-112: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock83 on VM vm-113: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock82 on VM vm-114: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock85 on VM vm-115: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock84 on VM vm-116: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock76 on VM vm-117: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock75 on VM vm-118: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock78 on VM vm-119: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock77 on VM vm-120: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock79 on VM vm-121: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock90 on VM vm-122: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock92 on VM vm-123: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock91 on VM vm-124: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock94 on VM vm-125: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock93 on VM vm-126: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock96 on VM vm-127: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock95 on VM vm-128: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock87 on VM vm-129: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock86 on VM vm-130: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+Scheduled Task autodock89 on VM vm-131: Start=1516.32, End=5836.32, Execution=4320.00, Cost=$0.0528, Energy=190.08 Ws
+
+=== Comprehensive Simulation Summary ===
+Simulation Duration: 5836.32 sec
+Total VM Rental Cost: $5.31
+Total Energy Consumption: 19126.33 Watt-seconds
+Resource Utilization Efficiency: 57.74%
+Deadline Violation Probability: 50%
+
+Workflow Details:
+  Workflow: wf-0
+    Arrival Time: 0 sec
+    Deadline: 6480 sec
+    Makespan: 5836.32 sec
+    Status: Met
+    Tasks:
+      Task autodock55: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-87, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock65: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-104, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock81: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-111, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock45: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-74, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock63: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-82, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock99: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-41, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock66: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-108, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock7: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-95, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock82: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-114, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock30: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-46, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock19: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-35, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock46: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-77, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock64: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-106, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock83: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-113, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock90: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-122, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock20: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-50, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock84: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-116, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock23: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-51, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock69: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-109, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock85: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-115, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock92: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-123, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock70: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-94, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock86: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-130, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock5: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-99, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock28: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-48, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock71: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-98, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock87: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-129, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock100: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-71, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock22: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-52, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock33: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-63, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock88: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-32, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock75: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-118, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock73: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-103, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock89: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-131, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock91: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-124, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock37: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-67, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock9: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-92, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock76: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-117, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock1: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-105, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock24: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-54, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock51: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-70, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock77: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-120, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock27: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-55, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock18: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-33, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock29: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-47, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock79: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-121, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock68: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-110, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock74: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-101, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock34: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-62, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock53: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-85, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock80: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-112, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock10: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-37, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock78: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-119, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock95: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-128, Cost=$0.0528, Energy=190.08 Ws
+      Task prepare: Sub-Deadline=5.91 sec, Start=0.00 sec, End=288.00 sec, Execution=288.00 sec, VM=vm-31, Cost=$0.0035, Energy=12.67 Ws
+      Task autodock12: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-39, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock52: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-69, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock96: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-127, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock67: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-107, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock25: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-53, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock97: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-38, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock40: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-58, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock98: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-36, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock44: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-75, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock38: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-66, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock41: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-57, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock13: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-43, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock14: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-42, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock8: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-91, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock72: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-97, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock3: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-102, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock35: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-65, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock56: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-86, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock39: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-59, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock17: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-34, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock57: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-89, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock2: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-100, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock43: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-72, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock93: Sub-Deadline=753.34 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-126, Cost=$0.0528, Energy=190.08 Ws
+      Task autogrid: Sub-Deadline=4287.57 sec, Start=940.32 sec, End=1516.32 sec, Execution=576.00 sec, VM=vm-29, Cost=$0.0070, Energy=25.34 Ws
+      Task autodock58: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-88, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock4: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-96, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock21: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-49, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock54: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-84, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock31: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-61, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock11: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-40, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock32: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-60, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock59: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-90, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock26: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-56, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock15: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-45, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock6: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-93, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock16: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-44, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock42: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-73, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock47: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-76, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock60: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-81, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock36: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-64, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock48: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-79, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock61: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-80, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock49: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-78, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock94: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-125, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock50: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-68, Cost=$0.0528, Energy=190.08 Ws
+      Task autodock62: Sub-Deadline=4739.16 sec, Start=1516.32 sec, End=5836.32 sec, Execution=4320.00 sec, VM=vm-83, Cost=$0.0528, Energy=190.08 Ws
+  Workflow: wf-1
+    Arrival Time: 0 sec
+    Deadline: 665.52 sec
+    Makespan: 940.32 sec
+    Status: Violated
+    Tasks:
+      Task ID00000: Sub-Deadline=4.10 sec, Start=940.15 sec, End=940.32 sec, Execution=0.17 sec, VM=vm-30, Cost=$0.0000, Energy=0.01 Ws
+      Task ID00001: Sub-Deadline=168.89 sec, Start=936.74 sec, End=937.20 sec, Execution=0.46 sec, VM=vm-28, Cost=$0.0000, Energy=0.02 Ws
+      Task ID00002: Sub-Deadline=247.41 sec, Start=0.00 sec, End=379.44 sec, Execution=379.44 sec, VM=vm-2, Cost=$0.0046, Energy=16.70 Ws
+      Task ID00003: Sub-Deadline=664.82 sec, Start=780.63 sec, End=874.38 sec, Execution=93.74 sec, VM=vm-22, Cost=$0.0011, Energy=4.12 Ws
+      Task ID00004: Sub-Deadline=665.45 sec, Start=880.65 sec, End=882.16 sec, Execution=1.51 sec, VM=vm-27, Cost=$0.0000, Energy=0.07 Ws
+      Task ID00005: Sub-Deadline=664.65 sec, Start=780.63 sec, End=873.01 sec, Execution=92.38 sec, VM=vm-21, Cost=$0.0011, Energy=4.06 Ws
+      Task ID00006: Sub-Deadline=665.45 sec, Start=879.96 sec, End=881.88 sec, Execution=1.92 sec, VM=vm-26, Cost=$0.0000, Energy=0.08 Ws
+      Task ID00007: Sub-Deadline=664.72 sec, Start=780.63 sec, End=867.68 sec, Execution=87.05 sec, VM=vm-20, Cost=$0.0011, Energy=3.83 Ws
+      Task ID00008: Sub-Deadline=665.45 sec, Start=873.54 sec, End=875.29 sec, Execution=1.75 sec, VM=vm-25, Cost=$0.0000, Energy=0.08 Ws
+      Task ID00009: Sub-Deadline=664.71 sec, Start=780.63 sec, End=858.13 sec, Execution=77.50 sec, VM=vm-19, Cost=$0.0009, Energy=3.41 Ws
+      Task ID00010: Sub-Deadline=665.45 sec, Start=863.50 sec, End=865.27 sec, Execution=1.78 sec, VM=vm-24, Cost=$0.0000, Energy=0.08 Ws
+      Task ID00011: Sub-Deadline=664.03 sec, Start=780.63 sec, End=930.03 sec, Execution=149.40 sec, VM=vm-23, Cost=$0.0018, Energy=6.57 Ws
+      Task ID00012: Sub-Deadline=665.45 sec, Start=936.74 sec, End=940.15 sec, Execution=3.41 sec, VM=vm-29, Cost=$0.0000, Energy=0.15 Ws
+      Task ID00013: Sub-Deadline=154.09 sec, Start=0.00 sec, End=232.58 sec, Execution=232.58 sec, VM=vm-1, Cost=$0.0028, Energy=10.23 Ws
+      Task ID00014: Sub-Deadline=663.92 sec, Start=633.83 sec, End=747.69 sec, Execution=113.86 sec, VM=vm-9, Cost=$0.0014, Energy=5.01 Ws
+      Task ID00015: Sub-Deadline=665.45 sec, Start=753.21 sec, End=756.88 sec, Execution=3.67 sec, VM=vm-17, Cost=$0.0000, Energy=0.16 Ws
+      Task ID00016: Sub-Deadline=663.92 sec, Start=633.83 sec, End=743.27 sec, Execution=109.44 sec, VM=vm-8, Cost=$0.0013, Energy=4.82 Ws
+      Task ID00017: Sub-Deadline=665.45 sec, Start=747.80 sec, End=751.47 sec, Execution=3.67 sec, VM=vm-16, Cost=$0.0000, Energy=0.16 Ws
+      Task ID00018: Sub-Deadline=664.09 sec, Start=633.83 sec, End=702.64 sec, Execution=68.81 sec, VM=vm-6, Cost=$0.0008, Energy=3.03 Ws
+      Task ID00019: Sub-Deadline=665.45 sec, Start=707.67 sec, End=710.93 sec, Execution=3.26 sec, VM=vm-14, Cost=$0.0000, Energy=0.14 Ws
+      Task ID00020: Sub-Deadline=664.09 sec, Start=633.83 sec, End=692.78 sec, Execution=58.94 sec, VM=vm-4, Cost=$0.0007, Energy=2.59 Ws
+      Task ID00021: Sub-Deadline=665.45 sec, Start=699.02 sec, End=702.28 sec, Execution=3.26 sec, VM=vm-11, Cost=$0.0000, Energy=0.14 Ws
+      Task ID00022: Sub-Deadline=664.02 sec, Start=633.83 sec, End=708.35 sec, Execution=74.52 sec, VM=vm-7, Cost=$0.0009, Energy=3.28 Ws
+      Task ID00023: Sub-Deadline=665.45 sec, Start=712.62 sec, End=716.05 sec, Execution=3.43 sec, VM=vm-15, Cost=$0.0000, Energy=0.15 Ws
+      Task ID00024: Sub-Deadline=664.67 sec, Start=633.83 sec, End=765.52 sec, Execution=131.69 sec, VM=vm-13, Cost=$0.0016, Energy=5.79 Ws
+      Task ID00025: Sub-Deadline=665.45 sec, Start=770.68 sec, End=772.55 sec, Execution=1.87 sec, VM=vm-18, Cost=$0.0000, Energy=0.08 Ws
+      Task ID00026: Sub-Deadline=664.35 sec, Start=633.83 sec, End=691.41 sec, Execution=57.58 sec, VM=vm-3, Cost=$0.0007, Energy=2.53 Ws
+      Task ID00027: Sub-Deadline=665.45 sec, Start=698.22 sec, End=700.86 sec, Execution=2.64 sec, VM=vm-10, Cost=$0.0000, Energy=0.12 Ws
+      Task ID00028: Sub-Deadline=664.60 sec, Start=633.83 sec, End=697.34 sec, Execution=63.50 sec, VM=vm-5, Cost=$0.0008, Energy=2.79 Ws
+      Task ID00029: Sub-Deadline=665.45 sec, Start=701.75 sec, End=703.79 sec, Execution=2.04 sec, VM=vm-12, Cost=$0.0000, Energy=0.09 Ws
+
+VM Usage Details:
+  VM vm-1: Capacity=4000.00 MIPS, Active Time=232.58 sec, Idle Time=0.00 sec, Energy=10.23 Ws, Cost=$0.0028
+  VM vm-2: Capacity=4000.00 MIPS, Active Time=379.44 sec, Idle Time=0.00 sec, Energy=16.70 Ws, Cost=$0.0046
+  VM vm-3: Capacity=4000.00 MIPS, Active Time=57.58 sec, Idle Time=0.00 sec, Energy=2.53 Ws, Cost=$0.0007
+  VM vm-4: Capacity=4000.00 MIPS, Active Time=58.94 sec, Idle Time=0.00 sec, Energy=2.59 Ws, Cost=$0.0007
+  VM vm-5: Capacity=4000.00 MIPS, Active Time=63.50 sec, Idle Time=0.00 sec, Energy=2.79 Ws, Cost=$0.0008
+  VM vm-6: Capacity=4000.00 MIPS, Active Time=68.81 sec, Idle Time=0.00 sec, Energy=3.03 Ws, Cost=$0.0008
+  VM vm-7: Capacity=4000.00 MIPS, Active Time=74.52 sec, Idle Time=0.00 sec, Energy=3.28 Ws, Cost=$0.0009
+  VM vm-8: Capacity=4000.00 MIPS, Active Time=109.44 sec, Idle Time=0.00 sec, Energy=4.82 Ws, Cost=$0.0013
+  VM vm-9: Capacity=4000.00 MIPS, Active Time=113.86 sec, Idle Time=0.00 sec, Energy=5.01 Ws, Cost=$0.0014
+  VM vm-10: Capacity=4000.00 MIPS, Active Time=2.64 sec, Idle Time=0.00 sec, Energy=0.12 Ws, Cost=$0.0000
+  VM vm-11: Capacity=4000.00 MIPS, Active Time=3.26 sec, Idle Time=0.00 sec, Energy=0.14 Ws, Cost=$0.0000
+  VM vm-12: Capacity=4000.00 MIPS, Active Time=2.04 sec, Idle Time=0.00 sec, Energy=0.09 Ws, Cost=$0.0000
+  VM vm-13: Capacity=4000.00 MIPS, Active Time=131.69 sec, Idle Time=0.00 sec, Energy=5.79 Ws, Cost=$0.0016
+  VM vm-14: Capacity=4000.00 MIPS, Active Time=3.26 sec, Idle Time=0.00 sec, Energy=0.14 Ws, Cost=$0.0000
+  VM vm-15: Capacity=4000.00 MIPS, Active Time=3.43 sec, Idle Time=0.00 sec, Energy=0.15 Ws, Cost=$0.0000
+  VM vm-16: Capacity=4000.00 MIPS, Active Time=3.67 sec, Idle Time=0.00 sec, Energy=0.16 Ws, Cost=$0.0000
+  VM vm-17: Capacity=4000.00 MIPS, Active Time=3.67 sec, Idle Time=0.00 sec, Energy=0.16 Ws, Cost=$0.0000
+  VM vm-18: Capacity=4000.00 MIPS, Active Time=1.87 sec, Idle Time=0.00 sec, Energy=0.08 Ws, Cost=$0.0000
+  VM vm-19: Capacity=4000.00 MIPS, Active Time=77.50 sec, Idle Time=0.00 sec, Energy=3.41 Ws, Cost=$0.0009
+  VM vm-20: Capacity=4000.00 MIPS, Active Time=87.05 sec, Idle Time=0.00 sec, Energy=3.83 Ws, Cost=$0.0011
+  VM vm-21: Capacity=4000.00 MIPS, Active Time=92.38 sec, Idle Time=0.00 sec, Energy=4.06 Ws, Cost=$0.0011
+  VM vm-22: Capacity=4000.00 MIPS, Active Time=93.74 sec, Idle Time=0.00 sec, Energy=4.12 Ws, Cost=$0.0011
+  VM vm-23: Capacity=4000.00 MIPS, Active Time=149.40 sec, Idle Time=0.00 sec, Energy=6.57 Ws, Cost=$0.0018
+  VM vm-24: Capacity=4000.00 MIPS, Active Time=1.78 sec, Idle Time=0.00 sec, Energy=0.08 Ws, Cost=$0.0000
+  VM vm-25: Capacity=4000.00 MIPS, Active Time=1.75 sec, Idle Time=0.00 sec, Energy=0.08 Ws, Cost=$0.0000
+  VM vm-26: Capacity=4000.00 MIPS, Active Time=1.92 sec, Idle Time=0.00 sec, Energy=0.08 Ws, Cost=$0.0000
+  VM vm-27: Capacity=4000.00 MIPS, Active Time=1.51 sec, Idle Time=0.00 sec, Energy=0.07 Ws, Cost=$0.0000
+  VM vm-28: Capacity=4000.00 MIPS, Active Time=0.46 sec, Idle Time=0.00 sec, Energy=0.02 Ws, Cost=$0.0000
+  VM vm-29: Capacity=4000.00 MIPS, Active Time=579.41 sec, Idle Time=0.17 sec, Energy=25.49 Ws, Cost=$0.0071
+  VM vm-31: Capacity=4000.00 MIPS, Active Time=288.00 sec, Idle Time=0.00 sec, Energy=12.67 Ws, Cost=$0.0035
+  VM vm-32: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-33: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-34: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-35: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-36: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-37: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-38: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-39: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-40: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-41: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-42: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-43: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-44: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-45: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-46: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-47: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-48: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-49: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-50: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-51: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-52: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-53: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-54: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-55: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-56: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-57: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-58: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-59: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-60: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-61: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-62: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-63: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-64: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-65: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-66: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-67: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-68: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-69: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-70: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-71: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-72: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-73: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-74: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-75: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-76: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-77: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-78: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-79: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-80: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-81: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-82: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-83: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-84: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-85: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-86: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-87: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-88: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-89: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-90: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-91: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-92: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-93: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-94: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-95: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-96: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-97: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-98: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-99: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-100: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-101: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-102: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-103: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-104: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-105: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-106: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-107: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-108: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-109: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-110: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-111: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-112: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-113: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-114: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-115: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-116: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-117: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-118: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-119: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-120: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-121: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-122: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-123: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-124: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-125: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-126: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-127: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-128: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-129: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+  VM vm-130: Capacity=4000.00 MIPS, Active Time=4320.00 sec, Idle Time=0.00 sec, Energy=190.08 Ws, Cost=$0.0528
+
+Advanced Performance Metrics:
+  Average Task Execution Delay: 3226.75 sec
+  Average VM Idle Time: 0 sec
+  Total Data Transfer Time: 883.63 sec
+  Number of VMs Used: 131

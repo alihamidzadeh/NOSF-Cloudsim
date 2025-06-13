@@ -44,10 +44,11 @@ public class Workflow {
 
                 Map<String, Double> jobRuntimes = parseJobsRuntimes(document);
                 Map<String, List<String>> dependencies = parseDependencies(document);
-                double deadline = computePCPDeadline(jobRuntimes, dependencies);
-                double arrivalTime = NOSFScheduler.getCurrentTime();
                 String workflowId = "wf-" + workflowCounter++;
-                // System.out.println("Info: "+ workflowId2 + "-" + arrivalTime2 + "-" + deadline2);
+                double PCPDeadline = computePCPDeadline(jobRuntimes, dependencies);
+                double deadline = 3 * PCPDeadline;
+                System.out.println("PCP Runtime for " + workflowId + ": " + PCPDeadline);
+                double arrivalTime = NOSFScheduler.getCurrentTime();
                 Workflow workflow = new Workflow(workflowId, arrivalTime, deadline);
                 
                 // Load tasks
@@ -64,11 +65,11 @@ public class Workflow {
 
                 workflows.add(workflow);
 
-                // if (workflow2.entryTask != null) {
-                //     System.out.println("Entry task ID: " + workflow2.entryTask.getId());
-                // } else {
+                // Print Entry task
+                // if (workflow.entryTask != null)
+                //     System.out.println("Entry task ID: " + workflow.entryTask.getId());
+                // else
                 //     System.out.println("Entry task not found.");
-                // }
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -204,7 +205,6 @@ public class Workflow {
     for (String job : jobs.keySet()) {
         maxDeadline = Math.max(maxDeadline, earliestStart.get(job) + jobs.get(job));
     }
-
     return maxDeadline;
 }
 
