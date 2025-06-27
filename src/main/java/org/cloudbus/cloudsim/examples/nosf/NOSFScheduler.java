@@ -208,9 +208,9 @@ public class NOSFScheduler {
             }
         }
 
-        if (task.getSuccessors().isEmpty() && task.getWorkflow().isCompleted()) {
-            vmFactory.releaseVM(task.getAssignedVM(), currentTime);
-        }
+        // if (task.getSuccessors().isEmpty() && task.getWorkflow().isCompleted()) {
+        //     vmFactory.releaseVM(task.getAssignedVM(), currentTime);
+        // }
     }
 
     private void updateCurrentTime() {

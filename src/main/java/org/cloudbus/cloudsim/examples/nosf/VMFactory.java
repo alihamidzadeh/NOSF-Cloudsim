@@ -136,42 +136,87 @@ public class VMFactory {
     //     return bestVM;
     // }
 
-    private Vm findSuitableVM(Task task, double currentTime) {
-        Vm bestVM = null;
-        double minCost = Double.MAX_VALUE;
-        double minIdleTime = Double.MAX_VALUE;
+    // private Vm findSuitableVM(Task task, double currentTime) {
+    //     Vm bestVM = null;
+    //     double minCost = Double.MAX_VALUE;
+    //     double minIdleTime = Double.MAX_VALUE;
     
+    //     for (Vm vm : activeVMs) {
+    //         if (!vm.isActive()) continue;
+    
+    //         double predictedStartTime = calculatePredictedStartTime(task, vm, currentTime);
+    //         double predictedExecutionTime = calculatePredictedExecutionTime(task, vm);
+    //         double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
+    //         double idleTime = Math.max(0.0, predictedStartTime - vm.getPredictedCompletionTime());
+    
+    //         // شرط زمان تکمیل تا قبل از subdeadline
+    //         if (predictedCompletionTime <= task.getSubDeadline()) {
+    //             double price = vm.getCostPerHour();
+    //             double cost = price * predictedExecutionTime;
+    
+    //             if (cost < minCost) {
+    //                 minCost = cost;
+    //                 minIdleTime = idleTime;
+    //                 bestVM = vm;
+    //             } else if (cost == minCost && idleTime < minIdleTime) {
+    //                 minIdleTime = idleTime;
+    //                 bestVM = vm;
+    //             }
+    //         }
+    //     }
+    
+    //     if (bestVM != null && minIdleTime > 0)
+    //         bestVM.updateIdleTime(minIdleTime);
+    
+    //     return bestVM;
+    // }
+    
+    private Vm findSuitableVM(Task task, double currentTime) {
+        double slackFactor = 1.4; // تا 30٪ تاخیر نسبت به sub-deadline مجاز است
+        Vm bestVM = null;
+        double minCostGrowth = Double.MAX_VALUE;
+        double minIdleTime = Double.MAX_VALUE;
+        double bestStartTime = Double.MAX_VALUE;
+        double THRESHOLD_FOR_PARALLELISM = 200;
+
         for (Vm vm : activeVMs) {
             if (!vm.isActive()) continue;
     
             double predictedStartTime = calculatePredictedStartTime(task, vm, currentTime);
             double predictedExecutionTime = calculatePredictedExecutionTime(task, vm);
             double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
+    
+            if (predictedCompletionTime > task.getSubDeadline() * slackFactor) continue;
+    
+            double costPerSecond = vm.getCostPerHour() / 3600.0;
+            double costGrowth = costPerSecond * predictedExecutionTime;
             double idleTime = Math.max(0.0, predictedStartTime - vm.getPredictedCompletionTime());
     
-            // شرط زمان تکمیل تا قبل از subdeadline
-            if (predictedCompletionTime <= task.getSubDeadline()) {
-                double price = vm.getCostPerHour();
-                double cost = price * predictedExecutionTime;
-    
-                if (cost < minCost) {
-                    minCost = cost;
-                    minIdleTime = idleTime;
-                    bestVM = vm;
-                } else if (cost == minCost && idleTime < minIdleTime) {
-                    minIdleTime = idleTime;
-                    bestVM = vm;
-                }
+            // *** مهم: اولویت به VMهایی که زودتر آماده هستند ***
+            if (costGrowth < minCostGrowth ||
+                (costGrowth == minCostGrowth && idleTime < minIdleTime) ||
+                (costGrowth == minCostGrowth && idleTime == minIdleTime && predictedStartTime < bestStartTime)) {
+                
+                minCostGrowth = costGrowth;
+                minIdleTime = idleTime;
+                bestStartTime = predictedStartTime;
+                bestVM = vm;
+            }
+
+            if (predictedStartTime - currentTime > THRESHOLD_FOR_PARALLELISM) {
+                bestVM = null;
             }
         }
-    
+
         if (bestVM != null && minIdleTime > 0)
             bestVM.updateIdleTime(minIdleTime);
+            // اگر زمان شروع خیلی دیر است، VM جدید بهتر است
     
+
         return bestVM;
     }
     
-
+    
     // private VMType selectBestVMType(Task task) {
     // return vmTypes.stream()
     //         .max((t1, t2) -> {
@@ -199,7 +244,7 @@ public class VMFactory {
             })
             .orElse(vmTypes.get(0)); // fallback
     }
-        
+
 
     public double calculatePredictedStartTime(Task task, Vm vm, double currentTime) {
         double latestPredecessorCompletion = task.getPredecessors().stream()
