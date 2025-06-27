@@ -76,13 +76,14 @@ public class VMFactory {
     }
 
     public Vm createVM(Task task, double currentTime) {
-        if (activeVMs.size() >= maxVMs) {
-            LOGGER.info("Cannot create new VM: Maximum VM limit reached.");
-            return null;
-        }
         Vm suitableVM = findSuitableVM(task, currentTime);
         if (suitableVM != null) {
             return suitableVM;
+        }
+
+        if (activeVMs.size() >= maxVMs) {
+            LOGGER.info("Cannot create new VM: Maximum VM limit reached.");
+            return null;
         }
         VMType vmType = selectBestVMType(task);
         String vmId = "vm-" + (++vmCounter);
@@ -92,45 +93,113 @@ public class VMFactory {
         return vm;
     }
 
+    // private Vm findSuitableVM(Task task, double currentTime) {
+    //     Vm bestVM = null;
+    //     double earliestCompletionTime = Double.MAX_VALUE;
+    //     double minIdleTime = Double.MAX_VALUE;
+
+    //     //todo minimum cost
+    //     for (Vm vm : activeVMs) {
+    //         if (!vm.isActive()) continue;
+    //         double predictedStartTime = calculatePredictedStartTime(task, vm, currentTime);
+    //         double predictedExecutionTime = calculatePredictedExecutionTime(task, vm);
+    //         double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
+    //         double idleTime = predictedStartTime > vm.getPredictedCompletionTime() ? 
+    //                          predictedStartTime - vm.getPredictedCompletionTime() : 0.0;
+
+
+    //         // old
+    //         if (predictedCompletionTime <= task.getSubDeadline() && predictedCompletionTime < earliestCompletionTime) {
+    //             earliestCompletionTime = predictedCompletionTime;
+    //             minIdleTime = idleTime;
+    //             bestVM = vm;
+    //         } else if (predictedCompletionTime <= task.getSubDeadline() && predictedCompletionTime == earliestCompletionTime && idleTime < minIdleTime) {
+    //             minIdleTime = idleTime;
+    //             bestVM = vm;
+    //         }
+
+    //         //new
+    //         // double allowedSlack = 1.5; // می‌پذیرد تا 10٪ بالاتر از sub-deadline اجرا شود
+    //         // if (predictedCompletionTime <= task.getSubDeadline() * allowedSlack) {
+    //         //     if (predictedCompletionTime < earliestCompletionTime || (predictedCompletionTime == earliestCompletionTime && idleTime < minIdleTime)) {
+    //         //         earliestCompletionTime = predictedCompletionTime;
+    //         //         minIdleTime = idleTime;
+    //         //         bestVM = vm;
+    //         //     }
+    //         // }
+
+    //     }
+
+    //     if (bestVM != null && minIdleTime > 0)
+    //         bestVM.updateIdleTime(minIdleTime);
+
+    //     return bestVM;
+    // }
+
     private Vm findSuitableVM(Task task, double currentTime) {
         Vm bestVM = null;
-        double earliestCompletionTime = Double.MAX_VALUE;
+        double minCost = Double.MAX_VALUE;
         double minIdleTime = Double.MAX_VALUE;
-
+    
         for (Vm vm : activeVMs) {
             if (!vm.isActive()) continue;
+    
             double predictedStartTime = calculatePredictedStartTime(task, vm, currentTime);
             double predictedExecutionTime = calculatePredictedExecutionTime(task, vm);
             double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
-            double idleTime = predictedStartTime > vm.getPredictedCompletionTime() ? 
-                             predictedStartTime - vm.getPredictedCompletionTime() : 0.0;
-
-            if (predictedCompletionTime <= task.getSubDeadline() && predictedCompletionTime < earliestCompletionTime) {
-                earliestCompletionTime = predictedCompletionTime;
-                minIdleTime = idleTime;
-                bestVM = vm;
-            } else if (predictedCompletionTime <= task.getSubDeadline() && 
-                       predictedCompletionTime == earliestCompletionTime && idleTime < minIdleTime) {
-                minIdleTime = idleTime;
-                bestVM = vm;
+            double idleTime = Math.max(0.0, predictedStartTime - vm.getPredictedCompletionTime());
+    
+            // شرط زمان تکمیل تا قبل از subdeadline
+            if (predictedCompletionTime <= task.getSubDeadline()) {
+                double price = vm.getCostPerHour();
+                double cost = price * predictedExecutionTime;
+    
+                if (cost < minCost) {
+                    minCost = cost;
+                    minIdleTime = idleTime;
+                    bestVM = vm;
+                } else if (cost == minCost && idleTime < minIdleTime) {
+                    minIdleTime = idleTime;
+                    bestVM = vm;
+                }
             }
         }
-
-        if (bestVM != null && minIdleTime > 0) {
+    
+        if (bestVM != null && minIdleTime > 0)
             bestVM.updateIdleTime(minIdleTime);
-        }
+    
         return bestVM;
     }
+    
+
+    // private VMType selectBestVMType(Task task) {
+    // return vmTypes.stream()
+    //         .max((t1, t2) -> {
+    //             //todo calculate cost per unit for comparing efficiency. compare task executation time * cost per unit
+    //             double efficiency1 = t1.processingCapacity / t1.costPerHour;
+    //             double efficiency2 = t2.processingCapacity / t2.costPerHour;
+    //             return Double.compare(efficiency1, efficiency2);
+    //         })
+    //         .orElse(vmTypes.get(0));
+    // }
 
     private VMType selectBestVMType(Task task) {
-    return vmTypes.stream()
-            .max((t1, t2) -> {
-                double efficiency1 = t1.processingCapacity / t1.costPerHour;
-                double efficiency2 = t2.processingCapacity / t2.costPerHour;
-                return Double.compare(efficiency1, efficiency2);
+        return vmTypes.stream()
+            .min((t1, t2) -> {
+                double costPerSecond1 = t1.costPerHour / 3600.0;
+                double costPerSecond2 = t2.costPerHour / 3600.0;
+    
+                double execTimeOnT1 = task.getCompletionTime() / t1.processingCapacity;
+                double execTimeOnT2 = task.getCompletionTime() / t2.processingCapacity;
+    
+                double cost1 = execTimeOnT1 * costPerSecond1;
+                double cost2 = execTimeOnT2 * costPerSecond2;
+    
+                return Double.compare(cost1, cost2); // کمینه هزینه اجرا
             })
-            .orElse(vmTypes.get(0));
+            .orElse(vmTypes.get(0)); // fallback
     }
+        
 
     public double calculatePredictedStartTime(Task task, Vm vm, double currentTime) {
         double latestPredecessorCompletion = task.getPredecessors().stream()
