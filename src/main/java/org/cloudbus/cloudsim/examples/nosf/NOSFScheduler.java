@@ -264,7 +264,7 @@ public class NOSFScheduler {
         LOGGER.info("Total VM Rental Cost: $" + df.format(totalCost));
         LOGGER.info("Total Energy Consumption: " + df.format(totalEnergyConsumption) + " Watt-seconds");
         LOGGER.info("Resource Utilization Efficiency: " + df.format(resourceUtilization) + "%");
-        LOGGER.info("Deadline Violation Probability: " + df.format(deadlineViolationProbability * 100) + "%");
+        // LOGGER.info("Deadline Violation Probability: " + df.format(deadlineViolationProbability * 100) + "%");
 
         LOGGER.info("\nWorkflow Details:");
         for (Workflow workflow : workflows) {

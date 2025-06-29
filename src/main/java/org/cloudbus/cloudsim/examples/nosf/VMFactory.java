@@ -100,7 +100,7 @@ public class VMFactory {
         double minCostGrowth = Double.MAX_VALUE;
         double minIdleTime = Double.MAX_VALUE;
         double bestStartTime = Double.MAX_VALUE;
-        double THRESHOLD_FOR_PARALLELISM = 5000;
+        double THRESHOLD_FOR_PARALLELISM = 300;
 
         for (Vm vm : activeVMs) {
             if (!vm.isActive()) continue;

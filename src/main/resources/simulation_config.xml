@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <simulationConfig>
     <vmTypes>
-        <vmType id="vm-type-1" processingCapacity="8000" costPerHour="0.98" energyPerSecond="0.98" bootTime="5.0"/>
-        <vmType id="vm-type-2" processingCapacity="6666" costPerHour="0.49" energyPerSecond="0.49" bootTime="5.0"/>
+        <vmType id="vm-type-1" processingCapacity="8000" costPerHour="0.45" energyPerSecond="0.45" bootTime="5.0"/>
+        <vmType id="vm-type-2" processingCapacity="6666" costPerHour="0.4" energyPerSecond="0.4" bootTime="5.0"/>
         <vmType id="vm-type-3" processingCapacity="6153" costPerHour="0.35" energyPerSecond="0.35" bootTime="5.0"/>
         <vmType id="vm-type-4" processingCapacity="5714" costPerHour="0.245" energyPerSecond="0.245" bootTime="5.0"/>
-        <vmType id="vm-type-5" processingCapacity="5000" costPerHour="0.175" energyPerSecond="0.175" bootTime="5.0"/>
-        <vmType id="vm-type-6" processingCapacity="4444" costPerHour="0.087" energyPerSecond="0.087" bootTime="5.0"/>
-        <vmType id="vm-type-7" processingCapacity="4000" costPerHour="0.044" energyPerSecond="0.044" bootTime="5.0"/>
+        <vmType id="vm-type-5" processingCapacity="5000" costPerHour="0.180" energyPerSecond="0.180" bootTime="5.0"/>
+        <vmType id="vm-type-6" processingCapacity="4444" costPerHour="0.198" energyPerSecond="0.198" bootTime="5.0"/>
+        <vmType id="vm-type-7" processingCapacity="4000" costPerHour="0.180" energyPerSecond="0.180" bootTime="5.0"/>
     </vmTypes>
     <simulationParameters>
-        <maxVMs>150</maxVMs>
+        <maxVMs>50</maxVMs>
         <NormalizationFactor>8000</NormalizationFactor>
         <bandwidthMbps>100</bandwidthMbps>
         <billingPeriod>3600</billingPeriod>
         <varianceFactorAlpha>0.2</varianceFactorAlpha>
         <deadlineFactorBeta>2.0</deadlineFactorBeta>
-        <estimationFactorEta>1.5</estimationFactorEta>
+        <estimationFactorEta>1.3</estimationFactorEta>
     </simulationParameters>
 </simulationConfig>
