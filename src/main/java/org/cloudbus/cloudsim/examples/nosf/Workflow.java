@@ -46,7 +46,7 @@ public class Workflow {
                 Map<String, List<String>> dependencies = parseDependencies(document);
                 String workflowId = "wf-" + workflowCounter++;
                 double PCPDeadline = computePCPDeadline(jobRuntimes, dependencies);
-                double deadline = 3 * PCPDeadline;
+                double deadline = 2 * PCPDeadline;
                 System.out.println("PCP Runtime for " + workflowId + ": " + PCPDeadline);
                 double arrivalTime = NOSFScheduler.getCurrentTime();
                 Workflow workflow = new Workflow(workflowId, arrivalTime, deadline);

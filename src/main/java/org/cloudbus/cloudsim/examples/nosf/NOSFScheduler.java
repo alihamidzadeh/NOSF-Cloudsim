@@ -26,12 +26,12 @@ public class NOSFScheduler {
     private double totalEnergyConsumption = 0.0;
     private double resourceUtilization = 0.0;
     private double deadlineViolationProbability = 0.0;
-    private final double billingPeriod;
+    private static  double billingPeriod;
     private static int bandwidthMbps;
     private static int normalizationFactor;
     private static double varianceFactorAlpha;
     private final double deadlineFactorBeta;
-    private final double estimationFactorEta;
+    private static double estimationFactorEta;
     private static final Logger LOGGER = Logger.getLogger(NOSFScheduler.class.getName());
 
     static {
@@ -231,11 +231,6 @@ public class NOSFScheduler {
     }
 
     private void calculatePerformanceMetrics() {
-        int violatedWorkflows = (int) workflows.stream()
-                .filter(Workflow::hasDeadlineViolation)
-                .count();
-        deadlineViolationProbability = workflows.isEmpty() ? 0.0 : (double) violatedWorkflows / workflows.size();
-
         double totalActiveTime = vmFactory.getActiveVMs().stream()
                 .mapToDouble(Vm::getTotalActiveTime)
                 .sum();
@@ -277,7 +272,6 @@ public class NOSFScheduler {
             LOGGER.info("    Arrival Time: " + df.format(workflow.getArrivalTime()) + " sec");
             LOGGER.info("    Deadline: " + df.format(workflow.getDeadline()) + " sec");
             LOGGER.info("    Makespan: " + df.format(workflow.getMakespan()) + " sec");
-            LOGGER.info("    Status: " + (workflow.hasDeadlineViolation() ? "Violated" : "Met"));
 
             LOGGER.info("    Tasks:");
             for (Task task : workflow.getTasks()) {
@@ -349,5 +343,13 @@ public class NOSFScheduler {
 
     public static int getNormalizationFactor(){
         return normalizationFactor;
+    }
+    
+    public static double  getEstimationFactorEta(){
+        return estimationFactorEta;
+    }
+        
+    public static double  getBillingPeriod(){
+        return billingPeriod;
     }
 }
