@@ -144,8 +144,12 @@ public class NOSFScheduler {
             while (!readyTasks.isEmpty()) {
                 Task task = readyTasks.poll();
                 scheduleTask(task);
+                
+            if (task.getSuccessors().isEmpty())
+                vmFactory.releaseVM(task.getAssignedVM(), currentTime);
             }
         }
+
         calculatePerformanceMetrics();
         printSimulationSummary();
     }
@@ -284,7 +288,7 @@ public class NOSFScheduler {
         }
 
         LOGGER.info("\nVM Usage Details:");
-        for (Vm vm : vmFactory.getActiveVMs()) {
+        for (Vm vm : vmFactory.getAllVMs()) {
             LOGGER.info(String.format("  VM %s: Capacity=%.2f MIPS, Active Time=%.2f sec, Idle Time=%.2f sec, " +
                             "Energy=%.2f Ws, Cost=$%.4f",
                     vm.getId(), vm.getProcessingCapacity(), vm.getTotalActiveTime(), vm.getTotalIdleTime(),

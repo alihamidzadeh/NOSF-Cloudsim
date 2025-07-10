@@ -49,6 +49,8 @@ public class VMFactory {
 
     private final List<VMType> vmTypes = new ArrayList<>();
     private final List<Vm> activeVMs = new ArrayList<>();
+    private List<Vm> allVMs = new ArrayList<>();
+
     private final int maxVMs;
     private int vmCounter = 0;
 
@@ -90,18 +92,18 @@ public class VMFactory {
         String vmId = "vm-" + (++vmCounter);
         Vm vm = new Vm(vmId, vmType.processingCapacity, vmType.costPerHour, vmType.energyPerSecond, vmType.bootTime);
         activeVMs.add(vm);
-        LOGGER.info(String.format("Created new VM %s at time %.2f with capacity %.2f MIPS", vmId, currentTime, vmType.processingCapacity));
+        allVMs.add(vm);
+        vm.setPredictedCompletionTime(currentTime + vm.getBootTime());
+        LOGGER.info(String.format("Created new VM %s at time %.2f with capacity %.2f MIPS, Boot Time %.2f s", vmId, currentTime, vmType.processingCapacity, vm.getBootTime()));
         return vm;
     }
 
     private Vm findSuitableVM(Task task, double currentTime) {
-        double slackFactor = 1.3; // تا X٪ تاخیر نسبت به sub-deadline مجاز است
         Vm bestVM = null;
         double minCostGrowth = Double.MAX_VALUE;
         double minIdleTime = Double.MAX_VALUE;
         double bestStartTime = Double.MAX_VALUE;
-        double THRESHOLD_FOR_PARALLELISM = 300;
-
+    
         for (Vm vm : activeVMs) {
             if (!vm.isActive()) continue;
     
@@ -109,35 +111,73 @@ public class VMFactory {
             double predictedExecutionTime = calculatePredictedExecutionTime(task, vm);
             double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
     
-            if (predictedCompletionTime > task.getSubDeadline() * slackFactor) continue;
+            // اصلاح: فقط sub-deadline اصلی را در نظر بگیر
+            // if (predictedCompletionTime > task.getSubDeadline()) continue;
+            if (predictedCompletionTime > task.getLatestCompletionTime()) continue;
     
             double costPerSecond = vm.getCostPerHour() / 3600.0;
             double costGrowth = costPerSecond * predictedExecutionTime;
             double idleTime = Math.max(0.0, predictedStartTime - vm.getPredictedCompletionTime());
     
-            // مهم: اولویت به VMهایی که زودتر آماده هستند 
-            if (costGrowth < minCostGrowth ||
-                (costGrowth == minCostGrowth && idleTime < minIdleTime) ||
-                (costGrowth == minCostGrowth && idleTime == minIdleTime && predictedStartTime < bestStartTime)) {
-                
+            if (costGrowth < minCostGrowth
+             || (costGrowth == minCostGrowth && idleTime < minIdleTime)
+             || (costGrowth == minCostGrowth && idleTime == minIdleTime && predictedStartTime < bestStartTime)) {
                 minCostGrowth = costGrowth;
                 minIdleTime = idleTime;
                 bestStartTime = predictedStartTime;
                 bestVM = vm;
             }
-
-            if (predictedStartTime - currentTime > THRESHOLD_FOR_PARALLELISM) {
-                bestVM = null;
-            }
         }
-
-        // اگر زمان شروع خیلی دیر است، VM جدید بهتر است
-        if (bestVM != null && minIdleTime > 0)
-            bestVM.updateIdleTime(minIdleTime);
     
-
+        // اگر هیچ VM فعالی پیدا نشد، برگردان null تا در createVM VM جدید ساخته شود
         return bestVM;
     }
+    
+
+    // private Vm findSuitableVM(Task task, double currentTime) {
+    //     double slackFactor = 1.3; // تا X٪ تاخیر نسبت به sub-deadline مجاز است
+    //     Vm bestVM = null;
+    //     double minCostGrowth = Double.MAX_VALUE;
+    //     double minIdleTime = Double.MAX_VALUE;
+    //     double bestStartTime = Double.MAX_VALUE;
+    //     double THRESHOLD_FOR_PARALLELISM = 300;
+
+    //     for (Vm vm : activeVMs) {
+    //         if (!vm.isActive()) continue;
+    
+    //         double predictedStartTime = calculatePredictedStartTime(task, vm, currentTime);
+    //         double predictedExecutionTime = calculatePredictedExecutionTime(task, vm);
+    //         double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
+    
+    //         if (predictedCompletionTime > task.getSubDeadline() * slackFactor) continue;
+    
+    //         double costPerSecond = vm.getCostPerHour() / 3600.0;
+    //         double costGrowth = costPerSecond * predictedExecutionTime;
+    //         double idleTime = Math.max(0.0, predictedStartTime - vm.getPredictedCompletionTime());
+    
+    //         // مهم: اولویت به VMهایی که زودتر آماده هستند 
+    //         if (costGrowth < minCostGrowth ||
+    //             (costGrowth == minCostGrowth && idleTime < minIdleTime) ||
+    //             (costGrowth == minCostGrowth && idleTime == minIdleTime && predictedStartTime < bestStartTime)) {
+                
+    //             minCostGrowth = costGrowth;
+    //             minIdleTime = idleTime;
+    //             bestStartTime = predictedStartTime;
+    //             bestVM = vm;
+    //         }
+
+    //         if (predictedStartTime - currentTime > THRESHOLD_FOR_PARALLELISM) {
+    //             bestVM = null;
+    //         }
+    //     }
+
+    //     // اگر زمان شروع خیلی دیر است، VM جدید بهتر است
+    //     if (bestVM != null && minIdleTime > 0)
+    //         bestVM.updateIdleTime(minIdleTime);
+    
+
+    //     return bestVM;
+    // }
 
     // private VMType selectBestVMType(Task task, double currentTime) {
     //     return vmTypes.stream()
@@ -211,15 +251,19 @@ public class VMFactory {
     }
 
 // Commented cause dont mention in Article
-    // public void releaseVM(Vm vm, double currentTime) {
-    //     vm.setActive(false);
-    //     activeVMs.remove(vm);
-    //     LOGGER.info(String.format("Released VM %s at time %.2f", vm.getId(), currentTime));
-    // }
+    public void releaseVM(Vm vm, double currentTime) {
+        vm.setActive(false);
+        activeVMs.remove(vm);
+        LOGGER.info(String.format("Released VM %s at time %.2f", vm.getId(), currentTime));
+    }
 
     public List<Vm> getActiveVMs() {
         return new ArrayList<>(activeVMs);
     }
+
+    public List<Vm> getAllVMs() {
+    return new ArrayList<>(allVMs);
+}
 
     public int getVMCounter(){
         return vmCounter;
