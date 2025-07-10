@@ -149,7 +149,9 @@ public class NOSFScheduler {
                 vmFactory.releaseVM(task.getAssignedVM(), currentTime);
             }
         }
-
+        for (Vm vm : vmFactory.getActiveVMs()) {
+            vmFactory.releaseVM(vm, currentTime);
+        }
         calculatePerformanceMetrics();
         printSimulationSummary();
     }
@@ -235,7 +237,7 @@ public class NOSFScheduler {
     }
 
     private void calculatePerformanceMetrics() {
-        double totalActiveTime = vmFactory.getActiveVMs().stream()
+        double totalActiveTime = vmFactory.getAllVMs().stream()
                 .mapToDouble(Vm::getTotalActiveTime)
                 .sum();
         double totalExecutionTime = workflows.stream()
@@ -247,8 +249,10 @@ public class NOSFScheduler {
                 .mapToDouble(Task::getCompletionTime)
                 .max()
                 .orElse(0.0);
-        double totalAvailableTime = simulationDuration * vmFactory.getActiveVMs().size();
-        resourceUtilization = totalAvailableTime > 0 ? (totalExecutionTime / totalAvailableTime) * 100 : 0.0;
+        double totalAvailableTime = simulationDuration * vmFactory.getAllVMs().size();
+        resourceUtilization = totalAvailableTime > 0
+        ? (totalActiveTime / totalAvailableTime) * 100
+        : 0.0;
     }
 
     private void printSimulationSummary() {
