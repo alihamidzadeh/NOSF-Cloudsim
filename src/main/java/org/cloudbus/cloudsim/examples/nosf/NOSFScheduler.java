@@ -284,10 +284,10 @@ public class NOSFScheduler {
             LOGGER.info("    Tasks:");
             for (Task task : workflow.getTasks()) {
                 LOGGER.info(String.format("      Task %s: Sub-Deadline=%.2f sec, Start=%.2f sec, End=%.2f sec, " +
-                                "Execution=%.2f sec, VM=%s, Cost=$%.4f, Energy=%.2f Ws",
+                                "Execution=%.2f sec, VM=%s, Cost=$%.4f, Energy=%.2f Ws, VM=%s",
                         task.getId(), task.getSubDeadline(), task.getStartTime(), task.getCompletionTime(),
                         task.getExecutionTime(), task.getAssignedVM() != null ? task.getAssignedVM().getId() : "None",
-                        task.getCost(), task.getEnergyConsumption()));
+                        task.getCost(), task.getEnergyConsumption(), task.getAssignedVM().getId()));
             }
         }
 
