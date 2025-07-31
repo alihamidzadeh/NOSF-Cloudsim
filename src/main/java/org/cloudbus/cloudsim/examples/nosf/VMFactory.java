@@ -2,6 +2,7 @@ package org.cloudbus.cloudsim.examples.nosf;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.logging.ConsoleHandler;
@@ -78,6 +79,7 @@ public class VMFactory {
         }
     }
 
+
     public Vm createVM(Task task, double currentTime) {
         Vm suitableVM = findSuitableVM(task, currentTime);
         if (suitableVM != null) {
@@ -112,16 +114,17 @@ public class VMFactory {
             double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
     
             // اصلاح: فقط sub-deadline اصلی را در نظر بگیر
-            // if (predictedCompletionTime > task.getSubDeadline()) continue;
-            if (predictedCompletionTime > task.getLatestCompletionTime()) continue;
-    
+            if (predictedCompletionTime > task.getSubDeadline()) continue;
+            //todo print log
+            LOGGER.info("==> predictedCompletionTime"+predictedCompletionTime);
+            LOGGER.info("==> task.getSubDeadline"+task.getSubDeadline());
+
             double costPerSecond = vm.getCostPerHour() / 3600.0;
             double costGrowth = costPerSecond * predictedExecutionTime;
             double idleTime = Math.max(0.0, predictedStartTime - vm.getPredictedCompletionTime());
     
             if (costGrowth < minCostGrowth
-             || (costGrowth == minCostGrowth && idleTime < minIdleTime)
-             || (costGrowth == minCostGrowth && idleTime == minIdleTime && predictedStartTime < bestStartTime)) {
+             || (costGrowth == minCostGrowth && idleTime < minIdleTime)) {
                 minCostGrowth = costGrowth;
                 minIdleTime = idleTime;
                 bestStartTime = predictedStartTime;
@@ -129,72 +132,8 @@ public class VMFactory {
             }
         }
     
-        // اگر هیچ VM فعالی پیدا نشد، برگردان null تا در createVM VM جدید ساخته شود
         return bestVM;
     }
-    
-
-    // private Vm findSuitableVM(Task task, double currentTime) {
-    //     double slackFactor = 1.3; // تا X٪ تاخیر نسبت به sub-deadline مجاز است
-    //     Vm bestVM = null;
-    //     double minCostGrowth = Double.MAX_VALUE;
-    //     double minIdleTime = Double.MAX_VALUE;
-    //     double bestStartTime = Double.MAX_VALUE;
-    //     double THRESHOLD_FOR_PARALLELISM = 300;
-
-    //     for (Vm vm : activeVMs) {
-    //         if (!vm.isActive()) continue;
-    
-    //         double predictedStartTime = calculatePredictedStartTime(task, vm, currentTime);
-    //         double predictedExecutionTime = calculatePredictedExecutionTime(task, vm);
-    //         double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
-    
-    //         if (predictedCompletionTime > task.getSubDeadline() * slackFactor) continue;
-    
-    //         double costPerSecond = vm.getCostPerHour() / 3600.0;
-    //         double costGrowth = costPerSecond * predictedExecutionTime;
-    //         double idleTime = Math.max(0.0, predictedStartTime - vm.getPredictedCompletionTime());
-    
-    //         // مهم: اولویت به VMهایی که زودتر آماده هستند 
-    //         if (costGrowth < minCostGrowth ||
-    //             (costGrowth == minCostGrowth && idleTime < minIdleTime) ||
-    //             (costGrowth == minCostGrowth && idleTime == minIdleTime && predictedStartTime < bestStartTime)) {
-                
-    //             minCostGrowth = costGrowth;
-    //             minIdleTime = idleTime;
-    //             bestStartTime = predictedStartTime;
-    //             bestVM = vm;
-    //         }
-
-    //         if (predictedStartTime - currentTime > THRESHOLD_FOR_PARALLELISM) {
-    //             bestVM = null;
-    //         }
-    //     }
-
-    //     // اگر زمان شروع خیلی دیر است، VM جدید بهتر است
-    //     if (bestVM != null && minIdleTime > 0)
-    //         bestVM.updateIdleTime(minIdleTime);
-    
-
-    //     return bestVM;
-    // }
-
-    // private VMType selectBestVMType(Task task, double currentTime) {
-    //     return vmTypes.stream()
-    //         .min((t1, t2) -> {
-    //             double costPerSecond1 = t1.costPerHour / 3600.0;
-    //             double costPerSecond2 = t2.costPerHour / 3600.0;
-    
-    //             double execTimeOnT1 = task.getCompletionTime() / t1.processingCapacity;
-    //             double execTimeOnT2 = task.getCompletionTime() / t2.processingCapacity;
-    
-    //             double cost1 = execTimeOnT1 * costPerSecond1;
-    //             double cost2 = execTimeOnT2 * costPerSecond2;
-    
-    //             return Double.compare(cost1, cost2); // کمینه هزینه اجرا
-    //         })
-    //         .orElse(vmTypes.get(0)); // fallback
-    // }
 
     private VMType selectBestVMType(Task task, double currentTime) {
         double subDeadline = task.getSubDeadline();
