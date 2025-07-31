@@ -2,14 +2,16 @@ package org.cloudbus.cloudsim.examples.nosf;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
-import java.util.logging.ConsoleHandler;
+import java.util.Random;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
-
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.util.Iterator;
+
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -17,26 +19,8 @@ import org.w3c.dom.NodeList;
 
 public class VMFactory {
     private static final Logger LOGGER = Logger.getLogger(VMFactory.class.getName());
-
-    // Add below static section cause logs of (creation and releasion) doesnt print in Windows!
-    static {
-        LOGGER.setLevel(Level.INFO);
-        LOGGER.setUseParentHandlers(false);  // جلوگیری از پراکندگی به بالاتر
-
-        try {
-            FileHandler fileHandler = new FileHandler("simulation.log", true);
-            fileHandler.setFormatter(new SimpleFormatter());
-            fileHandler.setLevel(Level.INFO);
-            LOGGER.addHandler(fileHandler);
-
-            ConsoleHandler consoleHandler = new ConsoleHandler();
-            consoleHandler.setFormatter(new SimpleFormatter());
-            consoleHandler.setLevel(Level.INFO);
-            LOGGER.addHandler(consoleHandler);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
+    
+    // --- حذف شد: لاگر تکراری بود و در کلاس اصلی تعریف شده بود ---
 
     private static class VMType {
         String id;
@@ -48,6 +32,9 @@ public class VMFactory {
 
     private final List<VMType> vmTypes = new ArrayList<>();
     private final List<Vm> activeVMs = new ArrayList<>();
+    private final List<Vm> allVMs = new ArrayList<>();
+    private final Random random = new Random(); // برای شبیه‌سازی نوسان عملکرد
+
     private final int maxVMs;
     private int vmCounter = 0;
 
@@ -74,83 +61,203 @@ public class VMFactory {
             e.printStackTrace();
         }
     }
-
-    public Vm createVM(Task task, double currentTime) {
-        if (activeVMs.size() >= maxVMs) {
-            LOGGER.info("Cannot create new VM: Maximum VM limit reached.");
-            return null;
-        }
+    
+    // --- اصلاح شد: نام متد برای وضوح بیشتر تغییر کرد ---
+    public Vm findOrCreateVM(Task task, double currentTime) {
         Vm suitableVM = findSuitableVM(task, currentTime);
         if (suitableVM != null) {
             return suitableVM;
         }
-        VMType vmType = selectBestVMType(task);
+
+        if (activeVMs.size() >= maxVMs) {
+            LOGGER.warning("Cannot create new VM: Maximum VM limit reached.");
+            return null;
+        }
+        
+        VMType vmType = selectBestVMTypeForNewLease(task, currentTime);
+        if (vmType == null) {
+            LOGGER.warning("No suitable new VMType found for task " + task.getId());
+            return null;
+        }
+
         String vmId = "vm-" + (++vmCounter);
-        Vm vm = new Vm(vmId, vmType.processingCapacity, vmType.costPerHour, vmType.energyPerSecond, vmType.bootTime);
+        Vm vm = new Vm(vmId, vmType.id, vmType.processingCapacity, vmType.costPerHour, vmType.energyPerSecond, vmType.bootTime);
+        vm.setLeaseStartTime(currentTime); // زمان شروع اجاره
+        vm.setNextReleaseCheckTime(currentTime + NOSFScheduler.getBillingPeriod());
         activeVMs.add(vm);
-        LOGGER.info(String.format("Created new VM %s at time %.2f with capacity %.2f MIPS", vmId, currentTime, vmType.processingCapacity));
+        allVMs.add(vm);
+        LOGGER.info(String.format("Created new VM %s (Type: %s) at time %.2f. Booting...", vmId, vmType.id, currentTime));
         return vm;
     }
 
     private Vm findSuitableVM(Task task, double currentTime) {
         Vm bestVM = null;
-        double earliestCompletionTime = Double.MAX_VALUE;
-        double minIdleTime = Double.MAX_VALUE;
-
+        double minCostGrowth = Double.MAX_VALUE;
+    
         for (Vm vm : activeVMs) {
-            if (!vm.isActive()) continue;
+            // ابتدا زمان شروع و پایان پیش‌بینی‌شده را محاسبه می‌کنیم
             double predictedStartTime = calculatePredictedStartTime(task, vm, currentTime);
             double predictedExecutionTime = calculatePredictedExecutionTime(task, vm);
             double predictedCompletionTime = predictedStartTime + predictedExecutionTime;
-            double idleTime = predictedStartTime > vm.getPredictedCompletionTime() ? 
-                             predictedStartTime - vm.getPredictedCompletionTime() : 0.0;
-
-            if (predictedCompletionTime <= task.getSubDeadline() && predictedCompletionTime < earliestCompletionTime) {
-                earliestCompletionTime = predictedCompletionTime;
-                minIdleTime = idleTime;
-                bestVM = vm;
-            } else if (predictedCompletionTime <= task.getSubDeadline() && 
-                       predictedCompletionTime == earliestCompletionTime && idleTime < minIdleTime) {
-                minIdleTime = idleTime;
+    
+            // اگر این VM تا زمان شروع پیش‌بینی‌شده آزاد نباشد، حذفش کن
+            if (vm.getAvailableTime(currentTime) > predictedStartTime) {
+                continue;
+            }
+    
+            // اگر نتواند قبل از زیرمهلت تمامش کند، کنار بگذار
+            if (predictedCompletionTime > task.getSubDeadline()) {
+                continue;
+            }
+    
+            // میزان رشد هزینه پس از اتمام دوره‌ٔ صورتحساب
+            double remainingBillingTime = vm.getRemainingBillingTime(predictedStartTime);
+            double costGrowth = vm.getCostForDuration(Math.max(0, predictedExecutionTime - remainingBillingTime));
+    
+            // کمترین رشد هزینه را انتخاب کن (در صورت تساوی، VM با کمتر بودن زمان بیکاری)
+            if (costGrowth < minCostGrowth
+                || (costGrowth == minCostGrowth && (bestVM == null || vm.getTotalIdleTime() < bestVM.getTotalIdleTime()))
+            ) {
+                minCostGrowth = costGrowth;
                 bestVM = vm;
             }
         }
-
-        if (bestVM != null && minIdleTime > 0) {
-            bestVM.updateIdleTime(minIdleTime);
+    
+        if (bestVM != null) {
+            LOGGER.info("Found suitable existing VM " + bestVM.getId() + " for task " + task.getId());
         }
         return bestVM;
     }
 
-    private VMType selectBestVMType(Task task) {
-    return vmTypes.stream()
-            .max((t1, t2) -> {
-                double efficiency1 = t1.processingCapacity / t1.costPerHour;
-                double efficiency2 = t2.processingCapacity / t2.costPerHour;
-                return Double.compare(efficiency1, efficiency2);
-            })
-            .orElse(vmTypes.get(0));
+    // --- اصلاح شد: نام متد برای وضوح بیشتر تغییر کرد ---
+    private VMType selectBestVMTypeForNewLease(Task task, double currentTime) {
+        VMType bestType = null;
+        double minCost = Double.MAX_VALUE;
+
+        for (VMType type : vmTypes) {
+            double predictedExecTime = (task.getMeanExecutionTime() / type.processingCapacity) * NOSFScheduler.getNormalizationFactor();
+            double predictedCompletionTime = currentTime + type.bootTime + predictedExecTime;
+
+            // اگر حتی سریع‌ترین VM هم نتواند در زیرمهلت کار را تمام کند، آن را در نظر نگیر
+            if (predictedCompletionTime > task.getSubDeadline()) {
+                continue;
+            }
+
+            double costForTask = (Math.ceil((type.bootTime + predictedExecTime) / NOSFScheduler.getBillingPeriod())) *
+                                (type.costPerHour / 3600.0) * NOSFScheduler.getBillingPeriod();
+            
+            if (costForTask < minCost) {
+                minCost = costForTask;
+                bestType = type;
+            }
+        }
+        
+        // --- اصلاح شد: اگر هیچ نوعی مناسب نبود، سریعترین نوع را به عنوان آخرین راه حل انتخاب کن ---
+        if (bestType == null) {
+             bestType = vmTypes.stream().max(Comparator.comparingDouble(t -> t.processingCapacity)).orElse(null);
+        }
+
+        return bestType;
     }
 
     public double calculatePredictedStartTime(Task task, Vm vm, double currentTime) {
-        double latestPredecessorCompletion = task.getPredecessors().stream()
-                .mapToDouble(pred -> pred.getCompletionTime() + pred.getDataTransferTime())
-                .max().orElse(0.0);
-        return Math.max(currentTime, Math.max(vm.getPredictedCompletionTime(), latestPredecessorCompletion));
+        // برای هر پیشینی، اگر روی همین VM اجرا شده باشه، فقط منتظر اتمامش می‌مونیم
+        double dataReadyTime = task.getPredecessors().stream()
+            .mapToDouble(pred -> 
+                pred.getAssignedVM() != null && pred.getAssignedVM().equals(vm)
+                    ? pred.getCompletionTime()
+                    : pred.getCompletionTime() + pred.getDataTransferTime(task)
+            )
+            .max()
+            .orElse(currentTime);
+    
+        double vmReadyTime = vm.getAvailableTime(currentTime);
+        return Math.max(dataReadyTime, vmReadyTime);
     }
-
+    
+    // --- اصلاح شد: این متد زمان واقعی اجرا را با کمی نوسان شبیه‌سازی می‌کند ---
     public double calculatePredictedExecutionTime(Task task, Vm vm) {
-        double baseExecutionTime = task.getMeanExecutionTime() + Math.sqrt(task.getVarianceExecutionTime());
-        return baseExecutionTime * (2000.0 / vm.getProcessingCapacity());
+        double meanExecutionOnVm = (task.getMeanExecutionTime() / vm.getProcessingCapacity()) * NOSFScheduler.getNormalizationFactor();
+        double stdDev = meanExecutionOnVm * NOSFScheduler.getVarianceFactorAlpha();
+        
+        // تولید یک عدد تصادفی با توزیع نرمال برای شبیه‌سازی نوسان عملکرد
+        double actualExecutionTime = random.nextGaussian() * stdDev + meanExecutionOnVm;
+
+        return Math.max(0.1, actualExecutionTime); // حداقل زمان اجرا برای جلوگیری از مقادیر منفی
     }
 
     public void releaseVM(Vm vm, double currentTime) {
-        vm.setActive(false);
-        activeVMs.remove(vm);
-        LOGGER.info(String.format("Released VM %s at time %.2f", vm.getId(), currentTime));
+        if (vm.isActive()) {
+            vm.setLeaseEndTime(currentTime);
+            vm.setActive(false);
+            activeVMs.remove(vm);
+            LOGGER.info(String.format("Released VM %s at time %.2f", vm.getId(), currentTime));
+        }
+    }
+    
+    // --- جدید: متدی برای پیدا کردن زمان اتمام بعدی در شبیه‌سازی ---
+    public double getNextVmCompletionTime(double currentTime) {
+        return activeVMs.stream()
+                .flatMap(vm -> vm.getRunningTasks().stream())
+                .mapToDouble(Task::getCompletionTime)
+                .filter(t -> t > currentTime)
+                .min()
+                .orElse(Double.MAX_VALUE);
+    }
+
+    // --- جدید: متدی برای بروزرسانی وضعیت VMها و گرفتن تسک‌های تمام شده ---
+    public List<Task> updateVmsAndGetCompletedTasks(double currentTime) {
+        List<Task> completedTasks = new ArrayList<>();
+        for (Vm vm : activeVMs) {
+            completedTasks.addAll(vm.updateStatus(currentTime));
+        }
+        return completedTasks;
     }
 
     public List<Vm> getActiveVMs() {
         return new ArrayList<>(activeVMs);
+    }
+
+    public List<Vm> getAllVMs() {
+        return new ArrayList<>(allVMs);
+    }
+
+    public int getVMCounter() {
+        return vmCounter;
+    }
+
+    /**
+     * هر بار که clock جلو می‌رود (مثلاً پس از هر تسک یا event)، این را صدا بزن.
+     * VMهایی که به نقطهٔ n×billingPeriod رسیده و در آن لحظه idle هستند را release می‌کند.
+     */
+    public void checkIdleVMs(double currentTime) {
+        for (Iterator<Vm> iterator = activeVMs.iterator(); iterator.hasNext();) {
+            Vm vm = iterator.next();
+            double scheduledTime = vm.getNextReleaseCheckTime();
+            // تا زمانی که currentTime از nextReleaseCheckTime بگذرد
+            // while (currentTime >= scheduledTime) {
+            if (currentTime >= scheduledTime) {
+                if (vm.getRunningTasks().isEmpty()) {
+                    LOGGER.info("Debug ==> vm.getRunningTasks on VM: " + vm.getRunningTasks().toString());
+                    // آزادسازی در همان لحظهٔ برنامه‌ریزی‌شده
+                    LOGGER.info(
+                        "Releasing idle VM " + vm.getId() +
+                        " at time " + currentTime +
+                        " (idle since last task end)"
+                      );
+                    releaseVM(vm, currentTime);
+                    iterator.remove();  // از activeVMs هم حذف کن
+                    break;  // این VM دیگر فعال نیست
+                } else {
+                    // هنوز تسک داشته؛ یک ساعت دیگر صبر کن
+                    LOGGER.info(
+                        "VM " + vm.getId() +
+                        " still busy at time " + currentTime + ", NextReleaseCheckTime " + vm.getNextReleaseCheckTime() +
+                        ", delaying release to next billing period"
+                      );
+                    vm.advanceNextReleaseCheckTime(NOSFScheduler.getBillingPeriod());
+                }
+            }
+        }
     }
 }

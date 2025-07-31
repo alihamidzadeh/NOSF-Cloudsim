@@ -1,5 +1,8 @@
 package org.cloudbus.cloudsim.examples.nosf;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Vm {
     private final String id;
     private final double processingCapacity;
@@ -13,8 +16,17 @@ public class Vm {
     private double cost;
     private double energyConsumption;
 
-    public Vm(String id, double processingCapacity, double costPerHour, double energyPerSecond, double bootTime) {
+
+    private String typeId;
+    private double leaseStartTime;
+    private double leaseEndTime;
+    private double nextReleaseCheckTime;
+    private final List<Task> runningTasks = new ArrayList<>();
+    private final List<Task> completedTasks = new ArrayList<>();
+
+    public Vm(String id, String typeId, double processingCapacity, double costPerHour, double energyPerSecond, double bootTime) {
         this.id = id;
+        this.typeId = typeId;
         this.processingCapacity = processingCapacity;
         this.costPerHour = costPerHour;
         this.energyPerSecond = energyPerSecond;
@@ -102,4 +114,81 @@ public class Vm {
             totalIdleTime = Math.max(0, simulationDuration - totalActiveTime);
         }
     }
+
+    public String getTypeId() { return typeId; }
+    public void setLeaseStartTime(double time) { this.leaseStartTime = time; }
+    public void setLeaseEndTime(double time) { this.leaseEndTime = time; }
+
+    public double getTotalLeaseTime() {
+        return leaseEndTime > leaseStartTime ? leaseEndTime - leaseStartTime : 0;
+    }
+
+    public double getAvailableTime(double currentTime) {
+        if (runningTasks.isEmpty()) {
+            // اگر VM بوت نشده، زمان در دسترس بودن پس از بوت است
+            return leaseStartTime + bootTime;
+        }
+        // در غیر این صورت، زمان اتمام آخرین تسک در حال اجراست
+        return runningTasks.stream().mapToDouble(Task::getCompletionTime).max().orElse(leaseStartTime + bootTime);
+    }
+
+    public boolean isAvailable(double currentTime) {
+        return getAvailableTime(currentTime) <= currentTime;
+    }
+
+    public void addTask(Task task) {
+        runningTasks.add(task);
+        this.totalActiveTime += task.getExecutionTime();
+        // محاسبه idle time بین اتمام تسک قبلی و شروع تسک جدید
+        double lastCompletion = completedTasks.isEmpty() ? (leaseStartTime + bootTime) : completedTasks.get(completedTasks.size()-1).getCompletionTime();
+        this.totalIdleTime += task.getStartTime() - lastCompletion;
+    }
+
+    public List<Task> updateStatus(double currentTime) {
+        List<Task> justCompleted = new ArrayList<>();
+        for (Task task : new ArrayList<>(runningTasks)) {
+            if (task.getCompletionTime() <= currentTime) {
+                runningTasks.remove(task);
+                completedTasks.add(task);
+                justCompleted.add(task);
+            }
+        }
+        return justCompleted;
+    }
+
+    public List<Task> getRunningTasks() { return runningTasks; }
+
+    public double getCostForDuration(double duration) {
+        return (duration / 3600.0) * this.costPerHour;
+    }
+
+    public double getEnergyForDuration(double duration) {
+        return duration * this.energyPerSecond;
+    }
+
+    public double getRemainingBillingTime(double currentTime) {
+        if (leaseStartTime < 0) return 0;
+        double elapsedTime = currentTime - leaseStartTime;
+        double billingPeriod = NOSFScheduler.getBillingPeriod();
+        return billingPeriod - (elapsedTime % billingPeriod);
+    }
+
+    /**
+     * زمان بررسی بعدی برای release خودکار (n×billingPeriod).
+     */
+    public void setNextReleaseCheckTime(double time) {
+        this.nextReleaseCheckTime = time;
+    }
+
+    public double getNextReleaseCheckTime() {
+        return this.nextReleaseCheckTime;
+    }
+
+    /**
+     * افزایش نقطهٔ چک به اندازهٔ یک دورهٔ صورتحساب (ساعتی).
+     */
+    public void advanceNextReleaseCheckTime(double billingPeriod) {
+        this.nextReleaseCheckTime += billingPeriod;
+}
+
 }
