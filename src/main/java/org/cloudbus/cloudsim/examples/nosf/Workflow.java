@@ -45,11 +45,12 @@ public class Workflow {
                 Map<String, Double> jobRuntimes = parseJobsRuntimes(document);
                 Map<String, List<String>> dependencies = parseDependencies(document);
                 String workflowId = "wf-" + workflowCounter++;
-                double PCPDeadline = computePCPDeadline(jobRuntimes, dependencies);
+                double PCPDeadline = computePCPDeadline_1(jobRuntimes, dependencies);
                 double deadline = 2 * PCPDeadline;
                 System.out.println("PCP Runtime for " + workflowId + ": " + PCPDeadline);
                 double arrivalTime = NOSFScheduler.getCurrentTime();
                 Workflow workflow = new Workflow(workflowId, arrivalTime, deadline);
+                PCPDeadline = computePCPDeadline(workflow);
                 
                 // Load tasks
                 parseJobTasks(document, workflow);
@@ -157,7 +158,7 @@ public class Workflow {
         }
     }
 
-    public static double computePCPDeadline(Map<String, Double> jobs, Map<String, List<String>> dependencies) {
+    public static double computePCPDeadline_1(Map<String, Double> jobs, Map<String, List<String>> dependencies) {
     // Compute reverse graph
     Map<String, List<String>> reverseGraph = new HashMap<>();
     Map<String, Integer> inDegree = new HashMap<>();
@@ -208,6 +209,62 @@ public class Workflow {
     return maxDeadline;
 }
 
+    /**
+     * طول مسیر بحرانی (طولانی‌ترین مسیر) در ورک‌فلو را محاسبه می‌کند.
+     * این متد از یک رویکرد بازگشتی به همراه مموایزیشن (memoization) برای جلوگیری از محاسبات تکراری استفاده می‌کند.
+     * مقدار بازگشتی، مجموع زمان اجرای تسک‌ها در طولانی‌ترین مسیر از یک تسک ورودی تا یک تسک خروجی است.
+     *
+     * @param workflow ورک‌فلویی که باید مسیر بحرانی آن محاسبه شود.
+     * @return طول مسیر بحرانی (makespan) به عنوان یک مقدار double.
+     */
+    public static double computePCPDeadline(Workflow workflow) {
+        // از یک نقشه برای ذخیره نتایج محاسبات قبلی استفاده می‌کنیم (Memoization)
+        Map<String, Double> memo = new HashMap<>();
+        double maxDeadline = 0.0;
+
+        // طولانی‌ترین مسیر را برای هر تسک خروجی (exit task) محاسبه می‌کنیم
+        for (Task task : workflow.getTasks()) {
+            if (task.getSuccessors().isEmpty()) {
+                double pathLength = getLongestPathTo(task, memo);
+                if (pathLength > maxDeadline) {
+                    maxDeadline = pathLength;
+                }
+            }
+        }
+        return maxDeadline;
+    }
+
+    /**
+     * یک متد کمکی بازگشتی برای پیدا کردن طولانی‌ترین مسیر تا یک تسک مشخص.
+     *
+     * @param task تسکی که طولانی‌ترین مسیر تا آن باید محاسبه شود.
+     * @param memo نقشه‌ای برای ذخیره و بازیابی نتایج محاسبات قبلی.
+     * @return طولانی‌ترین مسیر تا تسک مشخص شده.
+     */
+    private static double getLongestPathTo(Task task, Map<String, Double> memo) {
+        // اگر قبلاً طول مسیر برای این تسک محاسبه شده، از مقدار ذخیره‌شده استفاده کن
+        if (memo.containsKey(task.getId())) {
+            return memo.get(task.getId());
+        }
+
+        // محاسبه طول مسیر برای پدران (predecessors)
+        double maxPredPathLength = 0.0;
+        if (!task.getPredecessors().isEmpty()) {
+            maxPredPathLength = task.getPredecessors().stream()
+                    .mapToDouble(pred -> getLongestPathTo(pred, memo))
+                    .max()
+                    .orElse(0.0);
+        }
+
+        // طول مسیر تا تسک فعلی برابر است با زمان اجرای خودش + طولانی‌ترین مسیر پدرانش
+        double currentPathLength = task.getMeanExecutionTime() + maxPredPathLength;
+
+        // نتیجه را در نقشه ذخیره کن تا دوباره محاسبه نشود
+        memo.put(task.getId(), currentPathLength);
+
+        return currentPathLength;
+    }
+
     public void addTask(Task task) {
         tasks.add(task);
         taskMap.put(task.getId(), task);
@@ -251,4 +308,26 @@ public class Workflow {
     public boolean hasDeadlineViolation() {
         return getMakespan() > deadline;
     }
+
+    // دو فیلد جدید برای کش کردن مقادیر محاسبه‌شده
+    private double criticalPathLength = -1;
+    private double totalExecutionTime = -1;
+
+    public double getCriticalPathLength() {
+        if (this.criticalPathLength == -1) {
+            // از متد قبلی شما که PCPDeadline نام داشت استفاده می‌کنیم
+            this.criticalPathLength = Workflow.computePCPDeadline(this);
+        }
+        return this.criticalPathLength;
+    }
+
+    public double getTotalExecutionTime() {
+        if (this.totalExecutionTime == -1) {
+            this.totalExecutionTime = getTasks().stream()
+                .mapToDouble(t -> t.getMeanExecutionTime() + Math.sqrt(t.getVarianceExecutionTime()))
+                .sum();
+        }
+        return this.totalExecutionTime;
+    }
+
 }

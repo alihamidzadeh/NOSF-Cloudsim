@@ -150,4 +150,11 @@ public class Task {
     public void setEnergyConsumption(double energyConsumption) {
         this.energyConsumption = energyConsumption;
     }
+
+    // متد جدید برای محاسبه زمان انتقال داده به یک تسک خاص
+    public double getDataTransferTime(Task targetTask) {
+        // این یک پیاده‌سازی ساده است. در حالت واقعی ممکن است به حجم داده خروجی بستگی داشته باشد.
+        // فرض می‌کنیم زمان انتقال داده متعلق به تسک مبدا است.
+        return this.dataTransferTime;
+    }
 }
