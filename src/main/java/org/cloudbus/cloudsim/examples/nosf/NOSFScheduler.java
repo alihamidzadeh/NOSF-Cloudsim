@@ -150,7 +150,6 @@ public class NOSFScheduler {
     // --- اصلاح شد: حلقه اصلی شبیه‌سازی برای مدیریت صحیح رویدادها بازنویسی شد ---
     public void runSimulation() {
         while (workflows.stream().anyMatch(w -> !w.isCompleted())) {
-            
             // اگر تسک آماده‌ای برای اجرا وجود دارد، زمان‌بندی کن
             if (!readyTasks.isEmpty()) {
                 Task taskToSchedule = readyTasks.poll();
@@ -161,20 +160,37 @@ public class NOSFScheduler {
                 }
                 
                 scheduleTask(taskToSchedule);
+                //todo: اگه لازم نبود پاک بشه (علی)
+                vmFactory.checkIdleVMs(currentTime);
+
             } else {
-                // اگر تسک آماده‌ای نیست، زمان را به اتمام نزدیک‌ترین تسک در حال اجرا منتقل کن
+                // اگر تسک آماده‌ای نیست، زمان را به اتمام نزدیک‌ترین پریود زمانی ماشین در حال اجرا منتقل کن
                 double nextCompletionTime = vmFactory.getNextVmCompletionTime(currentTime);
                 if (nextCompletionTime < Double.MAX_VALUE) {
                     currentTime = nextCompletionTime;
                     // پردازش تسک‌هایی که در این زمان تمام شده‌اند
                     processFinishedTasks();
+
+                    //todo: اگه لازم نبود پاک بشه (علی)
+                    // if (!readyTasks.isEmpty()){
+                    //     LOGGER.info("Debug ==> readyTasks: " + readyTasks.toString());
+                    //     vmFactory.checkIdleVMs(currentTime);
+                    // }
+
                 } else {
                     // اگر هیچ تسک آماده و در حال اجرایی نیست، شبیه‌سازی تمام است
                     break;
                 }
             }
         }
-        
+
+        //todo: اگه لازم نبود پاک بشه (علی)
+        // یک بار نهایی برای VMهایی که دقیقاً روی مرز اجاره هستند
+        //         بدون این فراخوانی، اگر یک VM دقیقاً در زمان n×۱ ساعت صورتحساب idle باشد ولی شبیه‌سازی هیچ “رویداد” دیگری (task schedule یا task completion) در همان لحظه نداشته باشد، هرگز چکIdleVMs اجرا نشده و VM دیرتر یا اصلاً آزاد نمی‌شود.
+        // با افزودن checkIdleVMs بعد از هر رویداد مهم، تضمین می‌کنیم که در اولین فرصتی که VM به مرز صورتحساب برسد و بدون تسک باشد، بلافاصله آزاد و هزینه‌اش محاسبه شود.
+        // بعد از این تغییر مجدد شبیه‌سازی را اجرا کن و در خروجی ببین که VMها دقیقاً در مرزهای ساعت آزاد می‌شوند و هزینه‌هایشان صحیح محاسبه می‌گردد.
+        vmFactory.checkIdleVMs(currentTime);
+
         // آزادسازی تمام VM های باقیمانده در انتهای شبیه‌سازی
         for (Vm vm : vmFactory.getActiveVMs()) {
             vmFactory.releaseVM(vm, currentTime);
@@ -205,11 +221,13 @@ public class NOSFScheduler {
 
         double cost = vm.getCostForDuration(executionTime);
         double energy = vm.getEnergyForDuration(executionTime);
+        vm.addCost(cost);
+        vm.addEnergyConsumption(energy);
         task.setCost(cost);
         task.setEnergyConsumption(energy);
         totalCost += cost;
         totalEnergyConsumption += energy;
-        
+
         // بروزرسانی وضعیت VM
         vm.addTask(task);
         
@@ -218,6 +236,8 @@ public class NOSFScheduler {
 
         // --- اصلاح شد: پس از زمانبندی، باید تسک‌های تمام شده را پردازش کنیم ---
         processFinishedTasks();
+        vmFactory.checkIdleVMs(currentTime);
+
     }
 
     // --- جدید: متد برای پردازش تسک‌های تمام‌شده و فعال‌سازی فاز بازخورد ---

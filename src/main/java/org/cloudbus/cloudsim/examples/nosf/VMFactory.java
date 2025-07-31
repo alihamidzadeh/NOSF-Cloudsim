@@ -10,6 +10,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import java.util.logging.SimpleFormatter;
 import javax.xml.parsers.DocumentBuilderFactory;
+import java.util.Iterator;
+
 
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -81,6 +83,7 @@ public class VMFactory {
         String vmId = "vm-" + (++vmCounter);
         Vm vm = new Vm(vmId, vmType.id, vmType.processingCapacity, vmType.costPerHour, vmType.energyPerSecond, vmType.bootTime);
         vm.setLeaseStartTime(currentTime); // زمان شروع اجاره
+        vm.setNextReleaseCheckTime(currentTime + NOSFScheduler.getBillingPeriod());
         activeVMs.add(vm);
         allVMs.add(vm);
         LOGGER.info(String.format("Created new VM %s (Type: %s) at time %.2f. Booting...", vmId, vmType.id, currentTime));
@@ -221,5 +224,40 @@ public class VMFactory {
 
     public int getVMCounter() {
         return vmCounter;
+    }
+
+    /**
+     * هر بار که clock جلو می‌رود (مثلاً پس از هر تسک یا event)، این را صدا بزن.
+     * VMهایی که به نقطهٔ n×billingPeriod رسیده و در آن لحظه idle هستند را release می‌کند.
+     */
+    public void checkIdleVMs(double currentTime) {
+        for (Iterator<Vm> iterator = activeVMs.iterator(); iterator.hasNext();) {
+            Vm vm = iterator.next();
+            double scheduledTime = vm.getNextReleaseCheckTime();
+            // تا زمانی که currentTime از nextReleaseCheckTime بگذرد
+            // while (currentTime >= scheduledTime) {
+            if (currentTime >= scheduledTime) {
+                if (vm.getRunningTasks().isEmpty()) {
+                    LOGGER.info("Debug ==> vm.getRunningTasks on VM: " + vm.getRunningTasks().toString());
+                    // آزادسازی در همان لحظهٔ برنامه‌ریزی‌شده
+                    LOGGER.info(
+                        "Releasing idle VM " + vm.getId() +
+                        " at time " + currentTime +
+                        " (idle since last task end)"
+                      );
+                    releaseVM(vm, currentTime);
+                    iterator.remove();  // از activeVMs هم حذف کن
+                    break;  // این VM دیگر فعال نیست
+                } else {
+                    // هنوز تسک داشته؛ یک ساعت دیگر صبر کن
+                    LOGGER.info(
+                        "VM " + vm.getId() +
+                        " still busy at time " + currentTime + ", NextReleaseCheckTime " + vm.getNextReleaseCheckTime() +
+                        ", delaying release to next billing period"
+                      );
+                    vm.advanceNextReleaseCheckTime(NOSFScheduler.getBillingPeriod());
+                }
+            }
+        }
     }
 }

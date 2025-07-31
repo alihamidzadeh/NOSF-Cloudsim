@@ -20,6 +20,7 @@ public class Vm {
     private String typeId;
     private double leaseStartTime;
     private double leaseEndTime;
+    private double nextReleaseCheckTime;
     private final List<Task> runningTasks = new ArrayList<>();
     private final List<Task> completedTasks = new ArrayList<>();
 
@@ -171,4 +172,23 @@ public class Vm {
         double billingPeriod = NOSFScheduler.getBillingPeriod();
         return billingPeriod - (elapsedTime % billingPeriod);
     }
+
+    /**
+     * زمان بررسی بعدی برای release خودکار (n×billingPeriod).
+     */
+    public void setNextReleaseCheckTime(double time) {
+        this.nextReleaseCheckTime = time;
+    }
+
+    public double getNextReleaseCheckTime() {
+        return this.nextReleaseCheckTime;
+    }
+
+    /**
+     * افزایش نقطهٔ چک به اندازهٔ یک دورهٔ صورتحساب (ساعتی).
+     */
+    public void advanceNextReleaseCheckTime(double billingPeriod) {
+        this.nextReleaseCheckTime += billingPeriod;
+}
+
 }
