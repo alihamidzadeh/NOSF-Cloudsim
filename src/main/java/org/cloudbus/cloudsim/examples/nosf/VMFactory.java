@@ -20,8 +20,6 @@ import org.w3c.dom.NodeList;
 public class VMFactory {
     private static final Logger LOGGER = Logger.getLogger(VMFactory.class.getName());
     
-    // --- حذف شد: لاگر تکراری بود و در کلاس اصلی تعریف شده بود ---
-
     private static class VMType {
         String id;
         double processingCapacity;
@@ -150,7 +148,7 @@ public class VMFactory {
             }
         }
         
-        // --- اصلاح شد: اگر هیچ نوعی مناسب نبود، سریعترین نوع را به عنوان آخرین راه حل انتخاب کن ---
+        // اگر هیچ نوعی مناسب نبود، سریعترین نوع را به عنوان آخرین راه حل انتخاب کن
         if (bestType == null) {
              bestType = vmTypes.stream().max(Comparator.comparingDouble(t -> t.processingCapacity)).orElse(null);
         }
@@ -173,7 +171,7 @@ public class VMFactory {
         return Math.max(dataReadyTime, vmReadyTime);
     }
     
-    // --- اصلاح شد: این متد زمان واقعی اجرا را با کمی نوسان شبیه‌سازی می‌کند ---
+    // این متد زمان واقعی اجرا را با کمی نوسان شبیه‌سازی می‌کند
     public double calculatePredictedExecutionTime(Task task, Vm vm) {
         double meanExecutionOnVm = (task.getMeanExecutionTime() / vm.getProcessingCapacity()) * NOSFScheduler.getNormalizationFactor();
         double stdDev = meanExecutionOnVm * NOSFScheduler.getVarianceFactorAlpha();
@@ -193,7 +191,6 @@ public class VMFactory {
         }
     }
     
-    // --- جدید: متدی برای پیدا کردن زمان اتمام بعدی در شبیه‌سازی ---
     public double getNextVmCompletionTime(double currentTime) {
         return activeVMs.stream()
                 .flatMap(vm -> vm.getRunningTasks().stream())
@@ -203,7 +200,6 @@ public class VMFactory {
                 .orElse(Double.MAX_VALUE);
     }
 
-    // --- جدید: متدی برای بروزرسانی وضعیت VMها و گرفتن تسک‌های تمام شده ---
     public List<Task> updateVmsAndGetCompletedTasks(double currentTime) {
         List<Task> completedTasks = new ArrayList<>();
         for (Vm vm : activeVMs) {

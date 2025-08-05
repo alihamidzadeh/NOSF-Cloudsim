@@ -126,7 +126,6 @@ public class NOSFScheduler {
             return earliestStartTimeCache.get(task);
         }
 
-        // اگر تسک پیش‌نیازی نداشته باشد، زمان شروع برابر با زمان ورود جریان کاری است
         if (task.getPredecessors().isEmpty()) {
             return task.getWorkflow().getArrivalTime();
         }
@@ -184,7 +183,6 @@ public class NOSFScheduler {
                 
                 scheduleTask(taskToSchedule);
                 advanceTime(currentTime);
-                // vmFactory.checkIdleVMs(currentTime);
 
             } else {
                 // اگر تسک آماده‌ای نیست، زمان را به اتمام نزدیک‌ترین پریود زمانی ماشین در حال اجرا منتقل کن
@@ -210,8 +208,7 @@ public class NOSFScheduler {
         Vm vm = vmFactory.findOrCreateVM(task, currentTime);
         if (vm == null) {
             LOGGER.warning("Could not schedule Task " + task.getId() + ": No suitable VM found or limit reached. Re-queuing.");
-            // --- اصلاح شد: اگر VM پیدا نشد، تسک با کمی تاخیر دوباره به صف برمی‌گردد ---
-            task.setEarliestStartTime(currentTime + 1.0); // برای جلوگیری از حلقه بی‌نهایت
+            task.setEarliestStartTime(currentTime + 1.0);
             readyTasks.add(task);
             return;
         }
@@ -240,14 +237,10 @@ public class NOSFScheduler {
         LOGGER.info(String.format("Scheduled Task %s on VM %s: Start=%.2f, End=%.2f, Execution=%.2f, Execution-Cost=$%.2f, Energy=%.0f Ws",
                 task.getId(), vm.getId(), startTime, completionTime, executionTime, cost, energy));
 
-        // --- اصلاح شد: پس از زمانبندی، باید تسک‌های تمام شده را پردازش کنیم ---
         processFinishedTasks();
-        // advanceTime(currentTime);
-        // vmFactory.checkIdleVMs(currentTime);
 
     }
 
-    // --- جدید: متد برای پردازش تسک‌های تمام‌شده و فعال‌سازی فاز بازخورد ---
     private void processFinishedTasks() {
         List<Task> justCompletedTasks = vmFactory.updateVmsAndGetCompletedTasks(currentTime);
 
@@ -267,7 +260,6 @@ public class NOSFScheduler {
                         .mapToDouble(pred -> pred.getCompletionTime() + pred.getDataTransferTime(successor))
                         .max().orElse(0.0);
 
-                // --- شروع اصلاحیه ---
                 // مقدار تخمینی اولیه زمان شروع (M^{est}) را قبل از بازنویسی ذخیره می‌کنیم
                 double originalEst = successor.getEarliestStartTime();
 
@@ -278,7 +270,6 @@ public class NOSFScheduler {
                 // فرمول: l_sub^r = ζ_r + (l_sub - (M^{est} - w))
                 double originalAllocatedDuration = successor.getSubDeadline() - (originalEst - getEstimatedExecutionTime(successor));
                 double newSubDeadline = newEarliestStartTime + originalAllocatedDuration;
-                // --- پایان اصلاحیه ---
 
                 if (newSubDeadline < successor.getLatestCompletionTime()) {
                     successor.setSubDeadline(newSubDeadline);
@@ -365,12 +356,8 @@ public class NOSFScheduler {
 
     public void advanceTime(double currentTime) {
         for (Vm vm : vmFactory.getActiveVMs()) {
-            // double fullHours = Math.floor(currentTime / 3600);  // ساعت کامل فعلی
-            // double nextFullHour = (fullHours + 1) * 3600;  // راس ساعت بعدی
-
-            // فقط در راس ساعت هر ماشین مجازی بررسی کنیم
             if (currentTime >= vm.getNextReleaseCheckTime()) {
-                vmFactory.checkIdleVMs(currentTime);  // فقط در راس ساعت اختصاصی ماشین مجازی
+                vmFactory.checkIdleVMs(currentTime); 
             }
         }
     }
