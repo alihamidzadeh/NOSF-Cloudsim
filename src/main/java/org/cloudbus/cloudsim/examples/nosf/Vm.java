@@ -99,10 +99,6 @@ public class Vm {
         }
     }
 
-    // public void addCost(double cost) {
-    //     this.cost += cost;
-    // }
-
     public void setCost(double cost) {
         this.cost = cost;
     }

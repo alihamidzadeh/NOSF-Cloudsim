@@ -35,7 +35,6 @@ public class Workflow {
         List<Workflow> workflows = new ArrayList<>();
         try {
             for (int i = 0; i < workflowFiles.length; i++) {
-                //NEW
                 File xmlFile = new File(workflowFiles[i]);
                 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
                 DocumentBuilder builder = factory.newDocumentBuilder();
@@ -65,12 +64,6 @@ public class Workflow {
                 .ifPresent(task -> workflow.entryTask = task);
 
                 workflows.add(workflow);
-
-                // Print Entry task
-                // if (workflow.entryTask != null)
-                //     System.out.println("Entry task ID: " + workflow.entryTask.getId());
-                // else
-                //     System.out.println("Entry task not found.");
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -115,7 +108,6 @@ public class Workflow {
                 
                 Task task = new Task(taskId, meanExecutionTime, varianceExecutionTime, dataTransferTime, workflow);
                 workflow.addTask(task);
-                // System.out.println("info: " + taskId+ " - "+ meanExecutionTime+ " - "+ varianceExecutionTime+ " - "+ dataTransferTime);
             }
         } catch (Exception e) {
             System.out.println("Error parsing tasks: " + e);
@@ -153,7 +145,6 @@ public class Workflow {
             for (String parentId : entry.getValue()) {
                 Task fromTask = workflow.getTaskById(parentId);
                 toTask.addPredecessor(fromTask);
-                // System.out.println("Parent: " + fromTask.getId() + " - Child: " +toTask.getId());
             }
         }
     }
@@ -315,7 +306,6 @@ public class Workflow {
 
     public double getCriticalPathLength() {
         if (this.criticalPathLength == -1) {
-            // از متد قبلی شما که PCPDeadline نام داشت استفاده می‌کنیم
             this.criticalPathLength = Workflow.computePCPDeadline(this);
         }
         return this.criticalPathLength;
