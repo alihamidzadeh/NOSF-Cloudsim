@@ -15,8 +15,6 @@ public class Vm {
     private double totalIdleTime;
     private double cost;
     private double energyConsumption;
-
-
     private String typeId;
     private double leaseStartTime;
     private double leaseEndTime;
@@ -101,8 +99,12 @@ public class Vm {
         }
     }
 
-    public void addCost(double cost) {
-        this.cost += cost;
+    // public void addCost(double cost) {
+    //     this.cost += cost;
+    // }
+
+    public void setCost(double cost) {
+        this.cost = cost;
     }
 
     public void addEnergyConsumption(double energy) {
@@ -115,9 +117,18 @@ public class Vm {
         }
     }
 
-    public String getTypeId() { return typeId; }
-    public void setLeaseStartTime(double time) { this.leaseStartTime = time; }
-    public void setLeaseEndTime(double time) { this.leaseEndTime = time; }
+    public String getTypeId() {
+        return typeId;
+    }
+
+    public void setLeaseStartTime(double time) {
+        this.leaseStartTime = time;
+        setNextReleaseCheckTime(Math.ceil(time / 3600) + 3600); // اولین راس ساعت بعد از زمان شروع
+    }
+
+    public void setLeaseEndTime(double time) {
+        this.leaseEndTime = time;
+    }
 
     public double getTotalLeaseTime() {
         return leaseEndTime > leaseStartTime ? leaseEndTime - leaseStartTime : 0;
@@ -184,11 +195,21 @@ public class Vm {
         return this.nextReleaseCheckTime;
     }
 
+    public double getStartReleaseTime() {
+        return this.leaseStartTime;
+    }
+
     /**
      * افزایش نقطهٔ چک به اندازهٔ یک دورهٔ صورتحساب (ساعتی).
      */
-    public void advanceNextReleaseCheckTime(double billingPeriod) {
-        this.nextReleaseCheckTime += billingPeriod;
-}
+    public void advanceNextReleaseCheckTime(double currentTime, double billingPeriod) {
+        this.nextReleaseCheckTime = Math.floor(currentTime/ 3600) * billingPeriod + billingPeriod;
+    }
 
+    public double calculateCost(double currentTime) {
+        double durationInHours = Math.floor((currentTime - leaseStartTime) / 3600);
+        double cost = durationInHours * this.costPerHour;
+        setCost(cost);
+        return cost;
+    }
 }

@@ -226,38 +226,46 @@ public class VMFactory {
         return vmCounter;
     }
 
-    /**
-     * هر بار که clock جلو می‌رود (مثلاً پس از هر تسک یا event)، این را صدا بزن.
-     * VMهایی که به نقطهٔ n×billingPeriod رسیده و در آن لحظه idle هستند را release می‌کند.
-     */
     public void checkIdleVMs(double currentTime) {
+        LOGGER.info("==========> checkIdleVMs is called.");
         for (Iterator<Vm> iterator = activeVMs.iterator(); iterator.hasNext();) {
             Vm vm = iterator.next();
             double scheduledTime = vm.getNextReleaseCheckTime();
-            // تا زمانی که currentTime از nextReleaseCheckTime بگذرد
-            // while (currentTime >= scheduledTime) {
+
+            // اگر زمان کنونی به راس ساعت ماشین مجازی رسید
             if (currentTime >= scheduledTime) {
                 if (vm.getRunningTasks().isEmpty()) {
-                    LOGGER.info("Debug ==> vm.getRunningTasks on VM: " + vm.getRunningTasks().toString());
-                    // آزادسازی در همان لحظهٔ برنامه‌ریزی‌شده
-                    LOGGER.info(
-                        "Releasing idle VM " + vm.getId() +
-                        " at time " + currentTime +
-                        " (idle since last task end)"
-                      );
+                    double vmCost = vm.calculateCost(currentTime);  // محاسبه هزینه اختصاصی برای هر ماشین
+                    LOGGER.info("VM " + vm.getId() + " is idle. Releasing at time " + currentTime + ", cost=" + vmCost);
                     releaseVM(vm, currentTime);
                     iterator.remove();  // از activeVMs هم حذف کن
                     break;  // این VM دیگر فعال نیست
                 } else {
-                    // هنوز تسک داشته؛ یک ساعت دیگر صبر کن
-                    LOGGER.info(
-                        "VM " + vm.getId() +
-                        " still busy at time " + currentTime + ", NextReleaseCheckTime " + vm.getNextReleaseCheckTime() +
-                        ", delaying release to next billing period"
-                      );
-                    vm.advanceNextReleaseCheckTime(NOSFScheduler.getBillingPeriod());
+                    // اگر هنوز تسک در حال اجرا بود، زمان بررسی بعدی یک ساعت دیگر می‌شود
+                    vm.advanceNextReleaseCheckTime(currentTime, NOSFScheduler.getBillingPeriod());
+                    LOGGER.info("VM " + vm.getId() + " still busy at time " + currentTime + ", next leasing time: "+ vm.getNextReleaseCheckTime() + ", delaying release to next billing period.");
                 }
+            }else{
+                LOGGER.info("==========> " + vm.getId() + " was b4 hourly period time.");
             }
         }
     }
+
+    public void calculateFinalBillingCost(double currentTime) {
+        // بررسی تمام ماشین‌های مجازی که در حال استفاده هستند
+        for (Vm vm : getActiveVMs()) {
+            double vmStartTime = vm.getStartReleaseTime();
+            double vmEndTime = currentTime;
+    
+            // اگر ماشین مجازی قبل از یک billingPeriod کامل آزاد شده باشد، هزینه آن محاسبه می‌شود
+            if (vmEndTime > vmStartTime) {
+                double cost = vm.getCostPerHour();  // هزینه بر اساس مدت زمان
+                LOGGER.info("Final billing for VM " + vm.getId() + ": Cost=$" + cost + ", Energy=" + vm.getEnergyConsumption() + " Ws");
+                // به‌روزرسانی هزینه ماشین مجازی
+                vm.setCost(cost);  
+            }
+            releaseVM(vm, currentTime);
+        }
+    }
+    
 }

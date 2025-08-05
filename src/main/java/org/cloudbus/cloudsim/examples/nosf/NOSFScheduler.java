@@ -18,15 +18,12 @@ import org.w3c.dom.Element;
 
 public class NOSFScheduler {
     private final List<Workflow> workflows = new ArrayList<>();
-    // --- اصلاح شد: اولویت‌بندی بر اساس زودترین زمان شروع منطقی‌تر است ---
     private final PriorityQueue<Task> readyTasks = new PriorityQueue<>(Comparator.comparingDouble(Task::getEarliestStartTime));
     private final VMFactory vmFactory;
     private static double currentTime = 0.0;
     private double totalCost = 0.0;
     private double totalEnergyConsumption = 0.0;
     private double resourceUtilization = 0.0;
-    // --- حذف شد: این مقدار باید در انتها محاسبه شود ---
-    // private double deadlineViolationProbability = 0.0; 
     private static double billingPeriod;
     private static int bandwidthMbps;
     private static int normalizationFactor;
@@ -92,10 +89,8 @@ public class NOSFScheduler {
     }
 
     private void preprocessWorkflow(Workflow workflow) {
-        // --- اصلاح شد: ابتدا باید تمام مقادیر پایه محاسبه شوند ---
         for (Task task : workflow.getTasks()) {
             task.setEarliestStartTime(calculateEarliestStartTime(task));
-            // --- اصلاح شد: اولویت دیگر اینجا ست نمی‌شود ---
         }
         for (Task task : workflow.getTasks()) {
             task.setLatestCompletionTime(calculateLatestCompletionTime(task));
@@ -106,7 +101,6 @@ public class NOSFScheduler {
     }
 
     private double getEstimatedExecutionTime(Task task) {
-        // --- اصلاح شد: این فرمول معادل w(λ) در مقاله است ---
         return task.getMeanExecutionTime() + Math.sqrt(task.getVarianceExecutionTime());
     }
 
@@ -114,7 +108,6 @@ public class NOSFScheduler {
         if (task.getPredecessors().isEmpty()) {
             return task.getWorkflow().getArrivalTime();
         }
-        // --- اصلاح شد: محاسبه EST بر اساس EFT پدران است ---
         return task.getPredecessors().stream()
                 .mapToDouble(pred -> 
                     calculateEarliestStartTime(pred) + getEstimatedExecutionTime(pred) + pred.getDataTransferTime(task))
@@ -125,20 +118,18 @@ public class NOSFScheduler {
         if (task.getSuccessors().isEmpty()) {
             return task.getWorkflow().getDeadline();
         }
-        // --- اصلاح شد: محاسبه LCT بر اساس LCT فرزندان و زمان اجرای خودشان است ---
         return task.getSuccessors().stream()
                 .mapToDouble(succ -> 
                     calculateLatestCompletionTime(succ) - getEstimatedExecutionTime(succ) - task.getDataTransferTime(succ))
                 .min().orElse(task.getWorkflow().getDeadline());
     }
     
-    // --- اصلاح شد: این متد به طور کامل بازنویسی شد تا منطق توزیع slack را پیاده‌سازی کند ---
     private double calculateSubDeadline(Task task) {
         Workflow workflow = task.getWorkflow();
         double workflowSlack = workflow.getDeadline() - workflow.getCriticalPathLength();
 
         if (workflowSlack < 0) {
-           workflowSlack = 0; // اگر ددلاین خیلی فشرده باشد، اسلک منفی را صفر در نظر می‌گیریم
+           workflowSlack = 0; 
         }
 
         double taskWeight = getEstimatedExecutionTime(task) / workflow.getTotalExecutionTime();
@@ -147,7 +138,6 @@ public class NOSFScheduler {
         return task.getEarliestStartTime() + getEstimatedExecutionTime(task) + taskSlack;
     }
 
-    // --- اصلاح شد: حلقه اصلی شبیه‌سازی برای مدیریت صحیح رویدادها بازنویسی شد ---
     public void runSimulation() {
         while (workflows.stream().anyMatch(w -> !w.isCompleted())) {
             // اگر تسک آماده‌ای برای اجرا وجود دارد، زمان‌بندی کن
@@ -160,8 +150,8 @@ public class NOSFScheduler {
                 }
                 
                 scheduleTask(taskToSchedule);
-                //todo: اگه لازم نبود پاک بشه (علی)
-                vmFactory.checkIdleVMs(currentTime);
+                advanceTime(currentTime);
+                // vmFactory.checkIdleVMs(currentTime);
 
             } else {
                 // اگر تسک آماده‌ای نیست، زمان را به اتمام نزدیک‌ترین پریود زمانی ماشین در حال اجرا منتقل کن
@@ -170,13 +160,6 @@ public class NOSFScheduler {
                     currentTime = nextCompletionTime;
                     // پردازش تسک‌هایی که در این زمان تمام شده‌اند
                     processFinishedTasks();
-
-                    //todo: اگه لازم نبود پاک بشه (علی)
-                    // if (!readyTasks.isEmpty()){
-                    //     LOGGER.info("Debug ==> readyTasks: " + readyTasks.toString());
-                    //     vmFactory.checkIdleVMs(currentTime);
-                    // }
-
                 } else {
                     // اگر هیچ تسک آماده و در حال اجرایی نیست، شبیه‌سازی تمام است
                     break;
@@ -184,17 +167,12 @@ public class NOSFScheduler {
             }
         }
 
-        //todo: اگه لازم نبود پاک بشه (علی)
-        // یک بار نهایی برای VMهایی که دقیقاً روی مرز اجاره هستند
-        //         بدون این فراخوانی، اگر یک VM دقیقاً در زمان n×۱ ساعت صورتحساب idle باشد ولی شبیه‌سازی هیچ “رویداد” دیگری (task schedule یا task completion) در همان لحظه نداشته باشد، هرگز چکIdleVMs اجرا نشده و VM دیرتر یا اصلاً آزاد نمی‌شود.
-        // با افزودن checkIdleVMs بعد از هر رویداد مهم، تضمین می‌کنیم که در اولین فرصتی که VM به مرز صورتحساب برسد و بدون تسک باشد، بلافاصله آزاد و هزینه‌اش محاسبه شود.
-        // بعد از این تغییر مجدد شبیه‌سازی را اجرا کن و در خروجی ببین که VMها دقیقاً در مرزهای ساعت آزاد می‌شوند و هزینه‌هایشان صحیح محاسبه می‌گردد.
-        vmFactory.checkIdleVMs(currentTime);
-
         // آزادسازی تمام VM های باقیمانده در انتهای شبیه‌سازی
-        for (Vm vm : vmFactory.getActiveVMs()) {
-            vmFactory.releaseVM(vm, currentTime);
-        }
+        // for (Vm vm : vmFactory.getActiveVMs()) {
+        //     vmFactory.releaseVM(vm, currentTime);
+        // }
+        // advanceTime(currentTime);
+        vmFactory.calculateFinalBillingCost(currentTime);
 
         calculatePerformanceMetrics();
         printSimulationSummary();
@@ -221,7 +199,7 @@ public class NOSFScheduler {
 
         double cost = vm.getCostForDuration(executionTime);
         double energy = vm.getEnergyForDuration(executionTime);
-        vm.addCost(cost);
+        // vm.addCost(cost);
         vm.addEnergyConsumption(energy);
         task.setCost(cost);
         task.setEnergyConsumption(energy);
@@ -231,12 +209,13 @@ public class NOSFScheduler {
         // بروزرسانی وضعیت VM
         vm.addTask(task);
         
-        LOGGER.info(String.format("Scheduled Task %s on VM %s: Start=%.2f, End=%.2f, Execution=%.2f, Cost=$%.4f, Energy=%.2f Ws",
+        LOGGER.info(String.format("Scheduled Task %s on VM %s: Start=%.2f, End=%.2f, Execution=%.2f, Execution Cost=$%.4f, Energy=%.2f Ws",
                 task.getId(), vm.getId(), startTime, completionTime, executionTime, cost, energy));
 
         // --- اصلاح شد: پس از زمانبندی، باید تسک‌های تمام شده را پردازش کنیم ---
         processFinishedTasks();
-        vmFactory.checkIdleVMs(currentTime);
+        // advanceTime(currentTime);
+        // vmFactory.checkIdleVMs(currentTime);
 
     }
 
@@ -249,35 +228,6 @@ public class NOSFScheduler {
             feedbackProcessing(completedTask);
         }
     }
-
-
-    // private void feedbackProcessing(Task completedTask) {
-    //     for (Task successor : completedTask.getSuccessors()) {
-    //         // --- اصلاح شد: چک کردن isReady باید بر اساس وضعیت پدران باشد ---
-    //         if (successor.getPredecessors().stream().allMatch(p -> p.getCompletionTime() > 0)) {
-                
-    //             // --- اصلاح شد: منطق فاز بازخورد بر اساس مقاله ---
-    //             double newEarliestStartTime = successor.getPredecessors().stream()
-    //                     .mapToDouble(pred -> pred.getCompletionTime() + pred.getDataTransferTime(successor))
-    //                     .max().orElse(0.0);
-
-    //             successor.setEarliestStartTime(newEarliestStartTime);
-                
-    //             // تنظیم مجدد زیرمهلت بر اساس فرمول (18) مقاله
-    //             double originalDuration = successor.getSubDeadline() - (successor.getEarliestStartTime() - getEstimatedExecutionTime(successor));
-    //             double newSubDeadline = newEarliestStartTime + originalDuration;
-
-    //             if (newSubDeadline < successor.getLatestCompletionTime()) {
-    //                 successor.setSubDeadline(newSubDeadline);
-    //             } else {
-    //                 successor.setSubDeadline(successor.getLatestCompletionTime());
-    //             }
-    //             readyTasks.add(successor);
-    //             LOGGER.info(String.format("Feedback: Successor %s is now ready. EST=%.2f, SubDeadline=%.2f", successor.getId(), newEarliestStartTime, successor.getSubDeadline()));
-    //         }
-    //     }
-    // }
-    
     
     private void feedbackProcessing(Task completedTask) {
         for (Task successor : completedTask.getSuccessors()) {
@@ -313,8 +263,6 @@ public class NOSFScheduler {
             }
         }
     }
-    // --- حذف شد: منطق زمان دیگر به این شکل نیست ---
-    // private void updateCurrentTime() { ... }
 
     private void calculatePerformanceMetrics() {
         double totalVmLeaseTime = vmFactory.getAllVMs().stream()
@@ -358,7 +306,7 @@ public class NOSFScheduler {
             LOGGER.info("    Tasks:");
             for (Task task : workflow.getTasks()) {
                 LOGGER.info(String.format("      Task %s: Sub-Deadline=%.2f sec, Start=%.2f sec, End=%.2f sec, " +
-                                "Execution=%.2f sec, VM=%s, Cost=$%.4f, Energy=%.2f Ws",
+                                "Execution=%.2f sec, VM=%s, Execution Cost=$%.4f, Energy=%.2f Ws",
                         task.getId(), task.getSubDeadline(), task.getStartTime(), task.getCompletionTime(),
                         task.getExecutionTime(), task.getAssignedVM() != null ? task.getAssignedVM().getId() : "None",
                         task.getCost(), task.getEnergyConsumption()));
@@ -391,8 +339,19 @@ public class NOSFScheduler {
         }
         return taskCount > 0 ? totalDelay / taskCount : 0.0;
     }
+
+    public void advanceTime(double currentTime) {
+        for (Vm vm : vmFactory.getActiveVMs()) {
+            // double fullHours = Math.floor(currentTime / 3600);  // ساعت کامل فعلی
+            // double nextFullHour = (fullHours + 1) * 3600;  // راس ساعت بعدی
+
+            // فقط در راس ساعت هر ماشین مجازی بررسی کنیم
+            if (currentTime >= vm.getNextReleaseCheckTime()) {
+                vmFactory.checkIdleVMs(currentTime);  // فقط در راس ساعت اختصاصی ماشین مجازی
+            }
+        }
+    }
     
-    // --- متدهای استاتیک بدون تغییر باقی می‌مانند ---
     public static double getCurrentTime() { return currentTime; }
     public static int getBandwidthMbps() { return bandwidthMbps; }
     public static double getVarianceFactorAlpha() { return varianceFactorAlpha; }
