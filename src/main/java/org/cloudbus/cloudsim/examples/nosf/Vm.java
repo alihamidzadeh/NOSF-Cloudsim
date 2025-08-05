@@ -207,9 +207,10 @@ public class Vm {
     }
 
     public double calculateCost(double currentTime) {
-        double durationInHours = Math.floor((currentTime - leaseStartTime) / 3600);
+        double durationInHours = Math.ceil(this.getTotalLeaseTime() / 3600);
         double cost = durationInHours * this.costPerHour;
         setCost(cost);
         return cost;
     }
+
 }

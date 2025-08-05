@@ -62,7 +62,6 @@ public class VMFactory {
         }
     }
     
-    // --- اصلاح شد: نام متد برای وضوح بیشتر تغییر کرد ---
     public Vm findOrCreateVM(Task task, double currentTime) {
         Vm suitableVM = findSuitableVM(task, currentTime);
         if (suitableVM != null) {
@@ -129,7 +128,6 @@ public class VMFactory {
         return bestVM;
     }
 
-    // --- اصلاح شد: نام متد برای وضوح بیشتر تغییر کرد ---
     private VMType selectBestVMTypeForNewLease(Task task, double currentTime) {
         VMType bestType = null;
         double minCost = Double.MAX_VALUE;
@@ -191,7 +189,7 @@ public class VMFactory {
             vm.setLeaseEndTime(currentTime);
             vm.setActive(false);
             activeVMs.remove(vm);
-            LOGGER.info(String.format("Released VM %s at time %.2f", vm.getId(), currentTime));
+            LOGGER.info(String.format("Released VM %s at time %.2f, Leasing-Duration-Time: %.2f", vm.getId(), currentTime, vm.getTotalLeaseTime()));
         }
     }
     
@@ -235,15 +233,14 @@ public class VMFactory {
             // اگر زمان کنونی به راس ساعت ماشین مجازی رسید
             if (currentTime >= scheduledTime) {
                 if (vm.getRunningTasks().isEmpty()) {
-                    double vmCost = vm.calculateCost(currentTime);  // محاسبه هزینه اختصاصی برای هر ماشین
-                    LOGGER.info("VM " + vm.getId() + " is idle. Releasing at time " + currentTime + ", cost=" + vmCost);
                     releaseVM(vm, currentTime);
-                    iterator.remove();  // از activeVMs هم حذف کن
-                    break;  // این VM دیگر فعال نیست
+                    double vmCost = vm.calculateCost(currentTime);  // محاسبه هزینه اختصاصی برای هر ماشین
+                    LOGGER.info(vm.getId() + " is idle. Releasing at time " + currentTime + ", cost=$" + vmCost);
+                    break;  
                 } else {
                     // اگر هنوز تسک در حال اجرا بود، زمان بررسی بعدی یک ساعت دیگر می‌شود
                     vm.advanceNextReleaseCheckTime(currentTime, NOSFScheduler.getBillingPeriod());
-                    LOGGER.info("VM " + vm.getId() + " still busy at time " + currentTime + ", next leasing time: "+ vm.getNextReleaseCheckTime() + ", delaying release to next billing period.");
+                    LOGGER.info(String.format("%s still busy at time %.1f, next leasing time: %.1f, delaying release to next billing period.", vm.getId(), currentTime, vm.getNextReleaseCheckTime()));
                 }
             }else{
                 LOGGER.info("==========> " + vm.getId() + " was b4 hourly period time.");
@@ -259,12 +256,10 @@ public class VMFactory {
     
             // اگر ماشین مجازی قبل از یک billingPeriod کامل آزاد شده باشد، هزینه آن محاسبه می‌شود
             if (vmEndTime > vmStartTime) {
-                double cost = vm.getCostPerHour();  // هزینه بر اساس مدت زمان
-                LOGGER.info("Final billing for VM " + vm.getId() + ": Cost=$" + cost + ", Energy=" + vm.getEnergyConsumption() + " Ws");
-                // به‌روزرسانی هزینه ماشین مجازی
-                vm.setCost(cost);  
+                releaseVM(vm, currentTime);
+                double cost = vm.calculateCost(currentTime);
+                LOGGER.info(String.format("Final billing for %s: Cost=$%.2f, Energy= %.2f Ws", vm.getId(),cost,vm.getEnergyConsumption()));
             }
-            releaseVM(vm, currentTime);
         }
     }
     

@@ -7,10 +7,11 @@ public class Main {
         // String configFile = "src\\main\\resources\\simulation_config.xml";
         String configFile = "E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\simulation_config.xml";
 
+        // String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\burst.xml"};
+        String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\size-small.xml"};
         // String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\CyberShake_30.xml"};
         // String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\Test_5.xml", "E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\CyberShake_30.xml"};
-        String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\Test_5.xml"};
-        // String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\Test_5_2.xml"};
+        // String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\Test_5.xml"};
         // String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\CyberShake_1000.xml"};
         
         NOSFScheduler scheduler = new NOSFScheduler(configFile);

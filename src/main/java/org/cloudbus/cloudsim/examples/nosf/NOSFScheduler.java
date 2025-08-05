@@ -3,7 +3,9 @@ package org.cloudbus.cloudsim.examples.nosf;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.PriorityQueue;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
@@ -104,15 +106,46 @@ public class NOSFScheduler {
         return task.getMeanExecutionTime() + Math.sqrt(task.getVarianceExecutionTime());
     }
 
+    // private double calculateEarliestStartTime(Task task) {
+    //     if (task.getPredecessors().isEmpty()) {
+    //         return task.getWorkflow().getArrivalTime();
+    //     }
+    //     return task.getPredecessors().stream()
+    //             .mapToDouble(pred -> 
+    //                 calculateEarliestStartTime(pred) + getEstimatedExecutionTime(pred) + pred.getDataTransferTime(task))
+    //             .max().orElse(0.0);
+    // }
+
+    //از کش استفاده میکنیم تا استک اور فلو نشیم :)
+    // کش برای ذخیره نتایج محاسبات
+    private Map<Task, Double> earliestStartTimeCache = new HashMap<>();
+
     private double calculateEarliestStartTime(Task task) {
+        // بررسی اینکه آیا زمان شروع برای این تسک قبلاً محاسبه شده است یا خیر
+        if (earliestStartTimeCache.containsKey(task)) {
+            return earliestStartTimeCache.get(task);
+        }
+
+        // اگر تسک پیش‌نیازی نداشته باشد، زمان شروع برابر با زمان ورود جریان کاری است
         if (task.getPredecessors().isEmpty()) {
             return task.getWorkflow().getArrivalTime();
         }
-        return task.getPredecessors().stream()
-                .mapToDouble(pred -> 
-                    calculateEarliestStartTime(pred) + getEstimatedExecutionTime(pred) + pred.getDataTransferTime(task))
-                .max().orElse(0.0);
+
+        // در غیر این صورت، محاسبه زمان شروع با توجه به پیش‌نیازها
+        double earliestStartTime = task.getPredecessors().stream()
+                .mapToDouble(pred -> {
+                    double predStartTime = calculateEarliestStartTime(pred);
+                    return predStartTime + getEstimatedExecutionTime(pred) + pred.getDataTransferTime(task);
+                })
+                .max()
+                .orElse(0.0);
+
+        // ذخیره‌سازی نتیجه محاسبه شده برای جلوگیری از محاسبات مجدد
+        earliestStartTimeCache.put(task, earliestStartTime);
+
+        return earliestStartTime;
     }
+
 
     private double calculateLatestCompletionTime(Task task) {
         if (task.getSuccessors().isEmpty()) {
@@ -167,15 +200,10 @@ public class NOSFScheduler {
             }
         }
 
-        // آزادسازی تمام VM های باقیمانده در انتهای شبیه‌سازی
-        // for (Vm vm : vmFactory.getActiveVMs()) {
-        //     vmFactory.releaseVM(vm, currentTime);
-        // }
-        // advanceTime(currentTime);
         vmFactory.calculateFinalBillingCost(currentTime);
 
         calculatePerformanceMetrics();
-        printSimulationSummary();
+        printSimulationSummary(currentTime);
     }
 
     private void scheduleTask(Task task) {
@@ -209,7 +237,7 @@ public class NOSFScheduler {
         // بروزرسانی وضعیت VM
         vm.addTask(task);
         
-        LOGGER.info(String.format("Scheduled Task %s on VM %s: Start=%.2f, End=%.2f, Execution=%.2f, Execution Cost=$%.4f, Energy=%.2f Ws",
+        LOGGER.info(String.format("Scheduled Task %s on VM %s: Start=%.2f, End=%.2f, Execution=%.2f, Execution-Cost=$%.2f, Energy=%.0f Ws",
                 task.getId(), vm.getId(), startTime, completionTime, executionTime, cost, energy));
 
         // --- اصلاح شد: پس از زمانبندی، باید تسک‌های تمام شده را پردازش کنیم ---
@@ -272,27 +300,22 @@ public class NOSFScheduler {
                 .flatMap(w -> w.getTasks().stream())
                 .mapToDouble(Task::getExecutionTime)
                 .sum();
-
-        resourceUtilization = totalVmLeaseTime > 0
-                ? (totalExecutionTime / totalVmLeaseTime) * 100
-                : 0.0;
     }
 
-    private void printSimulationSummary() {
+    private void printSimulationSummary(double simulationDuration) {
         DecimalFormat df = new DecimalFormat("#.##");
-        double simulationDuration = workflows.stream()
-                .flatMap(w -> w.getTasks().stream())
-                .mapToDouble(Task::getCompletionTime)
-                .max()
-                .orElse(0.0);
         
+        double totalBilingCost = 0;
+        for (Vm vm : vmFactory.getAllVMs())
+            totalBilingCost += vm.getCost();
+
         long deadlineViolations = workflows.stream().filter(Workflow::hasDeadlineViolation).count();
 
         LOGGER.info("\n=== Comprehensive Simulation Summary ===");
         LOGGER.info("Simulation Duration: " + df.format(simulationDuration) + " sec");
-        LOGGER.info("Total VM Rental Cost: $" + df.format(totalCost));
+        LOGGER.info("Total VM Rental Cost (Billing): $" + df.format(totalBilingCost));
+        LOGGER.info("Total VM Rental Cost (Executaion): $" + df.format(totalCost));
         LOGGER.info("Total Energy Consumption: " + df.format(totalEnergyConsumption) + " Watt-seconds");
-        LOGGER.info("Resource Utilization Efficiency: " + df.format(resourceUtilization) + "%");
         LOGGER.info("Deadline Violation Count: " + deadlineViolations + " out of " + workflows.size());
 
 
@@ -305,8 +328,8 @@ public class NOSFScheduler {
 
             LOGGER.info("    Tasks:");
             for (Task task : workflow.getTasks()) {
-                LOGGER.info(String.format("      Task %s: Sub-Deadline=%.2f sec, Start=%.2f sec, End=%.2f sec, " +
-                                "Execution=%.2f sec, VM=%s, Execution Cost=$%.4f, Energy=%.2f Ws",
+                LOGGER.info(String.format("      Task %s: Sub-Deadline=%.1f sec, Start=%.1f sec, End=%.1f sec, " +
+                                "Execution=%.1f sec, VM=%s, Execution-Cost=$%.4f, Energy=%.0f Ws",
                         task.getId(), task.getSubDeadline(), task.getStartTime(), task.getCompletionTime(),
                         task.getExecutionTime(), task.getAssignedVM() != null ? task.getAssignedVM().getId() : "None",
                         task.getCost(), task.getEnergyConsumption()));
@@ -315,9 +338,9 @@ public class NOSFScheduler {
 
         LOGGER.info("\nVM Usage Details:");
         for (Vm vm : vmFactory.getAllVMs()) {
-            LOGGER.info(String.format("  VM %s: Type=%s, Active Time=%.2f sec, Idle Time=%.2f sec, " +
-                            "Total Lease Time=%.2f sec, Energy=%.2f Ws, Cost=$%.4f",
-                    vm.getId(), vm.getTypeId(), vm.getTotalActiveTime(), vm.getTotalIdleTime(), vm.getTotalLeaseTime(),
+            LOGGER.info(String.format("  VM %s: Type=%s, Active Time=%.1f sec, Idle-Time=%.1f sec, " +
+                            "Total-Leasing-Duration=%.1f sec (%d Cycles), Energy=%.0f Ws, Billiing-Cost=$%.2f",
+                    vm.getId(), vm.getTypeId(), vm.getTotalActiveTime(), vm.getTotalIdleTime(), vm.getTotalLeaseTime(), (int) Math.ceil(vm.getTotalLeaseTime()/3600),
                     vm.getEnergyConsumption(), vm.getCost()));
         }
 
