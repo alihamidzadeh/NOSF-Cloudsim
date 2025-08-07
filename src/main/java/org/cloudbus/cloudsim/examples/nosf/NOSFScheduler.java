@@ -4,9 +4,11 @@ import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.PriorityQueue;
+import java.util.Queue;
 import java.util.logging.ConsoleHandler;
 import java.util.logging.FileHandler;
 import java.util.logging.Level;
@@ -106,6 +108,45 @@ public class NOSFScheduler {
         return task.getMeanExecutionTime() + Math.sqrt(task.getVarianceExecutionTime());
     }
 
+
+
+    private Queue<Task> queue = new LinkedList<>(); // صف برای پیمایش گره‌ها
+    private Map<Task, Double> estMap = new HashMap<>(); // نقشه برای نگهداری EST گره‌ها
+
+    private double calculateEarliestStartTime(Task task) {
+        queue.add(task);
+        estMap.put(task, task.getWorkflow().getArrivalTime()); 
+    
+        while (!queue.isEmpty()) {
+            Task currentTask = queue.poll();
+            // System.out.println("Processing task: " + currentTask.getId());
+    
+            // برای تمام پدرها (Predecessors) گره جاری، EST جدید رو محاسبه کن
+            for (Task pred : currentTask.getPredecessors()) {
+                if (!estMap.containsKey(pred)) {
+                    estMap.put(pred, task.getWorkflow().getArrivalTime()); 
+                }
+                
+                double estPred = estMap.get(pred) + getEstimatedExecutionTime(pred) + pred.getDataTransferTime(currentTask);
+                if (!estMap.containsKey(currentTask) || estPred > estMap.get(currentTask)) {
+                    estMap.put(currentTask, estPred);
+                    // System.out.println(String.format("Updated EST for %s : %.0f", currentTask.getId(), estPred));
+                }
+    
+                if (!queue.contains(pred)) {
+                    queue.add(pred);
+                    // System.out.println("Adding to queue: " + pred.getId());
+                }
+            }
+            if (currentTask.getPredecessors().stream().allMatch(pred -> estMap.containsKey(pred))) {
+                // System.out.println("Task " + currentTask.getId() + " completed and removed from queue.");
+            }
+        }
+    
+        return estMap.get(task); // در نهایت EST گره مورد نظر رو برمی‌گردونه
+    }
+
+    // // below function make problem for very large workflows (StackOverFlow), replaced with non recursive function in above
     // private double calculateEarliestStartTime(Task task) {
     //     if (task.getPredecessors().isEmpty()) {
     //         return task.getWorkflow().getArrivalTime();
@@ -115,35 +156,6 @@ public class NOSFScheduler {
     //                 calculateEarliestStartTime(pred) + getEstimatedExecutionTime(pred) + pred.getDataTransferTime(task))
     //             .max().orElse(0.0);
     // }
-
-    //از کش استفاده میکنیم تا استک اور فلو نشیم :)
-    // کش برای ذخیره نتایج محاسبات
-    private Map<Task, Double> earliestStartTimeCache = new HashMap<>();
-
-    private double calculateEarliestStartTime(Task task) {
-        // بررسی اینکه آیا زمان شروع برای این تسک قبلاً محاسبه شده است یا خیر
-        if (earliestStartTimeCache.containsKey(task)) {
-            return earliestStartTimeCache.get(task);
-        }
-
-        if (task.getPredecessors().isEmpty()) {
-            return task.getWorkflow().getArrivalTime();
-        }
-
-        // در غیر این صورت، محاسبه زمان شروع با توجه به پیش‌نیازها
-        double earliestStartTime = task.getPredecessors().stream()
-                .mapToDouble(pred -> {
-                    double predStartTime = calculateEarliestStartTime(pred);
-                    return predStartTime + getEstimatedExecutionTime(pred) + pred.getDataTransferTime(task);
-                })
-                .max()
-                .orElse(0.0);
-
-        // ذخیره‌سازی نتیجه محاسبه شده برای جلوگیری از محاسبات مجدد
-        earliestStartTimeCache.put(task, earliestStartTime);
-
-        return earliestStartTime;
-    }
 
 
     private double calculateLatestCompletionTime(Task task) {
@@ -278,7 +290,7 @@ public class NOSFScheduler {
                 }
                 
                 readyTasks.add(successor);
-                LOGGER.info(String.format("Feedback: Successor %s is now ready. EST=%.2f, SubDeadline=%.2f", successor.getId(), newEarliestStartTime, newSubDeadline));
+                System.out.println(String.format("Feedback: Successor %s is now ready. EST=%.2f, SubDeadline=%.2f", successor.getId(), newEarliestStartTime, newSubDeadline));
             }
         }
     }
