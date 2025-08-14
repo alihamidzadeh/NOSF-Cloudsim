@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<adag version="2.1" jobCount="5" childCount="4">
+
+  <job id="ID00000" name="ZipPSA" runtime="2.07">
+    <uses file="Cybershake_PSA.zip" link="input" register="true" transfer="true" optional="false" type="data" size="202"/>
+  </job>
+  <job id="ID00001" namespace="CyberShake" name="ZipSeis" version="1.0" runtime="2.19">
+    <uses file="Cybershake_Seismograms.zip" link="input" register="true" transfer="true" optional="false" type="data" size="43659"/>
+  </job>
+  <job id="ID00002" namespace="CyberShake" name="ExtractSGT" version="1.0" runtime="15.10">
+    <uses file="FFI_0_1_fx.sgt" link="input" register="true" transfer="true" optional="false" type="data" size="20058636289"/>
+    <uses file="FFI_0_1_fy.sgt" link="input" register="true" transfer="true" optional="false" type="data" size="20058636289"/>
+    <uses file="FFI_0_1_subfx.sgt" link="output" register="true" transfer="true" optional="false" type="data" size="310892660"/>
+    <uses file="FFI_0_1_subfy.sgt" link="output" register="true" transfer="true" optional="false" type="data" size="310892660"/>
+    <uses file="FFI_0_1_txt.variation-s02730-h00000" link="input" register="true" transfer="true" optional="false" type="data" size="2132196"/>
+  </job>
+  <job id="ID00003" namespace="CyberShake" name="SeismogramSynthesis" version="1.0" runtime="9.06">
+    <uses file="FFI_0_1_txt.variation-s09381-h00000" link="input" register="true" transfer="true" optional="false" type="data" size="5142343"/>
+    <uses file="FFI_0_1_subfx.sgt" link="input" register="true" transfer="true" optional="false" type="data" size="310892660"/>
+    <uses file="FFI_0_1_subfy.sgt" link="input" register="true" transfer="true" optional="false" type="data" size="310892660"/>
+    <uses file="Seismogram_FFI_0_1_ID00003.grm" link="output" register="true" transfer="true" optional="false" type="data" size="24000"/>
+  </job>
+  <job id="ID00004" namespace="CyberShake" name="PeakValCalcOkaya" version="1.0" runtime="1.63">
+    <uses file="Seismogram_FFI_0_1_ID00003.grm" link="input" register="true" transfer="true" optional="false" type="data" size="24000"/>
+    <uses file="PeakVals_FFI_0_1_ID00003.bsa" link="output" register="true" transfer="true" optional="false" type="data" size="216"/>
+  </job>
+  
+<!-- part 3: list of control-flow dependencies (may be empty) -->
+  <child ref="ID00001">
+    <parent ref="ID00000"/>
+  </child>
+  <child ref="ID00002">
+    <parent ref="ID00001"/>
+  </child>
+  <child ref="ID00003">
+    <parent ref="ID00002"/>
+  </child>
+  <child ref="ID00004">
+    <parent ref="ID00003"/>
+  </child>
+</adag>

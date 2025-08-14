@@ -4,7 +4,7 @@
 <adag xmlns="http://pegasus.isi.edu/schema/DAX" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://pegasus.isi.edu/schema/DAX http://pegasus.isi.edu/schema/dax-2.1.xsd" version="2.1" count="1" index="0" name="test" jobCount="30" fileCount="0" childCount="28">
 <!-- part 1: list of all referenced files (may be empty) -->
 <!-- part 2: definition of all jobs (at least one) -->
-  <job id="1" namespace="CyberShake" name="ZipPSA" version="1.0" runtime="600">
+  <job id="1" namespace="CyberShake" name="ZipPSA" version="1.0" runtime="6000">
     <uses file="Cybershake_PSA.zip" link="input" register="true" transfer="true" optional="false" type="data" size="202"/>
   </job>
   <job id="2" namespace="CyberShake" name="ZipSeis" version="1.0" runtime="700">

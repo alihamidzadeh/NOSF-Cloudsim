@@ -1,0 +1,68 @@
+Simulation started at: 2025-08-06T02:20:26.972058
+PCP Runtime for wf-0: 7000.0
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findOrCreateVM
+INFO: Created new VM vm-1 (Type: vm-type-5) at time 0.00. Booting...
+Scheduled Task 1 on VM vm-1: Start=5.00, End=3105.11, Execution=3100.11, Execution-Cost=$1.55, Energy=558 Ws
+Task 1 completed on VM vm-1 at time 3105.11
+Feedback: Successor 2 is now ready. EST=3105.11, SubDeadline=5456.35
+Feedback: Successor 3 is now ready. EST=3105.11, SubDeadline=3776.89
+Feedback: Successor 4 is now ready. EST=3105.11, SubDeadline=3441.00
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-1 for task 2
+Scheduled Task 2 on VM vm-1: Start=3105.11, End=4041.14, Execution=936.02, Execution-Cost=$0.47, Energy=168 Ws
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findOrCreateVM
+INFO: Created new VM vm-2 (Type: vm-type-5) at time 3105.11. Booting...
+Scheduled Task 4 on VM vm-2: Start=3110.11, End=3256.85, Execution=146.74, Execution-Cost=$0.07, Energy=26 Ws
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-2 for task 3
+Scheduled Task 3 on VM vm-2: Start=3256.85, End=3780.40, Execution=523.56, Execution-Cost=$0.26, Energy=94 Ws
+Task 4 completed on VM vm-2 at time 3256.85
+Feedback: Successor 5 is now ready. EST=4041.14, SubDeadline=5048.81
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-1 for task 5
+Scheduled Task 5 on VM vm-1: Start=4041.14, End=4462.09, Execution=420.96, Execution-Cost=$0.21, Energy=76 Ws
+Task 2 completed on VM vm-1 at time 4041.14
+Feedback: Successor 5 is now ready. EST=4041.14, SubDeadline=5408.81
+Task 3 completed on VM vm-2 at time 3780.40
+Feedback: Successor 5 is now ready. EST=4041.14, SubDeadline=5768.81
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: ==========> checkIdleVMs is called.
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: vm-1 still busy at time 4041.1, next leasing time: 7200.0, delaying release to next billing period.
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: ==========> vm-2 was b4 hourly period time.
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory releaseVM
+INFO: Released VM vm-1 at time 4041.14, Leasing-Duration-Time: 4041.14
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory calculateFinalBillingCost
+INFO: Final billing for vm-1: Cost=$3.60, Energy= 802.28 Ws
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory releaseVM
+INFO: Released VM vm-2 at time 4041.14, Leasing-Duration-Time: 936.02
+Aug 06, 2025 2:20:27 AM org.cloudbus.cloudsim.examples.nosf.VMFactory calculateFinalBillingCost
+INFO: Final billing for vm-2: Cost=$1.80, Energy= 120.65 Ws
+
+=== Comprehensive Simulation Summary ===
+Simulation Duration: 4041.14 sec
+Total VM Rental Cost (Billing): $5.4
+Total VM Rental Cost (Executaion): $2.56
+Total Energy Consumption: 922.93 Watt-seconds
+Deadline Violation Count: 0 out of 1
+
+Workflow Details:
+  Workflow: wf-0
+    Arrival Time: 0 sec
+    Deadline: 14000 sec
+    Makespan: 4462.09 sec
+    Tasks:
+      Task 1: Sub-Deadline=12953.4 sec, Start=5.0 sec, End=3105.1 sec, Execution=3100.1 sec, VM=vm-1, Execution-Cost=$1.5501, Energy=558 Ws
+      Task 2: Sub-Deadline=5456.3 sec, Start=3105.1 sec, End=4041.1 sec, Execution=936.0 sec, VM=vm-1, Execution-Cost=$0.4680, Energy=168 Ws
+      Task 3: Sub-Deadline=3776.9 sec, Start=3256.8 sec, End=3780.4 sec, Execution=523.6 sec, VM=vm-2, Execution-Cost=$0.2618, Energy=94 Ws
+      Task 4: Sub-Deadline=3441.0 sec, Start=3110.1 sec, End=3256.8 sec, Execution=146.7 sec, VM=vm-2, Execution-Cost=$0.0734, Energy=26 Ws
+      Task 5: Sub-Deadline=5768.8 sec, Start=4041.1 sec, End=4462.1 sec, Execution=421.0 sec, VM=vm-1, Execution-Cost=$0.2105, Energy=76 Ws
+
+VM Usage Details:
+  VM vm-1: Type=vm-type-5, Active Time=4457.1 sec, Idle-Time=936.0 sec, Total-Leasing-Duration=4041.1 sec (2 Cycles), Energy=802 Ws, Billiing-Cost=$3.60
+  VM vm-2: Type=vm-type-5, Active Time=670.3 sec, Idle-Time=146.7 sec, Total-Leasing-Duration=936.0 sec (1 Cycles), Energy=121 Ws, Billiing-Cost=$1.80
+
+Advanced Performance Metrics:
+  Average Task Delay (from sub-deadline): 0.7 sec
+  Number of VMs Used: 2

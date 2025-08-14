@@ -110,6 +110,8 @@ public class NOSFScheduler {
 
 
 
+    // EST ------
+    
     private Queue<Task> queue = new LinkedList<>(); // صف برای پیمایش گره‌ها
     private Map<Task, Double> estMap = new HashMap<>(); // نقشه برای نگهداری EST گره‌ها
 
@@ -138,13 +140,15 @@ public class NOSFScheduler {
                     // System.out.println("Adding to queue: " + pred.getId());
                 }
             }
-            if (currentTask.getPredecessors().stream().allMatch(pred -> estMap.containsKey(pred))) {
+            // if (currentTask.getPredecessors().stream().allMatch(pred -> estMap.containsKey(pred))) {
                 // System.out.println("Task " + currentTask.getId() + " completed and removed from queue.");
-            }
+            // }
         }
     
         return estMap.get(task); // در نهایت EST گره مورد نظر رو برمی‌گردونه
     }
+
+    // ------
 
     // // below function make problem for very large workflows (StackOverFlow), replaced with non recursive function in above
     // private double calculateEarliestStartTime(Task task) {

@@ -1,0 +1,245 @@
+Simulation started at: 2025-08-06T02:51:22.519522700
+PCP Runtime for wf-0: 5581.05
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findOrCreateVM
+INFO: Created new VM vm-1 (Type: vm-type-4) at time 0.00. Booting...
+Scheduled Task ID00000 on VM vm-1: Start=5.00, End=159.20, Execution=154.20, Execution-Cost=$0.10, Energy=38 Ws
+Task ID00000 completed on VM vm-1 at time 159.20
+Feedback: Successor ID00005 is now ready. EST=163.67, SubDeadline=195.95
+Feedback: Successor ID00004 is now ready. EST=163.67, SubDeadline=188.78
+Feedback: Successor ID00003 is now ready. EST=163.67, SubDeadline=185.80
+Feedback: Successor ID00002 is now ready. EST=163.67, SubDeadline=186.01
+Feedback: Successor ID00001 is now ready. EST=163.67, SubDeadline=182.70
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-1 for task ID00005
+Scheduled Task ID00005 on VM vm-1: Start=159.20, End=176.38, Execution=17.18, Execution-Cost=$0.01, Energy=4 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findOrCreateVM
+INFO: Created new VM vm-2 (Type: vm-type-5) at time 163.67. Booting...
+Scheduled Task ID00001 on VM vm-2: Start=168.67, End=181.96, Execution=13.29, Execution-Cost=$0.01, Energy=2 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-1 for task ID00002
+Scheduled Task ID00002 on VM vm-1: Start=176.38, End=190.89, Execution=14.51, Execution-Cost=$0.01, Energy=4 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findOrCreateVM
+INFO: Created new VM vm-3 (Type: vm-type-5) at time 163.67. Booting...
+Scheduled Task ID00003 on VM vm-3: Start=168.67, End=178.31, Execution=9.64, Execution-Cost=$0.00, Energy=2 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findOrCreateVM
+INFO: Created new VM vm-4 (Type: vm-type-5) at time 163.67. Booting...
+Scheduled Task ID00004 on VM vm-4: Start=168.67, End=182.11, Execution=13.44, Execution-Cost=$0.01, Energy=2 Ws
+Task ID00005 completed on VM vm-1 at time 176.38
+Feedback: Successor ID00010 is now ready. EST=177.22, SubDeadline=190.85
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-2 for task ID00010
+Scheduled Task ID00010 on VM vm-2: Start=181.96, End=190.80, Execution=8.84, Execution-Cost=$0.00, Energy=2 Ws
+Task ID00003 completed on VM vm-3 at time 178.31
+Feedback: Successor ID00008 is now ready. EST=179.12, SubDeadline=187.97
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00008
+Scheduled Task ID00008 on VM vm-3: Start=178.31, End=182.79, Execution=4.48, Execution-Cost=$0.00, Energy=1 Ws
+Task ID00001 completed on VM vm-2 at time 181.96
+Feedback: Successor ID00006 is now ready. EST=182.82, SubDeadline=189.22
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00006
+Scheduled Task ID00006 on VM vm-3: Start=182.82, End=186.59, Execution=3.77, Execution-Cost=$0.00, Energy=1 Ws
+Task ID00008 completed on VM vm-3 at time 182.79
+Feedback: Successor ID00013 is now ready. EST=183.18, SubDeadline=194.12
+Task ID00004 completed on VM vm-4 at time 182.11
+Feedback: Successor ID00009 is now ready. EST=183.10, SubDeadline=191.41
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-4 for task ID00009
+Scheduled Task ID00009 on VM vm-4: Start=182.11, End=186.64, Execution=4.53, Execution-Cost=$0.00, Energy=1 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-4 for task ID00013
+Scheduled Task ID00013 on VM vm-4: Start=186.64, End=192.19, Execution=5.55, Execution-Cost=$0.00, Energy=1 Ws
+Task ID00006 completed on VM vm-3 at time 186.59
+Feedback: Successor ID00011 is now ready. EST=187.03, SubDeadline=198.57
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00011
+Scheduled Task ID00011 on VM vm-3: Start=186.59, End=195.10, Execution=8.51, Execution-Cost=$0.00, Energy=2 Ws
+Task ID00009 completed on VM vm-4 at time 186.64
+Feedback: Successor ID00014 is now ready. EST=187.11, SubDeadline=199.93
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-2 for task ID00014
+Scheduled Task ID00014 on VM vm-2: Start=190.80, End=196.99, Execution=6.19, Execution-Cost=$0.00, Energy=1 Ws
+Task ID00010 completed on VM vm-2 at time 190.80
+Feedback: Successor ID00015 is now ready. EST=191.23, SubDeadline=205.24
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00015
+Scheduled Task ID00015 on VM vm-3: Start=195.10, End=202.98, Execution=7.88, Execution-Cost=$0.00, Energy=1 Ws
+Task ID00002 completed on VM vm-1 at time 190.89
+Feedback: Successor ID00007 is now ready. EST=191.88, SubDeadline=201.49
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-4 for task ID00007
+Scheduled Task ID00007 on VM vm-4: Start=192.19, End=197.34, Execution=5.15, Execution-Cost=$0.00, Energy=1 Ws
+Task ID00013 completed on VM vm-4 at time 192.19
+Feedback: Successor ID00018 is now ready. EST=192.44, SubDeadline=6777.04
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-2 for task ID00018
+Scheduled Task ID00018 on VM vm-2: Start=196.99, End=2795.86, Execution=2598.87, Execution-Cost=$1.30, Energy=468 Ws
+Task ID00011 completed on VM vm-3 at time 195.10
+Feedback: Successor ID00016 is now ready. EST=195.35, SubDeadline=7880.13
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00016
+Scheduled Task ID00016 on VM vm-3: Start=202.98, End=5643.16, Execution=5440.18, Execution-Cost=$2.72, Energy=979 Ws
+Task ID00014 completed on VM vm-2 at time 196.99
+Feedback: Successor ID00019 is now ready. EST=197.36, SubDeadline=10033.86
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-1 for task ID00019
+Scheduled Task ID00019 on VM vm-1: Start=197.36, End=5367.55, Execution=5170.19, Execution-Cost=$3.52, Energy=1267 Ws
+Task ID00007 completed on VM vm-4 at time 197.34
+Feedback: Successor ID00012 is now ready. EST=197.82, SubDeadline=213.86
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-4 for task ID00012
+Scheduled Task ID00012 on VM vm-4: Start=197.34, End=208.05, Execution=10.71, Execution-Cost=$0.01, Energy=2 Ws
+Task ID00015 completed on VM vm-3 at time 202.98
+Feedback: Successor ID00020 is now ready. EST=203.36, SubDeadline=11234.11
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-4 for task ID00020
+Scheduled Task ID00020 on VM vm-4: Start=208.05, End=5392.44, Execution=5184.39, Execution-Cost=$2.59, Energy=933 Ws
+Task ID00012 completed on VM vm-4 at time 208.05
+Feedback: Successor ID00017 is now ready. EST=208.50, SubDeadline=8886.58
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-4 for task ID00017
+Scheduled Task ID00017 on VM vm-4: Start=5392.44, End=9053.12, Execution=3660.68, Execution-Cost=$1.83, Energy=659 Ws
+Task ID00018 completed on VM vm-2 at time 2795.86
+Feedback: Successor ID00021 is now ready. EST=9065.71, SubDeadline=9112.49
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00021
+Scheduled Task ID00021 on VM vm-3: Start=9065.71, End=9079.92, Execution=14.21, Execution-Cost=$0.01, Energy=3 Ws
+Task ID00019 completed on VM vm-1 at time 5367.55
+Feedback: Successor ID00021 is now ready. EST=9065.71, SubDeadline=9133.17
+Task ID00016 completed on VM vm-3 at time 5643.16
+Feedback: Successor ID00021 is now ready. EST=9065.71, SubDeadline=9153.84
+Task ID00020 completed on VM vm-4 at time 5392.44
+Feedback: Successor ID00021 is now ready. EST=9065.71, SubDeadline=9174.52
+Task ID00017 completed on VM vm-4 at time 9053.12
+Feedback: Successor ID00021 is now ready. EST=9065.71, SubDeadline=9195.20
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: ==========> checkIdleVMs is called.
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory releaseVM
+INFO: Released VM vm-1 at time 9065.71, Leasing-Duration-Time: 9065.71
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: vm-1 is idle. Releasing at time 9065.713849623891, cost=7.3500000000000005
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: ==========> checkIdleVMs is called.
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory releaseVM
+INFO: Released VM vm-2 at time 9065.71, Leasing-Duration-Time: 8902.04
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: vm-2 is idle. Releasing at time 9065.713849623891, cost=5.4
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: ==========> checkIdleVMs is called.
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: vm-3 still busy at time 9065.7, next leasing time: 10800.0, delaying release to next billing period.
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory releaseVM
+INFO: Released VM vm-4 at time 9065.71, Leasing-Duration-Time: 8902.04
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: vm-4 is idle. Releasing at time 9065.713849623891, cost=5.4
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: ==========> checkIdleVMs is called.
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory checkIdleVMs
+INFO: ==========> vm-3 was b4 hourly period time.
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00021
+Scheduled Task ID00021 on VM vm-3: Start=9079.92, End=9107.70, Execution=27.78, Execution-Cost=$0.01, Energy=5 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00021
+Scheduled Task ID00021 on VM vm-3: Start=9107.70, End=9134.18, Execution=26.48, Execution-Cost=$0.01, Energy=5 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-3 for task ID00021
+Scheduled Task ID00021 on VM vm-3: Start=9134.18, End=9170.21, Execution=36.03, Execution-Cost=$0.02, Energy=6 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findOrCreateVM
+INFO: Created new VM vm-5 (Type: vm-type-5) at time 9065.71. Booting...
+Scheduled Task ID00021 on VM vm-5: Start=9070.71, End=9101.38, Execution=30.67, Execution-Cost=$0.02, Energy=6 Ws
+Task ID00021 completed on VM vm-5 at time 9101.38
+Feedback: Successor ID00022 is now ready. EST=9101.83, SubDeadline=9101.97
+Task ID00021 completed on VM vm-5 at time 9101.38
+Feedback: Successor ID00022 is now ready. EST=9101.83, SubDeadline=9102.03
+Task ID00021 completed on VM vm-5 at time 9101.38
+Feedback: Successor ID00022 is now ready. EST=9101.83, SubDeadline=9102.09
+Task ID00021 completed on VM vm-5 at time 9101.38
+Feedback: Successor ID00022 is now ready. EST=9101.83, SubDeadline=9102.15
+Task ID00021 completed on VM vm-5 at time 9101.38
+Feedback: Successor ID00022 is now ready. EST=9101.83, SubDeadline=9102.21
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-5 for task ID00022
+Scheduled Task ID00022 on VM vm-5: Start=9101.38, End=9101.48, Execution=0.10, Execution-Cost=$0.00, Energy=0 Ws
+Task ID00022 completed on VM vm-5 at time 9101.48
+Feedback: Successor ID00023 is now ready. EST=9101.91, SubDeadline=12835.57
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-5 for task ID00022
+Scheduled Task ID00022 on VM vm-5: Start=9101.38, End=9101.48, Execution=0.10, Execution-Cost=$0.00, Energy=0 Ws
+Task ID00022 completed on VM vm-5 at time 9101.48
+Feedback: Successor ID00023 is now ready. EST=9101.91, SubDeadline=12812.36
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-5 for task ID00022
+Scheduled Task ID00022 on VM vm-5: Start=9101.38, End=9101.48, Execution=0.10, Execution-Cost=$0.00, Energy=0 Ws
+Task ID00022 completed on VM vm-5 at time 9101.48
+Feedback: Successor ID00023 is now ready. EST=9101.91, SubDeadline=12812.36
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-5 for task ID00022
+Scheduled Task ID00022 on VM vm-5: Start=9101.38, End=9101.48, Execution=0.10, Execution-Cost=$0.00, Energy=0 Ws
+Task ID00022 completed on VM vm-5 at time 9101.48
+Feedback: Successor ID00023 is now ready. EST=9101.91, SubDeadline=12812.36
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-5 for task ID00022
+Scheduled Task ID00022 on VM vm-5: Start=9101.38, End=9101.48, Execution=0.10, Execution-Cost=$0.00, Energy=0 Ws
+Task ID00022 completed on VM vm-5 at time 9101.48
+Feedback: Successor ID00023 is now ready. EST=9101.91, SubDeadline=12812.36
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-5 for task ID00023
+Scheduled Task ID00023 on VM vm-5: Start=9101.48, End=11205.78, Execution=2104.29, Execution-Cost=$1.05, Energy=379 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory releaseVM
+INFO: Released VM vm-3 at time 9101.91, Leasing-Duration-Time: 8938.24
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory calculateFinalBillingCost
+INFO: Final billing for vm-3: Cost=$5.40, Energy= 1004.21 Ws
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory releaseVM
+INFO: Released VM vm-5 at time 9101.91, Leasing-Duration-Time: 36.19
+Aug 06, 2025 2:51:22 AM org.cloudbus.cloudsim.examples.nosf.VMFactory calculateFinalBillingCost
+INFO: Final billing for vm-5: Cost=$1.80, Energy= 384.38 Ws
+
+=== Comprehensive Simulation Summary ===
+Simulation Duration: 9101.91 sec
+Total VM Rental Cost (Billing): $25.35
+Total VM Rental Cost (Executaion): $13.26
+Total Energy Consumption: 4772.93 Watt-seconds
+Deadline Violation Count: 1 out of 1
+
+Workflow Details:
+  Workflow: wf-0 (DEADLINE VIOLATED)
+    Arrival Time: 0 sec
+    Deadline: 11162.1 sec
+    Makespan: 11205.78 sec
+    Tasks:
+      Task ID00000: Sub-Deadline=156.8 sec, Start=5.0 sec, End=159.2 sec, Execution=154.2 sec, VM=vm-1, Execution-Cost=$0.1049, Energy=38 Ws
+      Task ID00001: Sub-Deadline=182.7 sec, Start=168.7 sec, End=182.0 sec, Execution=13.3 sec, VM=vm-2, Execution-Cost=$0.0066, Energy=2 Ws
+      Task ID00002: Sub-Deadline=186.0 sec, Start=176.4 sec, End=190.9 sec, Execution=14.5 sec, VM=vm-1, Execution-Cost=$0.0099, Energy=4 Ws
+      Task ID00003: Sub-Deadline=185.8 sec, Start=168.7 sec, End=178.3 sec, Execution=9.6 sec, VM=vm-3, Execution-Cost=$0.0048, Energy=2 Ws
+      Task ID00004: Sub-Deadline=188.8 sec, Start=168.7 sec, End=182.1 sec, Execution=13.4 sec, VM=vm-4, Execution-Cost=$0.0067, Energy=2 Ws
+      Task ID00005: Sub-Deadline=196.0 sec, Start=159.2 sec, End=176.4 sec, Execution=17.2 sec, VM=vm-1, Execution-Cost=$0.0117, Energy=4 Ws
+      Task ID00006: Sub-Deadline=189.2 sec, Start=182.8 sec, End=186.6 sec, Execution=3.8 sec, VM=vm-3, Execution-Cost=$0.0019, Energy=1 Ws
+      Task ID00007: Sub-Deadline=201.5 sec, Start=192.2 sec, End=197.3 sec, Execution=5.1 sec, VM=vm-4, Execution-Cost=$0.0026, Energy=1 Ws
+      Task ID00008: Sub-Deadline=188.0 sec, Start=178.3 sec, End=182.8 sec, Execution=4.5 sec, VM=vm-3, Execution-Cost=$0.0022, Energy=1 Ws
+      Task ID00009: Sub-Deadline=191.4 sec, Start=182.1 sec, End=186.6 sec, Execution=4.5 sec, VM=vm-4, Execution-Cost=$0.0023, Energy=1 Ws
+      Task ID00010: Sub-Deadline=190.8 sec, Start=182.0 sec, End=190.8 sec, Execution=8.8 sec, VM=vm-2, Execution-Cost=$0.0044, Energy=2 Ws
+      Task ID00011: Sub-Deadline=198.6 sec, Start=186.6 sec, End=195.1 sec, Execution=8.5 sec, VM=vm-3, Execution-Cost=$0.0043, Energy=2 Ws
+      Task ID00012: Sub-Deadline=213.9 sec, Start=197.3 sec, End=208.0 sec, Execution=10.7 sec, VM=vm-4, Execution-Cost=$0.0054, Energy=2 Ws
+      Task ID00013: Sub-Deadline=194.1 sec, Start=186.6 sec, End=192.2 sec, Execution=5.5 sec, VM=vm-4, Execution-Cost=$0.0028, Energy=1 Ws
+      Task ID00014: Sub-Deadline=199.9 sec, Start=190.8 sec, End=197.0 sec, Execution=6.2 sec, VM=vm-2, Execution-Cost=$0.0031, Energy=1 Ws
+      Task ID00015: Sub-Deadline=205.2 sec, Start=195.1 sec, End=203.0 sec, Execution=7.9 sec, VM=vm-3, Execution-Cost=$0.0039, Energy=1 Ws
+      Task ID00016: Sub-Deadline=7880.1 sec, Start=203.0 sec, End=5643.2 sec, Execution=5440.2 sec, VM=vm-3, Execution-Cost=$2.7201, Energy=979 Ws
+      Task ID00017: Sub-Deadline=8886.6 sec, Start=5392.4 sec, End=9053.1 sec, Execution=3660.7 sec, VM=vm-4, Execution-Cost=$1.8303, Energy=659 Ws
+      Task ID00018: Sub-Deadline=6777.0 sec, Start=197.0 sec, End=2795.9 sec, Execution=2598.9 sec, VM=vm-2, Execution-Cost=$1.2994, Energy=468 Ws
+      Task ID00019: Sub-Deadline=9477.6 sec, Start=197.4 sec, End=5367.5 sec, Execution=5170.2 sec, VM=vm-1, Execution-Cost=$3.5186, Energy=1267 Ws
+      Task ID00020: Sub-Deadline=9477.6 sec, Start=208.0 sec, End=5392.4 sec, Execution=5184.4 sec, VM=vm-4, Execution-Cost=$2.5922, Energy=933 Ws
+      Task ID00021: Sub-Deadline=9195.2 sec, Start=9070.7 sec, End=9101.4 sec, Execution=30.7 sec, VM=vm-5, Execution-Cost=$0.0153, Energy=6 Ws
+      Task ID00022: Sub-Deadline=9102.2 sec, Start=9101.4 sec, End=9101.5 sec, Execution=0.1 sec, VM=vm-5, Execution-Cost=$0.0001, Energy=0 Ws
+      Task ID00023: Sub-Deadline=11162.1 sec, Start=9101.5 sec, End=11205.8 sec, Execution=2104.3 sec, VM=vm-5, Execution-Cost=$1.0521, Energy=379 Ws
+
+VM Usage Details:
+  VM vm-1: Type=vm-type-4, Active Time=5356.1 sec, Idle-Time=23.6 sec, Total-Leasing-Duration=9065.7 sec (3 Cycles), Energy=1312 Ws, Billiing-Cost=$7.35
+  VM vm-2: Type=vm-type-5, Active Time=2627.2 sec, Idle-Time=28.3 sec, Total-Leasing-Duration=8902.0 sec (3 Cycles), Energy=473 Ws, Billiing-Cost=$5.40
+  VM vm-3: Type=vm-type-5, Active Time=5579.0 sec, Idle-Time=19276.0 sec, Total-Leasing-Duration=8938.2 sec (3 Cycles), Energy=1004 Ws, Billiing-Cost=$5.40
+  VM vm-4: Type=vm-type-5, Active Time=8884.4 sec, Idle-Time=5205.2 sec, Total-Leasing-Duration=8902.0 sec (3 Cycles), Energy=1599 Ws, Billiing-Cost=$5.40
+  VM vm-5: Type=vm-type-5, Active Time=2135.5 sec, Idle-Time=-0.4 sec, Total-Leasing-Duration=36.2 sec (1 Cycles), Energy=384 Ws, Billiing-Cost=$1.80
+
+Advanced Performance Metrics:
+  Average Task Delay (from sub-deadline): 9.06 sec
+  Number of VMs Used: 5

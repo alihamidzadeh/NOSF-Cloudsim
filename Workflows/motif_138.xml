@@ -1,0 +1,1371 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- MotifNetwork bioinformatics workflow (Figure 8 in Ramakrishnan and Gannon) -->
+<adag name="motif" jobCount="138" fileCount="0" childCount="137">
+	<job id="scan128" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in128.dat" link="input" size="102400"/>
+		<uses file="scan_out128.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan16" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in16.dat" link="input" size="102400"/>
+		<uses file="scan_out16.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan35" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in35.dat" link="input" size="102400"/>
+		<uses file="scan_out35.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan54" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in54.dat" link="input" size="102400"/>
+		<uses file="scan_out54.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan17" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in17.dat" link="input" size="102400"/>
+		<uses file="scan_out17.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan94" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in94.dat" link="input" size="102400"/>
+		<uses file="scan_out94.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan36" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in36.dat" link="input" size="102400"/>
+		<uses file="scan_out36.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan55" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in55.dat" link="input" size="102400"/>
+		<uses file="scan_out55.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan122" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in122.dat" link="input" size="102400"/>
+		<uses file="scan_out122.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan97" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in97.dat" link="input" size="102400"/>
+		<uses file="scan_out97.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan18" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in18.dat" link="input" size="102400"/>
+		<uses file="scan_out18.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan91" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in91.dat" link="input" size="102400"/>
+		<uses file="scan_out91.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan37" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in37.dat" link="input" size="102400"/>
+		<uses file="scan_out37.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan56" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in56.dat" link="input" size="102400"/>
+		<uses file="scan_out56.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan19" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in19.dat" link="input" size="102400"/>
+		<uses file="scan_out19.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan38" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in38.dat" link="input" size="102400"/>
+		<uses file="scan_out38.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan119" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in119.dat" link="input" size="102400"/>
+		<uses file="scan_out119.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan57" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in57.dat" link="input" size="102400"/>
+		<uses file="scan_out57.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan116" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in116.dat" link="input" size="102400"/>
+		<uses file="scan_out116.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan20" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in20.dat" link="input" size="102400"/>
+		<uses file="scan_out20.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan87" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in87.dat" link="input" size="102400"/>
+		<uses file="scan_out87.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan39" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in39.dat" link="input" size="102400"/>
+		<uses file="scan_out39.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan58" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in58.dat" link="input" size="102400"/>
+		<uses file="scan_out58.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan21" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in21.dat" link="input" size="102400"/>
+		<uses file="scan_out21.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan40" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in40.dat" link="input" size="102400"/>
+		<uses file="scan_out40.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan59" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in59.dat" link="input" size="102400"/>
+		<uses file="scan_out59.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan104" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in104.dat" link="input" size="102400"/>
+		<uses file="scan_out104.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan135" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in135.dat" link="input" size="102400"/>
+		<uses file="scan_out135.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan22" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in22.dat" link="input" size="102400"/>
+		<uses file="scan_out22.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan129" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in129.dat" link="input" size="102400"/>
+		<uses file="scan_out129.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan41" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in41.dat" link="input" size="102400"/>
+		<uses file="scan_out41.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan60" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in60.dat" link="input" size="102400"/>
+		<uses file="scan_out60.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan23" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in23.dat" link="input" size="102400"/>
+		<uses file="scan_out23.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan42" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in42.dat" link="input" size="102400"/>
+		<uses file="scan_out42.dat" link="output" size="512000"/>
+	</job>
+	<job id="pre" namespace="motif" name="Pre Interproscan" runtime="30" cores="1">
+		<uses file="wf_in.dat" link="input" size="13631488"/>
+		<uses file="scan_in110.dat" link="output" size="102400"/>
+		<uses file="scan_in54.dat" link="output" size="102400"/>
+		<uses file="scan_in17.dat" link="output" size="102400"/>
+		<uses file="scan_in101.dat" link="output" size="102400"/>
+		<uses file="scan_in36.dat" link="output" size="102400"/>
+		<uses file="scan_in55.dat" link="output" size="102400"/>
+		<uses file="scan_in18.dat" link="output" size="102400"/>
+		<uses file="scan_in37.dat" link="output" size="102400"/>
+		<uses file="scan_in104.dat" link="output" size="102400"/>
+		<uses file="scan_in135.dat" link="output" size="102400"/>
+		<uses file="scan_in56.dat" link="output" size="102400"/>
+		<uses file="scan_in129.dat" link="output" size="102400"/>
+		<uses file="scan_in19.dat" link="output" size="102400"/>
+		<uses file="scan_in38.dat" link="output" size="102400"/>
+		<uses file="scan_in57.dat" link="output" size="102400"/>
+		<uses file="scan_in6.dat" link="output" size="102400"/>
+		<uses file="scan_in78.dat" link="output" size="102400"/>
+		<uses file="scan_in39.dat" link="output" size="102400"/>
+		<uses file="scan_in98.dat" link="output" size="102400"/>
+		<uses file="scan_in92.dat" link="output" size="102400"/>
+		<uses file="scan_in58.dat" link="output" size="102400"/>
+		<uses file="scan_in21.dat" link="output" size="102400"/>
+		<uses file="scan_in40.dat" link="output" size="102400"/>
+		<uses file="scan_in59.dat" link="output" size="102400"/>
+		<uses file="scan_in22.dat" link="output" size="102400"/>
+		<uses file="scan_in121.dat" link="output" size="102400"/>
+		<uses file="scan_in41.dat" link="output" size="102400"/>
+		<uses file="scan_in4.dat" link="output" size="102400"/>
+		<uses file="scan_in117.dat" link="output" size="102400"/>
+		<uses file="scan_in60.dat" link="output" size="102400"/>
+		<uses file="scan_in23.dat" link="output" size="102400"/>
+		<uses file="scan_in42.dat" link="output" size="102400"/>
+		<uses file="scan_in61.dat" link="output" size="102400"/>
+		<uses file="scan_in24.dat" link="output" size="102400"/>
+		<uses file="scan_in43.dat" link="output" size="102400"/>
+		<uses file="scan_in130.dat" link="output" size="102400"/>
+		<uses file="scan_in62.dat" link="output" size="102400"/>
+		<uses file="scan_in25.dat" link="output" size="102400"/>
+		<uses file="scan_in44.dat" link="output" size="102400"/>
+		<uses file="scan_in63.dat" link="output" size="102400"/>
+		<uses file="scan_in2.dat" link="output" size="102400"/>
+		<uses file="scan_in45.dat" link="output" size="102400"/>
+		<uses file="scan_in124.dat" link="output" size="102400"/>
+		<uses file="scan_in99.dat" link="output" size="102400"/>
+		<uses file="scan_in64.dat" link="output" size="102400"/>
+		<uses file="scan_in93.dat" link="output" size="102400"/>
+		<uses file="scan_in27.dat" link="output" size="102400"/>
+		<uses file="scan_in46.dat" link="output" size="102400"/>
+		<uses file="scan_in65.dat" link="output" size="102400"/>
+		<uses file="scan_in28.dat" link="output" size="102400"/>
+		<uses file="scan_in47.dat" link="output" size="102400"/>
+		<uses file="scan_in118.dat" link="output" size="102400"/>
+		<uses file="scan_in125.dat" link="output" size="102400"/>
+		<uses file="scan_in66.dat" link="output" size="102400"/>
+		<uses file="scan_in29.dat" link="output" size="102400"/>
+		<uses file="scan_in48.dat" link="output" size="102400"/>
+		<uses file="scan_in67.dat" link="output" size="102400"/>
+		<uses file="scan_in30.dat" link="output" size="102400"/>
+		<uses file="scan_in49.dat" link="output" size="102400"/>
+		<uses file="scan_in106.dat" link="output" size="102400"/>
+		<uses file="scan_in68.dat" link="output" size="102400"/>
+		<uses file="scan_in131.dat" link="output" size="102400"/>
+		<uses file="scan_in31.dat" link="output" size="102400"/>
+		<uses file="scan_in50.dat" link="output" size="102400"/>
+		<uses file="scan_in69.dat" link="output" size="102400"/>
+		<uses file="scan_in32.dat" link="output" size="102400"/>
+		<uses file="scan_in51.dat" link="output" size="102400"/>
+		<uses file="scan_in100.dat" link="output" size="102400"/>
+		<uses file="scan_in94.dat" link="output" size="102400"/>
+		<uses file="scan_in70.dat" link="output" size="102400"/>
+		<uses file="scan_in33.dat" link="output" size="102400"/>
+		<uses file="scan_in52.dat" link="output" size="102400"/>
+		<uses file="scan_in71.dat" link="output" size="102400"/>
+		<uses file="scan_in34.dat" link="output" size="102400"/>
+		<uses file="scan_in53.dat" link="output" size="102400"/>
+		<uses file="scan_in88.dat" link="output" size="102400"/>
+		<uses file="scan_in119.dat" link="output" size="102400"/>
+		<uses file="scan_in72.dat" link="output" size="102400"/>
+		<uses file="scan_in35.dat" link="output" size="102400"/>
+		<uses file="scan_in73.dat" link="output" size="102400"/>
+		<uses file="scan_in132.dat" link="output" size="102400"/>
+		<uses file="scan_in79.dat" link="output" size="102400"/>
+		<uses file="scan_in26.dat" link="output" size="102400"/>
+		<uses file="scan_in74.dat" link="output" size="102400"/>
+		<uses file="scan_in75.dat" link="output" size="102400"/>
+		<uses file="scan_in126.dat" link="output" size="102400"/>
+		<uses file="scan_in81.dat" link="output" size="102400"/>
+		<uses file="scan_in87.dat" link="output" size="102400"/>
+		<uses file="scan_in76.dat" link="output" size="102400"/>
+		<uses file="scan_in77.dat" link="output" size="102400"/>
+		<uses file="scan_in120.dat" link="output" size="102400"/>
+		<uses file="scan_in84.dat" link="output" size="102400"/>
+		<uses file="scan_in103.dat" link="output" size="102400"/>
+		<uses file="scan_in85.dat" link="output" size="102400"/>
+		<uses file="scan_in7.dat" link="output" size="102400"/>
+		<uses file="scan_in80.dat" link="output" size="102400"/>
+		<uses file="scan_in20.dat" link="output" size="102400"/>
+		<uses file="scan_in133.dat" link="output" size="102400"/>
+		<uses file="scan_in105.dat" link="output" size="102400"/>
+		<uses file="scan_in8.dat" link="output" size="102400"/>
+		<uses file="scan_in5.dat" link="output" size="102400"/>
+		<uses file="scan_in123.dat" link="output" size="102400"/>
+		<uses file="scan_in102.dat" link="output" size="102400"/>
+		<uses file="scan_in96.dat" link="output" size="102400"/>
+		<uses file="scan_in3.dat" link="output" size="102400"/>
+		<uses file="scan_in127.dat" link="output" size="102400"/>
+		<uses file="scan_in107.dat" link="output" size="102400"/>
+		<uses file="scan_in86.dat" link="output" size="102400"/>
+		<uses file="scan_in89.dat" link="output" size="102400"/>
+		<uses file="scan_in108.dat" link="output" size="102400"/>
+		<uses file="scan_in90.dat" link="output" size="102400"/>
+		<uses file="scan_in9.dat" link="output" size="102400"/>
+		<uses file="scan_in109.dat" link="output" size="102400"/>
+		<uses file="scan_in10.dat" link="output" size="102400"/>
+		<uses file="scan_in82.dat" link="output" size="102400"/>
+		<uses file="scan_in83.dat" link="output" size="102400"/>
+		<uses file="scan_in1.dat" link="output" size="102400"/>
+		<uses file="scan_in134.dat" link="output" size="102400"/>
+		<uses file="scan_in11.dat" link="output" size="102400"/>
+		<uses file="scan_in111.dat" link="output" size="102400"/>
+		<uses file="scan_in12.dat" link="output" size="102400"/>
+		<uses file="scan_in112.dat" link="output" size="102400"/>
+		<uses file="scan_in128.dat" link="output" size="102400"/>
+		<uses file="scan_in13.dat" link="output" size="102400"/>
+		<uses file="scan_in97.dat" link="output" size="102400"/>
+		<uses file="scan_in113.dat" link="output" size="102400"/>
+		<uses file="scan_in95.dat" link="output" size="102400"/>
+		<uses file="scan_in14.dat" link="output" size="102400"/>
+		<uses file="scan_in114.dat" link="output" size="102400"/>
+		<uses file="scan_in122.dat" link="output" size="102400"/>
+		<uses file="scan_in15.dat" link="output" size="102400"/>
+		<uses file="scan_in91.dat" link="output" size="102400"/>
+		<uses file="scan_in115.dat" link="output" size="102400"/>
+		<uses file="scan_in16.dat" link="output" size="102400"/>
+		<uses file="scan_in116.dat" link="output" size="102400"/>
+	</job>
+	<job id="scan61" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in61.dat" link="input" size="102400"/>
+		<uses file="scan_out61.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan98" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in98.dat" link="input" size="102400"/>
+		<uses file="scan_out98.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan92" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in92.dat" link="input" size="102400"/>
+		<uses file="scan_out92.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan24" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in24.dat" link="input" size="102400"/>
+		<uses file="scan_out24.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan43" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in43.dat" link="input" size="102400"/>
+		<uses file="scan_out43.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan62" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in62.dat" link="input" size="102400"/>
+		<uses file="scan_out62.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan25" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in25.dat" link="input" size="102400"/>
+		<uses file="scan_out25.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan44" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in44.dat" link="input" size="102400"/>
+		<uses file="scan_out44.dat" link="output" size="512000"/>
+	</job>
+	<job id="post" namespace="motif" name="Post Interproscan" runtime="60" cores="1">
+		<uses file="scan_out91.dat" link="input" size="512000"/>
+		<uses file="scan_out35.dat" link="input" size="512000"/>
+		<uses file="scan_out54.dat" link="input" size="512000"/>
+		<uses file="scan_out17.dat" link="input" size="512000"/>
+		<uses file="scan_out36.dat" link="input" size="512000"/>
+		<uses file="scan_out55.dat" link="input" size="512000"/>
+		<uses file="scan_out18.dat" link="input" size="512000"/>
+		<uses file="scan_out116.dat" link="input" size="512000"/>
+		<uses file="scan_out37.dat" link="input" size="512000"/>
+		<uses file="scan_out56.dat" link="input" size="512000"/>
+		<uses file="scan_out102.dat" link="input" size="512000"/>
+		<uses file="scan_out19.dat" link="input" size="512000"/>
+		<uses file="scan_out38.dat" link="input" size="512000"/>
+		<uses file="scan_out57.dat" link="input" size="512000"/>
+		<uses file="scan_out20.dat" link="input" size="512000"/>
+		<uses file="scan_out135.dat" link="input" size="512000"/>
+		<uses file="scan_out129.dat" link="input" size="512000"/>
+		<uses file="scan_out39.dat" link="input" size="512000"/>
+		<uses file="scan_out58.dat" link="input" size="512000"/>
+		<uses file="scan_out1.dat" link="input" size="512000"/>
+		<uses file="scan_out40.dat" link="input" size="512000"/>
+		<uses file="scan_out59.dat" link="input" size="512000"/>
+		<uses file="scan_out22.dat" link="input" size="512000"/>
+		<uses file="scan_out123.dat" link="input" size="512000"/>
+		<uses file="scan_out98.dat" link="input" size="512000"/>
+		<uses file="scan_out41.dat" link="input" size="512000"/>
+		<uses file="scan_out92.dat" link="input" size="512000"/>
+		<uses file="scan_out60.dat" link="input" size="512000"/>
+		<uses file="scan_out23.dat" link="input" size="512000"/>
+		<uses file="scan_out42.dat" link="input" size="512000"/>
+		<uses file="scan_out2.dat" link="input" size="512000"/>
+		<uses file="scan_out24.dat" link="input" size="512000"/>
+		<uses file="scan_out117.dat" link="input" size="512000"/>
+		<uses file="scan_out43.dat" link="input" size="512000"/>
+		<uses file="scan_out62.dat" link="input" size="512000"/>
+		<uses file="scan_out25.dat" link="input" size="512000"/>
+		<uses file="scan_out106.dat" link="input" size="512000"/>
+		<uses file="scan_out44.dat" link="input" size="512000"/>
+		<uses file="scan_out63.dat" link="input" size="512000"/>
+		<uses file="scan_out26.dat" link="input" size="512000"/>
+		<uses file="scan_out105.dat" link="input" size="512000"/>
+		<uses file="scan_out45.dat" link="input" size="512000"/>
+		<uses file="scan_out130.dat" link="input" size="512000"/>
+		<uses file="scan_out64.dat" link="input" size="512000"/>
+		<uses file="scan_out27.dat" link="input" size="512000"/>
+		<uses file="scan_out46.dat" link="input" size="512000"/>
+		<uses file="scan_out65.dat" link="input" size="512000"/>
+		<uses file="scan_out28.dat" link="input" size="512000"/>
+		<uses file="scan_out79.dat" link="input" size="512000"/>
+		<uses file="scan_out93.dat" link="input" size="512000"/>
+		<uses file="scan_out47.dat" link="input" size="512000"/>
+		<uses file="scan_out66.dat" link="input" size="512000"/>
+		<uses file="scan_out29.dat" link="input" size="512000"/>
+		<uses file="scan_out48.dat" link="input" size="512000"/>
+		<uses file="scan_out67.dat" link="input" size="512000"/>
+		<uses file="scan_out30.dat" link="input" size="512000"/>
+		<uses file="scan_out118.dat" link="input" size="512000"/>
+		<uses file="scan_out49.dat" link="input" size="512000"/>
+		<uses file="scan_out68.dat" link="input" size="512000"/>
+		<uses file="scan_out31.dat" link="input" size="512000"/>
+		<uses file="scan_out94.dat" link="input" size="512000"/>
+		<uses file="scan_out50.dat" link="input" size="512000"/>
+		<uses file="scan_out69.dat" link="input" size="512000"/>
+		<uses file="scan_out77.dat" link="input" size="512000"/>
+		<uses file="scan_out131.dat" link="input" size="512000"/>
+		<uses file="scan_out51.dat" link="input" size="512000"/>
+		<uses file="scan_out70.dat" link="input" size="512000"/>
+		<uses file="scan_out33.dat" link="input" size="512000"/>
+		<uses file="scan_out52.dat" link="input" size="512000"/>
+		<uses file="scan_out71.dat" link="input" size="512000"/>
+		<uses file="scan_out34.dat" link="input" size="512000"/>
+		<uses file="scan_out125.dat" link="input" size="512000"/>
+		<uses file="scan_out100.dat" link="input" size="512000"/>
+		<uses file="scan_out53.dat" link="input" size="512000"/>
+		<uses file="scan_out83.dat" link="input" size="512000"/>
+		<uses file="scan_out72.dat" link="input" size="512000"/>
+		<uses file="scan_out73.dat" link="input" size="512000"/>
+		<uses file="scan_out119.dat" link="input" size="512000"/>
+		<uses file="scan_out32.dat" link="input" size="512000"/>
+		<uses file="scan_out81.dat" link="input" size="512000"/>
+		<uses file="scan_out74.dat" link="input" size="512000"/>
+		<uses file="scan_out75.dat" link="input" size="512000"/>
+		<uses file="scan_out127.dat" link="input" size="512000"/>
+		<uses file="scan_out132.dat" link="input" size="512000"/>
+		<uses file="scan_out76.dat" link="input" size="512000"/>
+		<uses file="scan_out8.dat" link="input" size="512000"/>
+		<uses file="scan_out120.dat" link="input" size="512000"/>
+		<uses file="scan_out6.dat" link="input" size="512000"/>
+		<uses file="scan_out101.dat" link="input" size="512000"/>
+		<uses file="scan_out95.dat" link="input" size="512000"/>
+		<uses file="scan_out126.dat" link="input" size="512000"/>
+		<uses file="scan_out88.dat" link="input" size="512000"/>
+		<uses file="scan_out78.dat" link="input" size="512000"/>
+		<uses file="scan_out103.dat" link="input" size="512000"/>
+		<uses file="scan_out99.dat" link="input" size="512000"/>
+		<uses file="scan_out85.dat" link="input" size="512000"/>
+		<uses file="scan_out104.dat" link="input" size="512000"/>
+		<uses file="scan_out80.dat" link="input" size="512000"/>
+		<uses file="scan_out86.dat" link="input" size="512000"/>
+		<uses file="scan_out4.dat" link="input" size="512000"/>
+		<uses file="scan_out87.dat" link="input" size="512000"/>
+		<uses file="scan_out5.dat" link="input" size="512000"/>
+		<uses file="scan_out97.dat" link="input" size="512000"/>
+		<uses file="scan_out3.dat" link="input" size="512000"/>
+		<uses file="scan_out107.dat" link="input" size="512000"/>
+		<uses file="scan_out7.dat" link="input" size="512000"/>
+		<uses file="scan_out89.dat" link="input" size="512000"/>
+		<uses file="scan_out108.dat" link="input" size="512000"/>
+		<uses file="scan_out124.dat" link="input" size="512000"/>
+		<uses file="scan_out21.dat" link="input" size="512000"/>
+		<uses file="scan_out96.dat" link="input" size="512000"/>
+		<uses file="scan_out9.dat" link="input" size="512000"/>
+		<uses file="scan_out109.dat" link="input" size="512000"/>
+		<uses file="scan_out10.dat" link="input" size="512000"/>
+		<uses file="scan_out110.dat" link="input" size="512000"/>
+		<uses file="scan_out121.dat" link="input" size="512000"/>
+		<uses file="scan_out90.dat" link="input" size="512000"/>
+		<uses file="scan_out11.dat" link="input" size="512000"/>
+		<uses file="scan_out111.dat" link="input" size="512000"/>
+		<uses file="scan_out12.dat" link="input" size="512000"/>
+		<uses file="scan_out133.dat" link="input" size="512000"/>
+		<uses file="scan_out112.dat" link="input" size="512000"/>
+		<uses file="scan_out84.dat" link="input" size="512000"/>
+		<uses file="scan_out134.dat" link="input" size="512000"/>
+		<uses file="scan_out13.dat" link="input" size="512000"/>
+		<uses file="scan_out113.dat" link="input" size="512000"/>
+		<uses file="scan_out122.dat" link="input" size="512000"/>
+		<uses file="scan_out14.dat" link="input" size="512000"/>
+		<uses file="scan_out114.dat" link="input" size="512000"/>
+		<uses file="scan_out16.dat" link="input" size="512000"/>
+		<uses file="scan_out128.dat" link="input" size="512000"/>
+		<uses file="scan_out15.dat" link="input" size="512000"/>
+		<uses file="scan_out115.dat" link="input" size="512000"/>
+		<uses file="scan_out61.dat" link="input" size="512000"/>
+		<uses file="scan_out82.dat" link="input" size="512000"/>
+		<uses file="post_out2.dat" link="output" size="628097024"/>
+		<uses file="post_out1.dat" link="output" size="74448896"/>
+		<uses file="post_out3.dat" link="output" size="628097024"/>
+	</job>
+	<job id="scan123" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in123.dat" link="input" size="102400"/>
+		<uses file="scan_out123.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan117" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in117.dat" link="input" size="102400"/>
+		<uses file="scan_out117.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan1" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in1.dat" link="input" size="102400"/>
+		<uses file="scan_out1.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan45" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in45.dat" link="input" size="102400"/>
+		<uses file="scan_out45.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan64" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in64.dat" link="input" size="102400"/>
+		<uses file="scan_out64.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan27" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in27.dat" link="input" size="102400"/>
+		<uses file="scan_out27.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan46" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in46.dat" link="input" size="102400"/>
+		<uses file="scan_out46.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan102" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in102.dat" link="input" size="102400"/>
+		<uses file="scan_out102.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan65" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in65.dat" link="input" size="102400"/>
+		<uses file="scan_out65.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan130" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in130.dat" link="input" size="102400"/>
+		<uses file="scan_out130.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan28" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in28.dat" link="input" size="102400"/>
+		<uses file="scan_out28.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan47" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in47.dat" link="input" size="102400"/>
+		<uses file="scan_out47.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan66" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in66.dat" link="input" size="102400"/>
+		<uses file="scan_out66.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan29" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in29.dat" link="input" size="102400"/>
+		<uses file="scan_out29.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan48" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in48.dat" link="input" size="102400"/>
+		<uses file="scan_out48.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan67" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in67.dat" link="input" size="102400"/>
+		<uses file="scan_out67.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan124" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in124.dat" link="input" size="102400"/>
+		<uses file="scan_out124.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan78" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in78.dat" link="input" size="102400"/>
+		<uses file="scan_out78.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan30" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in30.dat" link="input" size="102400"/>
+		<uses file="scan_out30.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan93" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in93.dat" link="input" size="102400"/>
+		<uses file="scan_out93.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan49" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in49.dat" link="input" size="102400"/>
+		<uses file="scan_out49.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan68" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in68.dat" link="input" size="102400"/>
+		<uses file="scan_out68.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan31" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in31.dat" link="input" size="102400"/>
+		<uses file="scan_out31.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan50" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in50.dat" link="input" size="102400"/>
+		<uses file="scan_out50.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan69" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in69.dat" link="input" size="102400"/>
+		<uses file="scan_out69.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan118" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in118.dat" link="input" size="102400"/>
+		<uses file="scan_out118.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan32" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in32.dat" link="input" size="102400"/>
+		<uses file="scan_out32.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan51" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in51.dat" link="input" size="102400"/>
+		<uses file="scan_out51.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan70" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in70.dat" link="input" size="102400"/>
+		<uses file="scan_out70.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan33" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in33.dat" link="input" size="102400"/>
+		<uses file="scan_out33.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan52" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in52.dat" link="input" size="102400"/>
+		<uses file="scan_out52.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan71" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in71.dat" link="input" size="102400"/>
+		<uses file="scan_out71.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan34" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in34.dat" link="input" size="102400"/>
+		<uses file="scan_out34.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan131" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in131.dat" link="input" size="102400"/>
+		<uses file="scan_out131.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan77" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in77.dat" link="input" size="102400"/>
+		<uses file="scan_out77.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan72" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in72.dat" link="input" size="102400"/>
+		<uses file="scan_out72.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan100" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in100.dat" link="input" size="102400"/>
+		<uses file="scan_out100.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan13" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in13.dat" link="input" size="102400"/>
+		<uses file="scan_out13.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan73" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in73.dat" link="input" size="102400"/>
+		<uses file="scan_out73.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan125" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in125.dat" link="input" size="102400"/>
+		<uses file="scan_out125.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan85" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in85.dat" link="input" size="102400"/>
+		<uses file="scan_out85.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan74" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in74.dat" link="input" size="102400"/>
+		<uses file="scan_out74.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan63" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in63.dat" link="input" size="102400"/>
+		<uses file="scan_out63.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan75" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in75.dat" link="input" size="102400"/>
+		<uses file="scan_out75.dat" link="output" size="512000"/>
+	</job>
+	<job id="motif" namespace="motif" name="Motif" runtime="3600" cores="256">
+		<uses file="post_out1.dat" link="input" size="74448896"/>
+		<uses file="motif_out.dat" link="output" size="1501560832"/>
+	</job>
+	<job id="scan126" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in126.dat" link="input" size="102400"/>
+		<uses file="scan_out126.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan76" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in76.dat" link="input" size="102400"/>
+		<uses file="scan_out76.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan83" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in83.dat" link="input" size="102400"/>
+		<uses file="scan_out83.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan132" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in132.dat" link="input" size="102400"/>
+		<uses file="scan_out132.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan4" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in4.dat" link="input" size="102400"/>
+		<uses file="scan_out4.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan26" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in26.dat" link="input" size="102400"/>
+		<uses file="scan_out26.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan6" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in6.dat" link="input" size="102400"/>
+		<uses file="scan_out6.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan103" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in103.dat" link="input" size="102400"/>
+		<uses file="scan_out103.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan121" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in121.dat" link="input" size="102400"/>
+		<uses file="scan_out121.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan3" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in3.dat" link="input" size="102400"/>
+		<uses file="scan_out3.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan8" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in8.dat" link="input" size="102400"/>
+		<uses file="scan_out8.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan101" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in101.dat" link="input" size="102400"/>
+		<uses file="scan_out101.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan95" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in95.dat" link="input" size="102400"/>
+		<uses file="scan_out95.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan5" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in5.dat" link="input" size="102400"/>
+		<uses file="scan_out5.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan86" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in86.dat" link="input" size="102400"/>
+		<uses file="scan_out86.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan105" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in105.dat" link="input" size="102400"/>
+		<uses file="scan_out105.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan80" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in80.dat" link="input" size="102400"/>
+		<uses file="scan_out80.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan120" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in120.dat" link="input" size="102400"/>
+		<uses file="scan_out120.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan106" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in106.dat" link="input" size="102400"/>
+		<uses file="scan_out106.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan89" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in89.dat" link="input" size="102400"/>
+		<uses file="scan_out89.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan7" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in7.dat" link="input" size="102400"/>
+		<uses file="scan_out7.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan107" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in107.dat" link="input" size="102400"/>
+		<uses file="scan_out107.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan81" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in81.dat" link="input" size="102400"/>
+		<uses file="scan_out81.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan2" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in2.dat" link="input" size="102400"/>
+		<uses file="scan_out2.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan108" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in108.dat" link="input" size="102400"/>
+		<uses file="scan_out108.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan133" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in133.dat" link="input" size="102400"/>
+		<uses file="scan_out133.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan9" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in9.dat" link="input" size="102400"/>
+		<uses file="scan_out9.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan109" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in109.dat" link="input" size="102400"/>
+		<uses file="scan_out109.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan10" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in10.dat" link="input" size="102400"/>
+		<uses file="scan_out10.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan79" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in79.dat" link="input" size="102400"/>
+		<uses file="scan_out79.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan96" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in96.dat" link="input" size="102400"/>
+		<uses file="scan_out96.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan110" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in110.dat" link="input" size="102400"/>
+		<uses file="scan_out110.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan127" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in127.dat" link="input" size="102400"/>
+		<uses file="scan_out127.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan11" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in11.dat" link="input" size="102400"/>
+		<uses file="scan_out11.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan111" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in111.dat" link="input" size="102400"/>
+		<uses file="scan_out111.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan88" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in88.dat" link="input" size="102400"/>
+		<uses file="scan_out88.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan12" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in12.dat" link="input" size="102400"/>
+		<uses file="scan_out12.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan90" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in90.dat" link="input" size="102400"/>
+		<uses file="scan_out90.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan112" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in112.dat" link="input" size="102400"/>
+		<uses file="scan_out112.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan82" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in82.dat" link="input" size="102400"/>
+		<uses file="scan_out82.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan113" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in113.dat" link="input" size="102400"/>
+		<uses file="scan_out113.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan134" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in134.dat" link="input" size="102400"/>
+		<uses file="scan_out134.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan14" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in14.dat" link="input" size="102400"/>
+		<uses file="scan_out14.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan84" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in84.dat" link="input" size="102400"/>
+		<uses file="scan_out84.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan53" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in53.dat" link="input" size="102400"/>
+		<uses file="scan_out53.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan114" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in114.dat" link="input" size="102400"/>
+		<uses file="scan_out114.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan99" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in99.dat" link="input" size="102400"/>
+		<uses file="scan_out99.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan15" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in15.dat" link="input" size="102400"/>
+		<uses file="scan_out15.dat" link="output" size="512000"/>
+	</job>
+	<job id="scan115" namespace="motif" name="Interproscan" runtime="5400" cores="1">
+		<uses file="scan_in115.dat" link="input" size="102400"/>
+		<uses file="scan_out115.dat" link="output" size="512000"/>
+	</job>
+	<child ref="scan128">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan16">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan35">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan54">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan17">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan94">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan36">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan55">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan122">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan97">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan18">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan91">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan37">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan56">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan19">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan38">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan119">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan57">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan116">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan20">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan87">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan39">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan58">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan21">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan40">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan59">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan104">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan135">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan22">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan129">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan41">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan60">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan23">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan42">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan61">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan98">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan92">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan24">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan43">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan62">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan25">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan44">
+		<parent ref="pre"/>
+	</child>
+	<child ref="post">
+		<parent ref="scan128"/>
+		<parent ref="scan16"/>
+		<parent ref="scan116"/>
+		<parent ref="scan135"/>
+		<parent ref="scan4"/>
+		<parent ref="scan17"/>
+		<parent ref="scan117"/>
+		<parent ref="scan55"/>
+		<parent ref="scan122"/>
+		<parent ref="scan97"/>
+		<parent ref="scan18"/>
+		<parent ref="scan10"/>
+		<parent ref="scan37"/>
+		<parent ref="scan56"/>
+		<parent ref="scan19"/>
+		<parent ref="scan38"/>
+		<parent ref="scan119"/>
+		<parent ref="scan57"/>
+		<parent ref="scan35"/>
+		<parent ref="scan20"/>
+		<parent ref="scan87"/>
+		<parent ref="scan39"/>
+		<parent ref="scan58"/>
+		<parent ref="scan21"/>
+		<parent ref="scan40"/>
+		<parent ref="scan59"/>
+		<parent ref="scan104"/>
+		<parent ref="scan54"/>
+		<parent ref="scan22"/>
+		<parent ref="scan48"/>
+		<parent ref="scan41"/>
+		<parent ref="scan60"/>
+		<parent ref="scan23"/>
+		<parent ref="scan123"/>
+		<parent ref="scan61"/>
+		<parent ref="scan98"/>
+		<parent ref="scan11"/>
+		<parent ref="scan24"/>
+		<parent ref="scan43"/>
+		<parent ref="scan62"/>
+		<parent ref="scan25"/>
+		<parent ref="scan44"/>
+		<parent ref="scan63"/>
+		<parent ref="scan36"/>
+		<parent ref="scan1"/>
+		<parent ref="scan45"/>
+		<parent ref="scan64"/>
+		<parent ref="scan27"/>
+		<parent ref="scan46"/>
+		<parent ref="scan65"/>
+		<parent ref="scan130"/>
+		<parent ref="scan28"/>
+		<parent ref="scan47"/>
+		<parent ref="scan66"/>
+		<parent ref="scan29"/>
+		<parent ref="scan129"/>
+		<parent ref="scan67"/>
+		<parent ref="scan124"/>
+		<parent ref="scan78"/>
+		<parent ref="scan30"/>
+		<parent ref="scan12"/>
+		<parent ref="scan49"/>
+		<parent ref="scan68"/>
+		<parent ref="scan31"/>
+		<parent ref="scan50"/>
+		<parent ref="scan69"/>
+		<parent ref="scan118"/>
+		<parent ref="scan112"/>
+		<parent ref="scan32"/>
+		<parent ref="scan132"/>
+		<parent ref="scan70"/>
+		<parent ref="scan33"/>
+		<parent ref="scan52"/>
+		<parent ref="scan71"/>
+		<parent ref="scan34"/>
+		<parent ref="scan131"/>
+		<parent ref="scan53"/>
+		<parent ref="scan82"/>
+		<parent ref="scan72"/>
+		<parent ref="scan75"/>
+		<parent ref="scan13"/>
+		<parent ref="scan73"/>
+		<parent ref="scan125"/>
+		<parent ref="scan74"/>
+		<parent ref="scan7"/>
+		<parent ref="scan100"/>
+		<parent ref="scan126"/>
+		<parent ref="scan76"/>
+		<parent ref="scan83"/>
+		<parent ref="scan51"/>
+		<parent ref="scan79"/>
+		<parent ref="scan26"/>
+		<parent ref="scan6"/>
+		<parent ref="scan103"/>
+		<parent ref="scan85"/>
+		<parent ref="scan81"/>
+		<parent ref="scan101"/>
+		<parent ref="scan14"/>
+		<parent ref="scan5"/>
+		<parent ref="scan86"/>
+		<parent ref="scan105"/>
+		<parent ref="scan3"/>
+		<parent ref="scan80"/>
+		<parent ref="scan120"/>
+		<parent ref="scan106"/>
+		<parent ref="scan89"/>
+		<parent ref="scan88"/>
+		<parent ref="scan107"/>
+		<parent ref="scan8"/>
+		<parent ref="scan2"/>
+		<parent ref="scan108"/>
+		<parent ref="scan133"/>
+		<parent ref="scan9"/>
+		<parent ref="scan109"/>
+		<parent ref="scan91"/>
+		<parent ref="scan102"/>
+		<parent ref="scan15"/>
+		<parent ref="scan110"/>
+		<parent ref="scan127"/>
+		<parent ref="scan92"/>
+		<parent ref="scan111"/>
+		<parent ref="scan93"/>
+		<parent ref="scan90"/>
+		<parent ref="scan121"/>
+		<parent ref="scan94"/>
+		<parent ref="scan42"/>
+		<parent ref="scan113"/>
+		<parent ref="scan134"/>
+		<parent ref="scan95"/>
+		<parent ref="scan84"/>
+		<parent ref="scan77"/>
+		<parent ref="scan114"/>
+		<parent ref="scan99"/>
+		<parent ref="scan96"/>
+		<parent ref="scan115"/>
+	</child>
+	<child ref="scan123">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan117">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan1">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan45">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan64">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan27">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan46">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan102">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan65">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan130">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan28">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan47">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan66">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan29">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan48">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan67">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan124">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan78">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan30">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan93">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan49">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan68">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan31">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan50">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan69">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan118">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan32">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan51">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan70">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan33">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan52">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan71">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan34">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan131">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan77">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan72">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan100">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan13">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan73">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan125">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan85">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan74">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan63">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan75">
+		<parent ref="pre"/>
+	</child>
+	<child ref="motif">
+		<parent ref="post"/>
+	</child>
+	<child ref="scan126">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan76">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan83">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan132">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan4">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan26">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan6">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan103">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan121">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan3">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan8">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan101">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan95">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan5">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan86">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan105">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan80">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan120">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan106">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan89">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan7">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan107">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan81">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan2">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan108">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan133">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan9">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan109">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan10">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan79">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan96">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan110">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan127">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan11">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan111">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan88">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan12">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan90">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan112">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan82">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan113">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan134">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan14">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan84">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan53">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan114">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan99">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan15">
+		<parent ref="pre"/>
+	</child>
+	<child ref="scan115">
+		<parent ref="pre"/>
+	</child>
+</adag>

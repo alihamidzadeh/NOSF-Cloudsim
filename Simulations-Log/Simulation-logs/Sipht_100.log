@@ -1,0 +1,179 @@
+=== Comprehensive Simulation Summary ===
+Simulation Duration: 4584.4 sec
+Total VM Rental Cost (Billing): $564
+Total VM Rental Cost (Executaion): $39.25
+Total Energy Consumption: 14130.8 Watt-seconds
+Deadline Violation Count: 0 out of 1
+
+Workflow Details:
+  Workflow: wf-0
+    Arrival Time: 0 sec
+    Deadline: 8949.94 sec
+    Makespan: 4586.34 sec
+    Tasks:
+      Task ID00000: Sub-Deadline=8.6 sec, Start=7.4 sec, End=7.5 sec, Execution=0.1 sec, VM=vm-36, Execution-Cost=$0.0001, Energy=0 Ws
+      Task ID00001: Sub-Deadline=1.9 sec, Start=5.0 sec, End=5.9 sec, Execution=0.9 sec, VM=vm-1, Execution-Cost=$0.0011, Energy=0 Ws
+      Task ID00002: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.5 sec, Execution=1.5 sec, VM=vm-63, Execution-Cost=$0.0018, Energy=1 Ws
+      Task ID00003: Sub-Deadline=1.7 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-62, Execution-Cost=$0.0012, Energy=0 Ws
+      Task ID00004: Sub-Deadline=2.2 sec, Start=5.0 sec, End=5.9 sec, Execution=0.9 sec, VM=vm-61, Execution-Cost=$0.0012, Energy=0 Ws
+      Task ID00005: Sub-Deadline=1.4 sec, Start=5.0 sec, End=6.1 sec, Execution=1.1 sec, VM=vm-60, Execution-Cost=$0.0014, Energy=1 Ws
+      Task ID00006: Sub-Deadline=2.1 sec, Start=5.0 sec, End=6.7 sec, Execution=1.7 sec, VM=vm-59, Execution-Cost=$0.0021, Energy=1 Ws
+      Task ID00007: Sub-Deadline=1.8 sec, Start=5.0 sec, End=6.1 sec, Execution=1.1 sec, VM=vm-58, Execution-Cost=$0.0014, Energy=1 Ws
+      Task ID00008: Sub-Deadline=1.4 sec, Start=5.0 sec, End=6.2 sec, Execution=1.2 sec, VM=vm-57, Execution-Cost=$0.0015, Energy=1 Ws
+      Task ID00009: Sub-Deadline=1.3 sec, Start=5.0 sec, End=5.7 sec, Execution=0.7 sec, VM=vm-56, Execution-Cost=$0.0009, Energy=0 Ws
+      Task ID00010: Sub-Deadline=2.0 sec, Start=5.0 sec, End=6.5 sec, Execution=1.5 sec, VM=vm-55, Execution-Cost=$0.0019, Energy=1 Ws
+      Task ID00011: Sub-Deadline=1.4 sec, Start=5.0 sec, End=6.5 sec, Execution=1.5 sec, VM=vm-54, Execution-Cost=$0.0018, Energy=1 Ws
+      Task ID00012: Sub-Deadline=2.6 sec, Start=5.0 sec, End=7.1 sec, Execution=2.1 sec, VM=vm-53, Execution-Cost=$0.0026, Energy=1 Ws
+      Task ID00013: Sub-Deadline=2.3 sec, Start=5.0 sec, End=6.5 sec, Execution=1.5 sec, VM=vm-52, Execution-Cost=$0.0019, Energy=1 Ws
+      Task ID00014: Sub-Deadline=1.7 sec, Start=5.0 sec, End=6.6 sec, Execution=1.6 sec, VM=vm-51, Execution-Cost=$0.0020, Energy=1 Ws
+      Task ID00015: Sub-Deadline=1.5 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-50, Execution-Cost=$0.0012, Energy=0 Ws
+      Task ID00016: Sub-Deadline=2.6 sec, Start=5.0 sec, End=6.4 sec, Execution=1.4 sec, VM=vm-49, Execution-Cost=$0.0017, Energy=1 Ws
+      Task ID00017: Sub-Deadline=1.8 sec, Start=5.0 sec, End=6.3 sec, Execution=1.3 sec, VM=vm-48, Execution-Cost=$0.0016, Energy=1 Ws
+      Task ID00018: Sub-Deadline=1.3 sec, Start=5.0 sec, End=5.8 sec, Execution=0.8 sec, VM=vm-47, Execution-Cost=$0.0010, Energy=0 Ws
+      Task ID00019: Sub-Deadline=2.0 sec, Start=5.0 sec, End=6.6 sec, Execution=1.6 sec, VM=vm-46, Execution-Cost=$0.0020, Energy=1 Ws
+      Task ID00020: Sub-Deadline=2703.3 sec, Start=5.7 sec, End=1882.1 sec, Execution=1876.4 sec, VM=vm-10, Execution-Cost=$2.3455, Energy=844 Ws
+      Task ID00021: Sub-Deadline=56.6 sec, Start=6.6 sec, End=53.6 sec, Execution=47.1 sec, VM=vm-9, Execution-Cost=$0.0588, Energy=21 Ws
+      Task ID00022: Sub-Deadline=72.9 sec, Start=6.0 sec, End=64.7 sec, Execution=58.7 sec, VM=vm-8, Execution-Cost=$0.0734, Energy=26 Ws
+      Task ID00023: Sub-Deadline=2850.9 sec, Start=6.9 sec, End=1606.0 sec, Execution=1599.1 sec, VM=vm-7, Execution-Cost=$1.9989, Energy=720 Ws
+      Task ID00024: Sub-Deadline=4725.9 sec, Start=1882.1 sec, End=2347.5 sec, Execution=465.4 sec, VM=vm-26, Execution-Cost=$0.5817, Energy=209 Ws
+      Task ID00025: Sub-Deadline=2357.5 sec, Start=2348.2 sec, End=2349.3 sec, Execution=1.1 sec, VM=vm-55, Execution-Cost=$0.0014, Energy=0 Ws
+      Task ID00026: Sub-Deadline=2385.5 sec, Start=2348.2 sec, End=2353.4 sec, Execution=5.2 sec, VM=vm-20, Execution-Cost=$0.0065, Energy=2 Ws
+      Task ID00027: Sub-Deadline=8946.0 sec, Start=2348.2 sec, End=3463.4 sec, Execution=1115.2 sec, VM=vm-14, Execution-Cost=$1.3940, Energy=502 Ws
+      Task ID00028: Sub-Deadline=2555.8 sec, Start=2349.3 sec, End=2387.0 sec, Execution=37.6 sec, VM=vm-54, Execution-Cost=$0.0471, Energy=17 Ws
+      Task ID00029: Sub-Deadline=2383.8 sec, Start=2348.2 sec, End=2355.0 sec, Execution=6.8 sec, VM=vm-38, Execution-Cost=$0.0086, Energy=3 Ws
+      Task ID00030: Sub-Deadline=3479.7 sec, Start=3465.8 sec, End=3466.8 sec, Execution=1.0 sec, VM=vm-5, Execution-Cost=$0.0013, Energy=0 Ws
+      Task ID00031: Sub-Deadline=8.5 sec, Start=6.9 sec, End=7.0 sec, Execution=0.1 sec, VM=vm-30, Execution-Cost=$0.0001, Energy=0 Ws
+      Task ID00032: Sub-Deadline=2.4 sec, Start=5.0 sec, End=6.2 sec, Execution=1.2 sec, VM=vm-45, Execution-Cost=$0.0015, Energy=1 Ws
+      Task ID00033: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.4 sec, Execution=1.4 sec, VM=vm-44, Execution-Cost=$0.0017, Energy=1 Ws
+      Task ID00034: Sub-Deadline=1.5 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-43, Execution-Cost=$0.0012, Energy=0 Ws
+      Task ID00035: Sub-Deadline=1.7 sec, Start=5.0 sec, End=5.8 sec, Execution=0.8 sec, VM=vm-42, Execution-Cost=$0.0011, Energy=0 Ws
+      Task ID00036: Sub-Deadline=2.1 sec, Start=5.0 sec, End=6.6 sec, Execution=1.6 sec, VM=vm-41, Execution-Cost=$0.0021, Energy=1 Ws
+      Task ID00037: Sub-Deadline=2.3 sec, Start=5.0 sec, End=6.3 sec, Execution=1.3 sec, VM=vm-40, Execution-Cost=$0.0016, Energy=1 Ws
+      Task ID00038: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-39, Execution-Cost=$0.0013, Energy=0 Ws
+      Task ID00039: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.3 sec, Execution=1.3 sec, VM=vm-38, Execution-Cost=$0.0016, Energy=1 Ws
+      Task ID00040: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.4 sec, Execution=1.4 sec, VM=vm-37, Execution-Cost=$0.0017, Energy=1 Ws
+      Task ID00041: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.8 sec, Execution=1.8 sec, VM=vm-36, Execution-Cost=$0.0023, Energy=1 Ws
+      Task ID00042: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.2 sec, Execution=1.2 sec, VM=vm-35, Execution-Cost=$0.0015, Energy=1 Ws
+      Task ID00043: Sub-Deadline=1.8 sec, Start=5.0 sec, End=6.2 sec, Execution=1.2 sec, VM=vm-34, Execution-Cost=$0.0014, Energy=1 Ws
+      Task ID00044: Sub-Deadline=2.3 sec, Start=5.0 sec, End=6.4 sec, Execution=1.4 sec, VM=vm-33, Execution-Cost=$0.0017, Energy=1 Ws
+      Task ID00045: Sub-Deadline=2.2 sec, Start=5.0 sec, End=6.4 sec, Execution=1.4 sec, VM=vm-32, Execution-Cost=$0.0018, Energy=1 Ws
+      Task ID00046: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.6 sec, Execution=1.6 sec, VM=vm-31, Execution-Cost=$0.0020, Energy=1 Ws
+      Task ID00047: Sub-Deadline=2.0 sec, Start=5.0 sec, End=6.7 sec, Execution=1.7 sec, VM=vm-30, Execution-Cost=$0.0021, Energy=1 Ws
+      Task ID00048: Sub-Deadline=2.1 sec, Start=5.0 sec, End=6.6 sec, Execution=1.6 sec, VM=vm-29, Execution-Cost=$0.0021, Energy=1 Ws
+      Task ID00049: Sub-Deadline=2.0 sec, Start=5.0 sec, End=6.1 sec, Execution=1.1 sec, VM=vm-28, Execution-Cost=$0.0013, Energy=0 Ws
+      Task ID00050: Sub-Deadline=2.0 sec, Start=5.0 sec, End=6.8 sec, Execution=1.8 sec, VM=vm-27, Execution-Cost=$0.0023, Energy=1 Ws
+      Task ID00051: Sub-Deadline=2120.0 sec, Start=6.0 sec, End=1710.7 sec, Execution=1704.7 sec, VM=vm-5, Execution-Cost=$2.1308, Energy=767 Ws
+      Task ID00052: Sub-Deadline=49.4 sec, Start=6.0 sec, End=35.8 sec, Execution=29.9 sec, VM=vm-6, Execution-Cost=$0.0373, Energy=13 Ws
+      Task ID00053: Sub-Deadline=90.4 sec, Start=6.0 sec, End=68.5 sec, Execution=62.5 sec, VM=vm-4, Execution-Cost=$0.0781, Energy=28 Ws
+      Task ID00054: Sub-Deadline=4082.6 sec, Start=29.8 sec, End=2806.6 sec, Execution=2776.9 sec, VM=vm-3, Execution-Cost=$3.0854, Energy=1111 Ws
+      Task ID00055: Sub-Deadline=5027.8 sec, Start=2809.1 sec, End=3265.4 sec, Execution=456.3 sec, VM=vm-42, Execution-Cost=$0.5704, Energy=205 Ws
+      Task ID00056: Sub-Deadline=3274.0 sec, Start=3266.0 sec, End=3267.2 sec, Execution=1.2 sec, VM=vm-3, Execution-Cost=$0.0013, Energy=0 Ws
+      Task ID00057: Sub-Deadline=3299.0 sec, Start=3266.0 sec, End=3272.8 sec, Execution=6.8 sec, VM=vm-3, Execution-Cost=$0.0075, Energy=3 Ws
+      Task ID00058: Sub-Deadline=8945.5 sec, Start=3266.0 sec, End=4581.7 sec, Execution=1315.7 sec, VM=vm-60, Execution-Cost=$1.6446, Energy=592 Ws
+      Task ID00059: Sub-Deadline=3473.7 sec, Start=3267.2 sec, End=3315.4 sec, Execution=48.3 sec, VM=vm-3, Execution-Cost=$0.0537, Energy=19 Ws
+      Task ID00060: Sub-Deadline=3283.0 sec, Start=3266.0 sec, End=3269.8 sec, Execution=3.8 sec, VM=vm-2, Execution-Cost=$0.0037, Energy=1 Ws
+      Task ID00061: Sub-Deadline=4600.5 sec, Start=4584.4 sec, End=4586.3 sec, Execution=1.9 sec, VM=vm-1, Execution-Cost=$0.0024, Energy=1 Ws
+      Task ID00062: Sub-Deadline=10.1 sec, Start=7.0 sec, End=7.1 sec, Execution=0.1 sec, VM=vm-52, Execution-Cost=$0.0001, Energy=0 Ws
+      Task ID00063: Sub-Deadline=2.0 sec, Start=5.0 sec, End=6.8 sec, Execution=1.8 sec, VM=vm-26, Execution-Cost=$0.0022, Energy=1 Ws
+      Task ID00064: Sub-Deadline=1.4 sec, Start=5.0 sec, End=6.1 sec, Execution=1.1 sec, VM=vm-25, Execution-Cost=$0.0014, Energy=1 Ws
+      Task ID00065: Sub-Deadline=1.8 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-24, Execution-Cost=$0.0013, Energy=0 Ws
+      Task ID00066: Sub-Deadline=2.2 sec, Start=5.0 sec, End=6.8 sec, Execution=1.8 sec, VM=vm-23, Execution-Cost=$0.0023, Energy=1 Ws
+      Task ID00067: Sub-Deadline=1.6 sec, Start=5.0 sec, End=6.3 sec, Execution=1.3 sec, VM=vm-22, Execution-Cost=$0.0016, Energy=1 Ws
+      Task ID00068: Sub-Deadline=2.2 sec, Start=5.0 sec, End=6.6 sec, Execution=1.6 sec, VM=vm-21, Execution-Cost=$0.0019, Energy=1 Ws
+      Task ID00069: Sub-Deadline=1.7 sec, Start=5.0 sec, End=6.3 sec, Execution=1.3 sec, VM=vm-20, Execution-Cost=$0.0016, Energy=1 Ws
+      Task ID00070: Sub-Deadline=2.2 sec, Start=5.0 sec, End=6.2 sec, Execution=1.2 sec, VM=vm-19, Execution-Cost=$0.0015, Energy=1 Ws
+      Task ID00071: Sub-Deadline=2.3 sec, Start=5.0 sec, End=6.8 sec, Execution=1.8 sec, VM=vm-18, Execution-Cost=$0.0023, Energy=1 Ws
+      Task ID00072: Sub-Deadline=1.8 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-17, Execution-Cost=$0.0012, Energy=0 Ws
+      Task ID00073: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.2 sec, Execution=1.2 sec, VM=vm-16, Execution-Cost=$0.0015, Energy=1 Ws
+      Task ID00074: Sub-Deadline=2.1 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-15, Execution-Cost=$0.0012, Energy=0 Ws
+      Task ID00075: Sub-Deadline=2.2 sec, Start=5.0 sec, End=6.3 sec, Execution=1.3 sec, VM=vm-14, Execution-Cost=$0.0016, Energy=1 Ws
+      Task ID00076: Sub-Deadline=2.2 sec, Start=5.0 sec, End=6.6 sec, Execution=1.6 sec, VM=vm-13, Execution-Cost=$0.0020, Energy=1 Ws
+      Task ID00077: Sub-Deadline=1.1 sec, Start=5.0 sec, End=5.7 sec, Execution=0.7 sec, VM=vm-12, Execution-Cost=$0.0009, Energy=0 Ws
+      Task ID00078: Sub-Deadline=1.4 sec, Start=5.0 sec, End=5.8 sec, Execution=0.8 sec, VM=vm-11, Execution-Cost=$0.0010, Energy=0 Ws
+      Task ID00079: Sub-Deadline=1.3 sec, Start=5.0 sec, End=5.7 sec, Execution=0.7 sec, VM=vm-10, Execution-Cost=$0.0008, Energy=0 Ws
+      Task ID00080: Sub-Deadline=1.9 sec, Start=5.0 sec, End=6.6 sec, Execution=1.6 sec, VM=vm-9, Execution-Cost=$0.0020, Energy=1 Ws
+      Task ID00081: Sub-Deadline=1.4 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-8, Execution-Cost=$0.0013, Energy=0 Ws
+      Task ID00082: Sub-Deadline=2.2 sec, Start=5.0 sec, End=6.9 sec, Execution=1.9 sec, VM=vm-7, Execution-Cost=$0.0024, Energy=1 Ws
+      Task ID00083: Sub-Deadline=1.1 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-6, Execution-Cost=$0.0012, Energy=0 Ws
+      Task ID00084: Sub-Deadline=1.3 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-5, Execution-Cost=$0.0013, Energy=0 Ws
+      Task ID00085: Sub-Deadline=1.8 sec, Start=5.0 sec, End=6.0 sec, Execution=1.0 sec, VM=vm-4, Execution-Cost=$0.0013, Energy=0 Ws
+      Task ID00086: Sub-Deadline=2069.4 sec, Start=77.7 sec, End=1780.9 sec, Execution=1703.3 sec, VM=vm-2, Execution-Cost=$1.6560, Energy=596 Ws
+      Task ID00087: Sub-Deadline=34.7 sec, Start=5.0 sec, End=29.8 sec, Execution=24.8 sec, VM=vm-3, Execution-Cost=$0.0275, Energy=10 Ws
+      Task ID00088: Sub-Deadline=79.9 sec, Start=5.0 sec, End=77.7 sec, Execution=72.7 sec, VM=vm-2, Execution-Cost=$0.0707, Energy=25 Ws
+      Task ID00089: Sub-Deadline=3177.7 sec, Start=5.9 sec, End=2092.1 sec, Execution=2086.2 sec, VM=vm-1, Execution-Cost=$2.6078, Energy=939 Ws
+      Task ID00090: Sub-Deadline=5368.2 sec, Start=2094.8 sec, End=2598.0 sec, Execution=503.2 sec, VM=vm-31, Execution-Cost=$0.6290, Energy=226 Ws
+      Task ID00091: Sub-Deadline=2609.3 sec, Start=2598.5 sec, End=2599.9 sec, Execution=1.3 sec, VM=vm-43, Execution-Cost=$0.0017, Energy=1 Ws
+      Task ID00092: Sub-Deadline=2624.8 sec, Start=2598.5 sec, End=2602.7 sec, Execution=4.2 sec, VM=vm-50, Execution-Cost=$0.0052, Energy=2 Ws
+      Task ID00093: Sub-Deadline=8945.5 sec, Start=2598.5 sec, End=3517.8 sec, Execution=919.2 sec, VM=vm-15, Execution-Cost=$1.1490, Energy=414 Ws
+      Task ID00094: Sub-Deadline=2806.4 sec, Start=2599.9 sec, End=2627.8 sec, Execution=27.9 sec, VM=vm-60, Execution-Cost=$0.0349, Energy=13 Ws
+      Task ID00095: Sub-Deadline=2622.9 sec, Start=2598.5 sec, End=2602.0 sec, Execution=3.5 sec, VM=vm-6, Execution-Cost=$0.0044, Energy=2 Ws
+      Task ID00096: Sub-Deadline=3537.5 sec, Start=3523.9 sec, End=3525.6 sec, Execution=1.7 sec, VM=vm-5, Execution-Cost=$0.0021, Energy=1 Ws
+
+VM Usage Details:
+  VM vm-1: Type=vm-type-1, Active Time=2094.2 sec, Idle-Time=2544.3 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=942 Ws, Billiing-Cost=$9.00
+  VM vm-2: Type=vm-type-3, Active Time=1779.7 sec, Idle-Time=1557.7 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=623 Ws, Billiing-Cost=$7.00
+  VM vm-3: Type=vm-type-2, Active Time=2990.0 sec, Idle-Time=1440.0 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1196 Ws, Billiing-Cost=$8.00
+  VM vm-4: Type=vm-type-1, Active Time=99.4 sec, Idle-Time=2532.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=45 Ws, Billiing-Cost=$9.00
+  VM vm-5: Type=vm-type-1, Active Time=2024.7 sec, Idle-Time=1465.2 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=911 Ws, Billiing-Cost=$9.00
+  VM vm-6: Type=vm-type-1, Active Time=34.3 sec, Idle-Time=2563.7 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=15 Ws, Billiing-Cost=$9.00
+  VM vm-7: Type=vm-type-1, Active Time=1606.0 sec, Idle-Time=1661.9 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=723 Ws, Billiing-Cost=$9.00
+  VM vm-8: Type=vm-type-1, Active Time=411.6 sec, Idle-Time=2745.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=185 Ws, Billiing-Cost=$9.00
+  VM vm-9: Type=vm-type-1, Active Time=51.7 sec, Idle-Time=3213.9 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=23 Ws, Billiing-Cost=$9.00
+  VM vm-10: Type=vm-type-1, Active Time=1909.7 sec, Idle-Time=1600.1 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=859 Ws, Billiing-Cost=$9.00
+  VM vm-11: Type=vm-type-1, Active Time=5.3 sec, Idle-Time=3260.9 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-12: Type=vm-type-1, Active Time=3.2 sec, Idle-Time=3260.2 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-13: Type=vm-type-1, Active Time=368.8 sec, Idle-Time=1875.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=166 Ws, Billiing-Cost=$9.00
+  VM vm-14: Type=vm-type-1, Active Time=1116.6 sec, Idle-Time=2341.8 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=502 Ws, Billiing-Cost=$9.00
+  VM vm-15: Type=vm-type-1, Active Time=920.3 sec, Idle-Time=2592.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=414 Ws, Billiing-Cost=$9.00
+  VM vm-16: Type=vm-type-1, Active Time=31.8 sec, Idle-Time=2343.0 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=14 Ws, Billiing-Cost=$9.00
+  VM vm-17: Type=vm-type-1, Active Time=729.3 sec, Idle-Time=2592.5 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=328 Ws, Billiing-Cost=$9.00
+  VM vm-18: Type=vm-type-1, Active Time=9.2 sec, Idle-Time=2341.2 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=4 Ws, Billiing-Cost=$9.00
+  VM vm-19: Type=vm-type-1, Active Time=5.3 sec, Idle-Time=2592.3 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-20: Type=vm-type-1, Active Time=6.6 sec, Idle-Time=2341.8 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=3 Ws, Billiing-Cost=$9.00
+  VM vm-21: Type=vm-type-1, Active Time=402.8 sec, Idle-Time=2088.1 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=181 Ws, Billiing-Cost=$9.00
+  VM vm-22: Type=vm-type-1, Active Time=1001.8 sec, Idle-Time=2341.7 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=451 Ws, Billiing-Cost=$9.00
+  VM vm-23: Type=vm-type-1, Active Time=501.4 sec, Idle-Time=1874.9 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=226 Ws, Billiing-Cost=$9.00
+  VM vm-24: Type=vm-type-1, Active Time=4.5 sec, Idle-Time=2592.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-25: Type=vm-type-1, Active Time=2.8 sec, Idle-Time=2592.3 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-26: Type=vm-type-1, Active Time=467.3 sec, Idle-Time=1875.0 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=210 Ws, Billiing-Cost=$9.00
+  VM vm-27: Type=vm-type-1, Active Time=465.3 sec, Idle-Time=1874.9 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=209 Ws, Billiing-Cost=$9.00
+  VM vm-28: Type=vm-type-1, Active Time=2.9 sec, Idle-Time=2592.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-29: Type=vm-type-1, Active Time=716.3 sec, Idle-Time=2088.0 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=322 Ws, Billiing-Cost=$9.00
+  VM vm-30: Type=vm-type-1, Active Time=249.4 sec, Idle-Time=2802.0 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=112 Ws, Billiing-Cost=$9.00
+  VM vm-31: Type=vm-type-1, Active Time=505.0 sec, Idle-Time=2088.0 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=227 Ws, Billiing-Cost=$9.00
+  VM vm-32: Type=vm-type-1, Active Time=6.9 sec, Idle-Time=2341.6 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=3 Ws, Billiing-Cost=$9.00
+  VM vm-33: Type=vm-type-1, Active Time=2.7 sec, Idle-Time=2341.6 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-34: Type=vm-type-1, Active Time=1518.1 sec, Idle-Time=2592.3 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=683 Ws, Billiing-Cost=$9.00
+  VM vm-35: Type=vm-type-1, Active Time=5.3 sec, Idle-Time=2592.2 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-36: Type=vm-type-1, Active Time=1307.1 sec, Idle-Time=2341.2 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=588 Ws, Billiing-Cost=$9.00
+  VM vm-37: Type=vm-type-1, Active Time=2.7 sec, Idle-Time=2341.7 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-38: Type=vm-type-1, Active Time=8.3 sec, Idle-Time=2341.7 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=4 Ws, Billiing-Cost=$9.00
+  VM vm-39: Type=vm-type-1, Active Time=4.7 sec, Idle-Time=2592.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-40: Type=vm-type-1, Active Time=25.2 sec, Idle-Time=2342.9 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=11 Ws, Billiing-Cost=$9.00
+  VM vm-41: Type=vm-type-1, Active Time=439.9 sec, Idle-Time=2088.0 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=198 Ws, Billiing-Cost=$9.00
+  VM vm-42: Type=vm-type-1, Active Time=457.3 sec, Idle-Time=2803.1 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=206 Ws, Billiing-Cost=$9.00
+  VM vm-43: Type=vm-type-1, Active Time=2.4 sec, Idle-Time=2592.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-44: Type=vm-type-1, Active Time=5.9 sec, Idle-Time=2341.7 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=3 Ws, Billiing-Cost=$9.00
+  VM vm-45: Type=vm-type-1, Active Time=4.9 sec, Idle-Time=2592.2 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-46: Type=vm-type-1, Active Time=1429.3 sec, Idle-Time=2341.5 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=643 Ws, Billiing-Cost=$9.00
+  VM vm-47: Type=vm-type-1, Active Time=2.0 sec, Idle-Time=3459.9 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-48: Type=vm-type-1, Active Time=6.4 sec, Idle-Time=2592.1 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=3 Ws, Billiing-Cost=$9.00
+  VM vm-49: Type=vm-type-1, Active Time=5.1 sec, Idle-Time=2341.6 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-50: Type=vm-type-1, Active Time=5.3 sec, Idle-Time=2592.4 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-51: Type=vm-type-1, Active Time=7.8 sec, Idle-Time=2341.5 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=4 Ws, Billiing-Cost=$9.00
+  VM vm-52: Type=vm-type-1, Active Time=2.7 sec, Idle-Time=2341.5 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-53: Type=vm-type-1, Active Time=3.6 sec, Idle-Time=3260.6 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-54: Type=vm-type-1, Active Time=39.2 sec, Idle-Time=2342.5 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=18 Ws, Billiing-Cost=$9.00
+  VM vm-55: Type=vm-type-1, Active Time=2.7 sec, Idle-Time=2341.3 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1 Ws, Billiing-Cost=$9.00
+  VM vm-56: Type=vm-type-1, Active Time=3927.7 sec, Idle-Time=13738.1 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=1767 Ws, Billiing-Cost=$9.00
+  VM vm-57: Type=vm-type-1, Active Time=32.0 sec, Idle-Time=2593.5 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=14 Ws, Billiing-Cost=$9.00
+  VM vm-58: Type=vm-type-1, Active Time=34.7 sec, Idle-Time=2593.5 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=16 Ws, Billiing-Cost=$9.00
+  VM vm-59: Type=vm-type-1, Active Time=7.5 sec, Idle-Time=2341.1 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=3 Ws, Billiing-Cost=$9.00
+  VM vm-60: Type=vm-type-1, Active Time=1344.8 sec, Idle-Time=3231.7 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=605 Ws, Billiing-Cost=$9.00
+  VM vm-61: Type=vm-type-1, Active Time=7.8 sec, Idle-Time=3259.8 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=4 Ws, Billiing-Cost=$9.00
+  VM vm-62: Type=vm-type-1, Active Time=4.6 sec, Idle-Time=3259.7 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=2 Ws, Billiing-Cost=$9.00
+  VM vm-63: Type=vm-type-1, Active Time=957.5 sec, Idle-Time=2591.8 sec, Total-Leasing-Duration=4584.4 sec (2 Cycles), Energy=431 Ws, Billiing-Cost=$9.00
+
+Advanced Performance Metrics:
+  Average Task Delay (from sub-deadline): 2.79 sec
+  Number of VMs Used: 63

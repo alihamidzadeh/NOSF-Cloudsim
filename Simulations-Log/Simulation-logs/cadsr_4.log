@@ -1,0 +1,49 @@
+Simulation started at: 2025-08-06T02:49:51.798034600
+PCP Runtime for wf-0: 20.0
+Aug 06, 2025 2:49:51 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findOrCreateVM
+INFO: Created new VM vm-1 (Type: vm-type-1) at time 0.00. Booting...
+Scheduled Task findProjects on VM vm-1: Start=5.00, End=11.68, Execution=6.68, Execution-Cost=$0.01, Energy=3 Ws
+Task findProjects completed on VM vm-1 at time 11.68
+Feedback: Successor findClassesInProjects is now ready. EST=11.78, SubDeadline=28.78
+Aug 06, 2025 2:49:51 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-1 for task findClassesInProjects
+Scheduled Task findClassesInProjects on VM vm-1: Start=11.68, End=17.17, Execution=5.49, Execution-Cost=$0.01, Energy=2 Ws
+Task findClassesInProjects completed on VM vm-1 at time 17.17
+Feedback: Successor findSemanticMetadata is now ready. EST=17.27, SubDeadline=34.27
+Aug 06, 2025 2:49:51 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-1 for task findSemanticMetadata
+Scheduled Task findSemanticMetadata on VM vm-1: Start=17.17, End=20.73, Execution=3.56, Execution-Cost=$0.00, Energy=2 Ws
+Task findSemanticMetadata completed on VM vm-1 at time 20.73
+Feedback: Successor searchLogicConcept is now ready. EST=20.99, SubDeadline=37.99
+Aug 06, 2025 2:49:51 AM org.cloudbus.cloudsim.examples.nosf.VMFactory findSuitableVM
+INFO: Found suitable existing VM vm-1 for task searchLogicConcept
+Scheduled Task searchLogicConcept on VM vm-1: Start=20.73, End=26.28, Execution=5.55, Execution-Cost=$0.01, Energy=2 Ws
+Aug 06, 2025 2:49:51 AM org.cloudbus.cloudsim.examples.nosf.VMFactory releaseVM
+INFO: Released VM vm-1 at time 20.99, Leasing-Duration-Time: 20.99
+Aug 06, 2025 2:49:51 AM org.cloudbus.cloudsim.examples.nosf.VMFactory calculateFinalBillingCost
+INFO: Final billing for vm-1: Cost=$4.50, Energy= 9.57 Ws
+
+=== Comprehensive Simulation Summary ===
+Simulation Duration: 20.99 sec
+Total VM Rental Cost (Billing): $4.5
+Total VM Rental Cost (Executaion): $0.03
+Total Energy Consumption: 9.57 Watt-seconds
+Deadline Violation Count: 0 out of 1
+
+Workflow Details:
+  Workflow: wf-0
+    Arrival Time: 0 sec
+    Deadline: 40 sec
+    Makespan: 26.28 sec
+    Tasks:
+      Task findClassesInProjects: Sub-Deadline=27.6 sec, Start=11.7 sec, End=17.2 sec, Execution=5.5 sec, VM=vm-1, Execution-Cost=$0.0069, Energy=2 Ws
+      Task findSemanticMetadata: Sub-Deadline=33.7 sec, Start=17.2 sec, End=20.7 sec, Execution=3.6 sec, VM=vm-1, Execution-Cost=$0.0045, Energy=2 Ws
+      Task searchLogicConcept: Sub-Deadline=38.0 sec, Start=20.7 sec, End=26.3 sec, Execution=5.5 sec, VM=vm-1, Execution-Cost=$0.0069, Energy=2 Ws
+      Task findProjects: Sub-Deadline=11.0 sec, Start=5.0 sec, End=11.7 sec, Execution=6.7 sec, VM=vm-1, Execution-Cost=$0.0083, Energy=3 Ws
+
+VM Usage Details:
+  VM vm-1: Type=vm-type-1, Active Time=21.3 sec, Idle-Time=0.0 sec, Total-Leasing-Duration=21.0 sec (1 Cycles), Energy=10 Ws, Billiing-Cost=$4.50
+
+Advanced Performance Metrics:
+  Average Task Delay (from sub-deadline): 0.17 sec
+  Number of VMs Used: 1

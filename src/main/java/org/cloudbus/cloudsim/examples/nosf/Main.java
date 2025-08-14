@@ -4,12 +4,11 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        // String configFile = "src\\main\\resources\\simulation_config.xml";
-        String configFile = "E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\simulation_config.xml";
+        String configFile = "..\\resources\\simulation_config.xml";
 
-        // String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\CyberShake_30.xml"};
-        // String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\Test_5.xml"};
-        String[] workflowFiles = {"E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\Test_5.xml", "E:\\University\\Term10\\Cloud-Project\\NOSF\\NOSF\\cloudsim\\modules\\cloudsim-examples\\src\\main\\resources\\workflows\\CyberShake_30.xml"};
+        String[] workflowFiles = {"..\\resources\\workflows\\CyberShake_30.xml"};
+        // String[] workflowFiles = {"..\\resources\\workflows\\Test_5.xml"};
+        // String[] workflowFiles = {"..\\resources\\workflows\\Test_5.xml", "..\\resources\\workflows\\CyberShake_30.xml"};
         
         NOSFScheduler scheduler = new NOSFScheduler(configFile);
         
