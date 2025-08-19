@@ -112,15 +112,15 @@ public class NOSFScheduler {
 
     // EST ------
     
-    private Queue<Task> queue = new LinkedList<>(); // صف برای پیمایش گره‌ها
+    private Queue<Task> estQueue = new LinkedList<>(); // صف برای پیمایش گره‌ها
     private Map<Task, Double> estMap = new HashMap<>(); // نقشه برای نگهداری EST گره‌ها
 
     private double calculateEarliestStartTime(Task task) {
-        queue.add(task);
+        estQueue.add(task);
         estMap.put(task, task.getWorkflow().getArrivalTime()); 
     
-        while (!queue.isEmpty()) {
-            Task currentTask = queue.poll();
+        while (!estQueue.isEmpty()) {
+            Task currentTask = estQueue.poll();
             // System.out.println("Processing task: " + currentTask.getId());
     
             // برای تمام پدرها (Predecessors) گره جاری، EST جدید رو محاسبه کن
@@ -135,13 +135,13 @@ public class NOSFScheduler {
                     // System.out.println(String.format("Updated EST for %s : %.0f", currentTask.getId(), estPred));
                 }
     
-                if (!queue.contains(pred)) {
-                    queue.add(pred);
-                    // System.out.println("Adding to queue: " + pred.getId());
+                if (!estQueue.contains(pred)) {
+                    estQueue.add(pred);
+                    // System.out.println("Adding to estQueue: " + pred.getId());
                 }
             }
             // if (currentTask.getPredecessors().stream().allMatch(pred -> estMap.containsKey(pred))) {
-                // System.out.println("Task " + currentTask.getId() + " completed and removed from queue.");
+                // System.out.println("Task " + currentTask.getId() + " completed and removed from estQueue.");
             // }
         }
     
@@ -162,15 +162,49 @@ public class NOSFScheduler {
     // }
 
 
+
+    // LCT ------
+
+
+    private Queue<Task> lctQueue = new LinkedList<>(); // صف برای پیمایش گره‌ها
+    private Map<Task, Double> lctMap = new HashMap<>(); // نقشه برای نگهداری LCT گره‌ها
+
     private double calculateLatestCompletionTime(Task task) {
-        if (task.getSuccessors().isEmpty()) {
-            return task.getWorkflow().getDeadline();
+        lctQueue.add(task);
+        lctMap.put(task, task.getWorkflow().getDeadline()); 
+
+        while (!lctQueue.isEmpty()) {
+            Task currentTask = lctQueue.poll();
+            
+            for (Task succ : currentTask.getSuccessors()) {
+                if (!lctMap.containsKey(succ)) {
+                    lctMap.put(succ, task.getWorkflow().getDeadline()); 
+                }
+
+                double lctSucc = lctMap.get(succ) - getEstimatedExecutionTime(succ) - currentTask.getDataTransferTime(succ);
+                if (!lctMap.containsKey(currentTask) || lctSucc < lctMap.get(currentTask)) {
+                    lctMap.put(currentTask, lctSucc);
+                }
+
+                if (!lctQueue.contains(succ)) {
+                    lctQueue.add(succ);
+                }
+            }
         }
-        return task.getSuccessors().stream()
-                .mapToDouble(succ -> 
-                    calculateLatestCompletionTime(succ) - getEstimatedExecutionTime(succ) - task.getDataTransferTime(succ))
-                .min().orElse(task.getWorkflow().getDeadline());
+
+        return lctMap.get(task); // در نهایت LCT گره مورد نظر رو برمی‌گردونه
     }
+
+    // // Prof. Abrishami asked to replace below function to non recursive one
+    // private double calculateLatestCompletionTime(Task task) {
+    //     if (task.getSuccessors().isEmpty()) {
+    //         return task.getWorkflow().getDeadline();
+    //     }
+    //     return task.getSuccessors().stream()
+    //             .mapToDouble(succ -> 
+    //                 calculateLatestCompletionTime(succ) - getEstimatedExecutionTime(succ) - task.getDataTransferTime(succ))
+    //             .min().orElse(task.getWorkflow().getDeadline());
+    // }
     
     private double calculateSubDeadline(Task task) {
         Workflow workflow = task.getWorkflow();
